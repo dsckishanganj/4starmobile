@@ -1,97 +1,104 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+Skip to content
+dsckishanganj
+4starmobile
+Repository navigation
+Code
+Issues
+Pull requests
+Agents
+Discussions
+Actions
+Projects
+Wiki
+Security and quality
+Insights
+Settings
+dsckishanganj
+4starmobile
+Public
+Name		
+dsckishanganj
+dsckishanganj
+Enhance index.html with improved titles and styles
+7f6cad3
+ · 
+12 minutes ago
+README.md
+Convert README to HTML format for website
+2 weeks ago
+index.html
+Enhance index.html with improved titles and styles
+12 minutes ago
+script.js
+Add files via upload
+2 weeks ago
+style.css
+Add styles for body, header, buttons, and layout
+2 weeks ago
+Repository files navigation
+README
 <title>4 STAR MOBILE & DSC CENTER | Kishanganj</title>
+4 STAR MOBILE & DSC CENTER
+Kishanganj, Bihar
 
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+Home About Services Gallery Contact
 
-</head>
+Welcome to 4 STAR MOBILE & DSC CENTER
 
-<body>
+Digital Signature Certificate (DSC), eTender, GeM, GST, PAN, Aadhaar, MSME, ITR, Printing, Scanning, Online Services & Mobile Accessories.
 
-<header>
+Call Now WhatsApp
+About Us
 
-<div class="logo">
-<h2>4 STAR MOBILE & DSC CENTER</h2>
-<p>Kishanganj, Bihar</p>
-</div>
+Welcome to 4 STAR MOBILE & DSC CENTER, Kishanganj Bihar.
 
-<nav>
+We provide all Digital Office Solutions, Government Online Services, Mobile Accessories, Digital Signature Certificate, eTender, GeM Registration, GST, PAN, Aadhaar, MSME, ITR Filing, Printing, Scanning and Documentation Services.
 
-<a href="#home">Home</a>
-<a href="#about">About</a>
-<a href="#services">Services</a>
-<a href="#gallery">Gallery</a>
-<a href="#contact">Contact</a>
+About
 
-</nav>
+4 STAR MOBILE & DSC CENTER – Mobile Accessories, Digital Signature Certificate (DSC), eTender, GEM, GST, PAN, Aadhaar, MSME, ITR, Online Services, Printing, Scanning & Complete Digital Office Solutions in Kishanganj, Bihar.
 
-</header>
-
-<section id="home" class="hero">
-
-<div class="hero-content">
-
-<h1>Welcome to 4 STAR MOBILE & DSC CENTER</h1>
-
-<p>
-
-Digital Signature Certificate (DSC),
-eTender,
-GeM,
-GST,
-PAN,
-Aadhaar,
-MSME,
-ITR,
-Printing,
-Scanning,
-Online Services &
-Mobile Accessories.
-
-</p>
-
-<a href="tel:8709638639" class="btn">
-<i class="fa fa-phone"></i>
-Call Now
-</a>
-
-<a href="https://wa.me/918709638639" class="btn whatsapp">
-<i class="fab fa-whatsapp"></i>
-WhatsApp
-</a>
-
-</div>
-
-</section>
-
-<section id="about">
-
-<h2>About Us</h2>
-
-<p>
-
-Welcome to 4 STAR MOBILE & DSC CENTER,
-Kishanganj Bihar.
-
-We provide all Digital Office Solutions,
-Government Online Services,
-Mobile Accessories,
-Digital Signature Certificate,
-eTender,
-GeM Registration,
-GST,
-PAN,
-Aadhaar,
-MSME,
-ITR Filing,
-Printing,
-Scanning and Documentation Services.
-
-</p>
-
-</section>
+Resources
+Readme
+Activity
+Stars
+0 stars
+Watchers
+0 watching
+Forks
+0 forks
+Releases
+No releases published
+Create a new release
+Deployments
+10
+ (10)
+github-pages
+Packages
+No packages published
+Publish your first package
+Contributors
+1
+ (1)
+@dsckishanganj
+dsckishanganj
+Languages
+HTML
+82.7%
+CSS
+16.6%
+JavaScript
+0.7%
+Footer
+© 2026 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Community
+Docs
+Contact
+Manage cookies
+Do not share my personal information
+ 
