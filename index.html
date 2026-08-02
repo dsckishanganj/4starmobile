@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>4 STAR MOBILE | Mobile Accessories Hub</title>
+<title>★ 4 STAR MOBILE ★ Mobile Accessories Store</title>
 
 <style>
 
@@ -12,11 +13,11 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Arial',sans-serif;
+font-family:Arial,sans-serif;
 }
 
 body{
-background:#f2f2f2;
+background:#f5f5f5;
 color:#222;
 }
 
@@ -24,16 +25,15 @@ color:#222;
 /* HEADER */
 
 header{
-background:linear-gradient(135deg,#000,#222);
+background:#111;
 color:white;
 text-align:center;
 padding:25px;
 }
 
 header h1{
-font-size:40px;
+font-size:38px;
 color:#00ffcc;
-letter-spacing:3px;
 }
 
 header p{
@@ -41,24 +41,34 @@ font-size:18px;
 }
 
 
-/* NAV */
+/* BUTTONS */
 
-nav{
-background:#111;
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
+.top-buttons{
+text-align:center;
+padding:15px;
+background:white;
 }
 
-nav a{
+.top-buttons a{
+display:inline-block;
+margin:5px;
+padding:12px 20px;
+border-radius:25px;
 color:white;
-padding:15px 20px;
 text-decoration:none;
 font-weight:bold;
 }
 
-nav a:hover{
+.call{
+background:#0066ff;
+}
+
+.whatsapp{
 background:#00b894;
+}
+
+.email{
+background:#e74c3c;
 }
 
 
@@ -66,62 +76,28 @@ background:#00b894;
 
 .hero{
 
-background:linear-gradient(
-135deg,
-#0f2027,
-#203a43,
-#2c5364
-);
-
+background:linear-gradient(135deg,#0f2027,#2c5364);
 color:white;
 text-align:center;
-padding:70px 20px;
+padding:60px 20px;
 
 }
-
 
 .hero h2{
-
-font-size:42px;
-margin-bottom:15px;
-
+font-size:40px;
 }
-
 
 .hero p{
-
 font-size:20px;
-
+margin-top:15px;
 }
 
 
-.btn{
-
-display:inline-block;
-margin-top:25px;
-background:#00b894;
-color:white;
-padding:15px 35px;
-border-radius:30px;
-text-decoration:none;
-font-size:18px;
-font-weight:bold;
-
-}
-
-
-.btn:hover{
-
-background:#009879;
-
-}
-
-
-/* SECTION */
+/* PRODUCTS */
 
 .section{
 
-padding:40px 20px;
+padding:35px 20px;
 
 }
 
@@ -130,47 +106,66 @@ padding:40px 20px;
 
 text-align:center;
 font-size:32px;
-margin-bottom:30px;
+margin-bottom:25px;
 
 }
 
 
-/* CARDS */
-
-.cards{
+.products{
 
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:25px;
+gap:20px;
 
 }
 
 
-.card{
+.product{
 
 background:white;
-padding:30px;
+padding:20px;
 border-radius:15px;
 text-align:center;
-
-box-shadow:0 8px 20px rgba(0,0,0,0.15);
-
-transition:.3s;
+box-shadow:0 5px 15px #ccc;
 
 }
 
 
-.card:hover{
+.product img{
 
-transform:translateY(-8px);
+width:100%;
+height:180px;
+object-fit:cover;
+border-radius:10px;
 
 }
 
 
-.card h3{
+.product h3{
 
-color:#00a884;
+margin:15px 0;
+color:#008f7a;
+
+}
+
+
+.price{
+
 font-size:22px;
+font-weight:bold;
+
+}
+
+
+.order{
+
+display:inline-block;
+margin-top:15px;
+background:#00b894;
+color:white;
+padding:12px 25px;
+border-radius:25px;
+text-decoration:none;
 
 }
 
@@ -182,22 +177,13 @@ font-size:22px;
 background:#111;
 color:white;
 text-align:center;
-padding:35px;
+padding:30px;
 
 }
-
 
 .contact h2{
 
 color:#00ffcc;
-
-}
-
-
-.contact p{
-
-font-size:18px;
-margin:8px;
 
 }
 
@@ -208,25 +194,6 @@ background:#000;
 color:white;
 text-align:center;
 padding:15px;
-
-}
-
-
-/* MOBILE */
-
-@media(max-width:600px){
-
-header h1{
-
-font-size:30px;
-
-}
-
-.hero h2{
-
-font-size:30px;
-
-}
 
 }
 
@@ -248,21 +215,25 @@ font-size:30px;
 
 
 
-<nav>
+<div class="top-buttons">
 
-<a href="#">Home</a>
+<a class="call" href="tel:9473371370">
+📞 Call Now
+</a>
 
-<a href="#">Products</a>
 
-<a href="#">Accessories</a>
+<a class="whatsapp" href="https://wa.me/919473185145">
+💬 WhatsApp
+</a>
 
-<a href="#">Spare Parts</a>
 
-<a href="#">Offers</a>
+<a class="email" href="mailto:4starmobile786@gmail.com">
+✉ Email
+</a>
 
-<a href="#">Contact</a>
 
-</nav>
+</div>
+
 
 
 
@@ -270,71 +241,111 @@ font-size:30px;
 
 <h2>Welcome To 4 STAR MOBILE</h2>
 
-<p>20 Years Trusted Mobile Accessories & Repair Solution</p>
-
-
-<a class="btn" href="https://wa.me/919473185145">
-
-Order On WhatsApp
-
-</a>
-
+<p>
+Kishanganj's Trusted Mobile Accessories & Spare Parts Store
+</p>
 
 </section>
 
 
 
-<section class="section">
 
+<section class="section">
 
 <h2>Our Products</h2>
 
 
-<div class="cards">
+<div class="products">
 
 
-<div class="card">
-<h3>📱 Mobile Phones</h3>
-</div>
 
+<div class="product">
 
-<div class="card">
-<h3>🛡 Back Covers</h3>
-</div>
+<h3>Mobile Cover</h3>
 
+<p class="price">₹199</p>
 
-<div class="card">
-<h3>✨ Tempered Glass</h3>
-</div>
-
-
-<div class="card">
-<h3>🔌 Chargers</h3>
-</div>
-
-
-<div class="card">
-<h3>🎧 Earbuds</h3>
-</div>
-
-
-<div class="card">
-<h3>🔋 Batteries</h3>
-</div>
-
-
-<div class="card">
-<h3>📺 LCD Display</h3>
-</div>
-
-
-<div class="card">
-<h3>⚙ Mobile Spare Parts</h3>
-</div>
-
+<a class="order" href="https://wa.me/919473185145">
+Order Now
+</a>
 
 </div>
 
+
+
+<div class="product">
+
+<h3>Tempered Glass</h3>
+
+<p class="price">₹99</p>
+
+<a class="order" href="https://wa.me/919473185145">
+Order Now
+</a>
+
+</div>
+
+
+
+
+<div class="product">
+
+<h3>Charger</h3>
+
+<p class="price">₹499</p>
+
+<a class="order" href="https://wa.me/919473185145">
+Order Now
+</a>
+
+</div>
+
+
+
+
+<div class="product">
+
+<h3>Bluetooth Earbuds</h3>
+
+<p class="price">₹799</p>
+
+<a class="order" href="https://wa.me/919473185145">
+Order Now
+</a>
+
+</div>
+
+
+
+<div class="product">
+
+<h3>Mobile Battery</h3>
+
+<p class="price">Contact For Price</p>
+
+<a class="order" href="https://wa.me/919473185145">
+Order Now
+</a>
+
+</div>
+
+
+
+<div class="product">
+
+<h3>LCD Display</h3>
+
+<p class="price">Contact For Price</p>
+
+<a class="order" href="https://wa.me/919473185145">
+Order Now
+</a>
+
+</div>
+
+
+
+</div>
 
 </section>
 
@@ -345,29 +356,24 @@ Order On WhatsApp
 
 <h2>Contact 4 STAR MOBILE</h2>
 
-
 <p>📞 9473371370</p>
 
 <p>📞 9308865738</p>
 
 <p>📞 9473185145</p>
 
-<p>📞 9473371371</p>
-
-
 <p>✉ 4starmobile786@gmail.com</p>
 
-
 <p>📍 Kishanganj, Bihar</p>
-
 
 </section>
 
 
 
+
 <footer>
 
-© 2026 ★ 4 STAR MOBILE ★ All Rights Reserved
+© 2026 ★ 4 STAR MOBILE ★
 
 </footer>
 
