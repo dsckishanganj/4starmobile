@@ -1,1 +1,1 @@
-console.log("Website loaded");
+console.log("4 STAR MOBILE Website Loaded Successfully");
