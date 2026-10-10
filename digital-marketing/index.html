@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/png" href="logo-round.png">
-<title>Daily Live Classes & Recorded Lectures | 4 STAR MOBILE</title>
-<link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/png" href="../logo-round.png">
+<title>Google Digital Marketing Free Course (Hindi) | 4 STAR MOBILE Learning Hub</title>
+<meta name="description" content="Learn Google Digital Marketing in Hindi for free. SEO, Google Ads, Social Media, and Google Certificate modules.">
+<link rel="stylesheet" href="../style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -17,6 +18,7 @@
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
+    color: #1e293b;
   }
   .header-nav {
     background: #0f172a;
@@ -34,32 +36,111 @@
     background: #0284c7;
     padding: 8px 16px;
     border-radius: 20px;
+    transition: background 0.2s;
+  }
+  .back-btn:hover {
+    background: #0369a1;
   }
   .container {
-    max-width: 1000px;
-    margin: 30px auto;
+    max-width: 1100px;
+    margin: 25px auto;
     padding: 0 15px;
   }
-  .top-title {
+  .banner-box {
+    background: linear-gradient(135deg, #1e3a8a, #0284c7);
+    color: white;
+    border-radius: 16px;
+    padding: 30px 25px;
     text-align: center;
+    box-shadow: 0 10px 25px rgba(2, 132, 199, 0.2);
     margin-bottom: 30px;
   }
-  .top-title h1 {
-    font-size: 26px;
-    color: #0f172a;
-    margin-bottom: 5px;
+  .banner-box h1 {
+    font-size: 28px;
+    margin: 10px 0;
+    font-weight: 700;
   }
-  .top-title p {
-    color: #64748b;
+  .banner-box p {
+    font-size: 15px;
+    opacity: 0.95;
+    max-width: 750px;
+    margin: 0 auto 20px auto;
+    line-height: 1.5;
+  }
+  .google-cert-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #ffffff;
+    color: #0f172a;
+    font-weight: 700;
     font-size: 14px;
+    padding: 12px 24px;
+    border-radius: 30px;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: transform 0.2s, background 0.2s;
+  }
+  .google-cert-btn:hover {
+    transform: translateY(-2px);
+    background: #f1f5f9;
+  }
+  
+  .section-title {
+    font-size: 22px;
+    color: #0f172a;
+    margin: 25px 0 15px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* Embedded Video Area */
+  .video-featured-box {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 18px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    margin-bottom: 35px;
+  }
+  .video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+  .video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  .video-info {
+    margin-top: 15px;
+  }
+  .video-info h3 {
+    margin: 0 0 5px 0;
+    font-size: 18px;
+    color: #0f172a;
+  }
+  .video-info p {
+    color: #64748b;
+    font-size: 13px;
     margin: 0;
   }
-  .classes-grid {
+
+  /* Course Module Cards */
+  .modules-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 18px;
+    margin-bottom: 35px;
   }
-  .class-card {
+  .module-card {
     background: #ffffff;
     border: 1px solid #e2e8f0;
     border-radius: 12px;
@@ -68,44 +149,48 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: transform 0.2s;
   }
-  .class-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
-  }
-  .date-badge {
-    background: #e0f2fe;
-    color: #0369a1;
-    font-size: 12px;
-    font-weight: 600;
-    padding: 4px 10px;
-    border-radius: 20px;
-    display: inline-block;
-    width: fit-content;
-    margin-bottom: 10px;
-  }
-  .class-title {
+  .module-card h4 {
+    margin: 8px 0;
     font-size: 16px;
-    font-weight: 600;
-    color: #1e293b;
+    color: #0f172a;
+  }
+  .module-card p {
+    font-size: 13px;
+    color: #64748b;
+    line-height: 1.4;
     margin: 0 0 15px 0;
   }
-  .watch-btn {
+  .module-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    background: #ef4444;
-    color: white;
-    text-decoration: none;
-    padding: 10px;
-    border-radius: 8px;
-    font-size: 14px;
+    gap: 6px;
+    background: #e0f2fe;
+    color: #0369a1;
+    font-size: 13px;
     font-weight: 600;
+    padding: 8px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.2s;
   }
-  .watch-btn:hover {
-    background: #dc2626;
+  .module-btn:hover {
+    background: #0284c7;
+    color: #ffffff;
+  }
+
+  /* Footer Note */
+  .help-box {
+    background: #ecfdf5;
+    border: 1px solid #a7f3d0;
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #065f46;
+    font-size: 13px;
   }
 </style>
 </head>
@@ -113,100 +198,99 @@
 
 <div class="header-nav">
   <div style="display:flex; align-items:center; gap:10px;">
-    <img src="logo-round.png" alt="Logo" style="width:34px; height:34px; border-radius:50%;">
-    <strong>★ 4 STAR MOBILE — Class Archive ★</strong>
+    <img src="../logo-round.png" alt="Logo" style="width:34px; height:34px; border-radius:50%;">
+    <strong>★ 4 STAR MOBILE — Digital Learning Hub ★</strong>
   </div>
-  <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Home</a>
+  <a href="../index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Home Page Par Jayein</a>
 </div>
 
 <div class="container">
-  <div class="top-title">
-    <span style="background:#10b981; color:#fff; padding:4px 12px; border-radius:20px; font-size:11px; font-weight:700;">DAILY ARCHIVE</span>
-    <h1>Live Classes & Recorded Lectures</h1>
-    <p>Rozana hone wali classes ke video links aur lecture recordings yahan se open karein</p>
+  <!-- Top Banner -->
+  <div class="banner-box">
+    <span style="background: rgba(255,255,255,0.2); padding: 4px 14px; border-radius: 20px; font-size: 11px; font-weight: 700; letter-spacing: 0.5px;">100% FREE DIGITAL SKILLS</span>
+    <h1>Digital Marketing Full Course in Hindi</h1>
+    <p>Apne smartphone ya computer se seekhein Search Engine Optimization (SEO), Google Ads, Social Media Marketing aur Business ko online grow karna!</p>
+    <a href="https://skillshop.exceedlms.com/student/collection/1830706-fundamentals-of-digital-marketing" target="_blank" class="google-cert-btn">
+      <i class="fa-brands fa-google" style="color: #4285F4;"></i> Google Official Free Certificate Course Enroll Karein →
+    </a>
   </div>
 
-  <div id="classesDisplayGrid" class="classes-grid">
-    <p style="grid-column: 1/-1; text-align: center; color: #64748b;">Loading classes...</p>
+  <!-- Featured Master Class Video -->
+  <h2 class="section-title"><i class="fa-solid fa-circle-play" style="color: #ef4444;"></i> Master Lecture: Complete Course Video (Hindi)</h2>
+  <div class="video-featured-box">
+    <div class="video-wrapper">
+      <!-- Full Digital Marketing Course In Hindi -->
+      <iframe 
+        src="https://www.youtube.com/embed/WPqiU6HSBsU" 
+        title="Digital Marketing Full Course in Hindi" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+      </iframe>
+    </div>
+    <div class="video-info">
+      <h3>डिजिटल मार्केटिंग सीखें बिल्कुल बेसिक से (Complete Hindi Master Class)</h3>
+      <p>Is video lecture me Digital Marketing ka basic concept, Google me rank kaise karein, aur dukan ya business ko online kaise layein, aasan Hindi me samjhaya gaya hai.</p>
+    </div>
+  </div>
+
+  <!-- Topic Modules Grid -->
+  <h2 class="section-title"><i class="fa-solid fa-book-open" style="color: #0284c7;"></i> Key Topics & Practical Modules</h2>
+  <div class="modules-grid">
+    
+    <div class="module-card">
+      <div>
+        <span style="color: #0284c7; font-size: 22px;"><i class="fa-solid fa-magnifying-glass"></i></span>
+        <h4>1. Search Engine Optimization (SEO)</h4>
+        <p>Google Search me apni website ko number 1 par lane ke tareeqe, keywords research aur content optimization.</p>
+      </div>
+      <a href="https://www.youtube.com/results?search_query=SEO+full+course+in+hindi" target="_blank" class="module-btn">
+        <i class="fa-brands fa-youtube" style="color: #ef4444;"></i> Watch SEO in Hindi →
+      </a>
+    </div>
+
+    <div class="module-card">
+      <div>
+        <span style="color: #10b981; font-size: 22px;"><i class="fa-brands fa-google"></i></span>
+        <h4>2. Google Ads & Search Campaigns</h4>
+        <p>Google par sponsored search ads chalana, call ads banana aur local area ke naye customers ko attract karna.</p>
+      </div>
+      <a href="https://www.youtube.com/results?search_query=Google+Ads+course+in+hindi" target="_blank" class="module-btn">
+        <i class="fa-brands fa-youtube" style="color: #ef4444;"></i> Watch Google Ads →
+      </a>
+    </div>
+
+    <div class="module-card">
+      <div>
+        <span style="color: #f59e0b; font-size: 22px;"><i class="fa-solid fa-location-dot"></i></span>
+        <h4>3. Google Business Profile & Maps</h4>
+        <p>Apni dukan ya agency ko Google Maps par verify karna, reviews badhana aur local search ranking hasil karna.</p>
+      </div>
+      <a href="https://www.youtube.com/results?search_query=Google+Business+Profile+in+hindi" target="_blank" class="module-btn">
+        <i class="fa-brands fa-youtube" style="color: #ef4444;"></i> Watch Google Maps SEO →
+      </a>
+    </div>
+
+    <div class="module-card">
+      <div>
+        <span style="color: #ec4899; font-size: 22px;"><i class="fa-brands fa-instagram"></i></span>
+        <h4>4. Social Media & Content Marketing</h4>
+        <p>Facebook, Instagram posters aur WhatsApp Business automation ke zariye products aur services ka promotion karna.</p>
+      </div>
+      <a href="https://www.youtube.com/results?search_query=Social+media+marketing+course+in+hindi" target="_blank" class="module-btn">
+        <i class="fa-brands fa-youtube" style="color: #ef4444;"></i> Watch SMM in Hindi →
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Advice Note -->
+  <div class="help-box">
+    <i class="fa-solid fa-graduation-cap" style="font-size: 24px;"></i>
+    <div>
+      <strong>Chhatron ke liye Suvidha:</strong> Koi bhi vidyarthi ya vyakti bina kisi fees ya login ke in videos ko dekh sakta hai aur Google ke official platform se complete certification bhi prapt kar sakta hai!
+    </div>
   </div>
 </div>
-
-<script>
-  // Apni Google Sheet ka CSV Link yahan paste karein:
-  const CLASSES_CSV_URL = "APNA_CLASSES_CSV_LINK_YAHAN_DALEN";
-
-  function parseCSV(text) {
-    const lines = text.trim().split("\n");
-    const result = [];
-    for (let i = 1; i < lines.length; i++) {
-      if (!lines[i].trim()) continue;
-      const row = lines[i].split(",");
-      if (row.length >= 2) {
-        result.push({
-          date: row[0]?.replace(/"/g, "").trim() || "",
-          title: row[1]?.replace(/"/g, "").trim() || "Live Lecture",
-          videoUrl: row[2]?.replace(/"/g, "").trim() || "#"
-        });
-      }
-    }
-    return result;
-  }
-
-  async function loadClasses() {
-    const container = document.getElementById("classesDisplayGrid");
-    try {
-      const res = await fetch(CLASSES_CSV_URL);
-      const csvText = await res.text();
-      const classes = parseCSV(csvText);
-
-      if (classes.length === 0) {
-        container.innerHTML = `<p style="grid-column:1/-1; text-align:center;">Abhi koi class link available nahi hai.</p>`;
-        return;
-      }
-
-      container.innerHTML = "";
-      classes.forEach(item => {
-        const card = document.createElement("div");
-        card.className = "class-card";
-        card.innerHTML = `
-          <div>
-            <span class="date-badge"><i class="fa-regular fa-calendar"></i> ${item.date}</span>
-            <h3 class="class-title">${item.title}</h3>
-          </div>
-          <a href="${item.videoUrl}" target="_blank" class="watch-btn">
-            <i class="fa-solid fa-play"></i> Watch Recording
-          </a>
-        `;
-        container.appendChild(card);
-      });
-    } catch (e) {
-      console.error(e);
-      // Agar Sheet link nahi hai toh default demo cards dikheinge:
-      container.innerHTML = `
-        <div class="class-card">
-          <div>
-            <span class="date-badge"><i class="fa-regular fa-calendar"></i> 09-10-2026</span>
-            <h3 class="class-title">Live Class 09-10-2026</h3>
-          </div>
-          <a href="https://jmi.entraropen.com/student/subject" target="_blank" class="watch-btn">
-            <i class="fa-solid fa-play"></i> Watch Class
-          </a>
-        </div>
-        <div class="class-card">
-          <div>
-            <span class="date-badge"><i class="fa-regular fa-calendar"></i> 08-10-2026</span>
-            <h3 class="class-title">Live Class 08-10-2026</h3>
-          </div>
-          <a href="https://jmi.entraropen.com/student/subject" target="_blank" class="watch-btn">
-            <i class="fa-solid fa-play"></i> Watch Class
-          </a>
-        </div>
-      `;
-    }
-  }
-
-  document.addEventListener("DOMContentLoaded", loadClasses);
-</script>
 
 </body>
 </html>
