@@ -30,7 +30,7 @@
 <meta name="twitter:description" content="20+ Years Trusted Mobile Accessories & Spare Parts Hub in Kishanganj.">
 <meta name="twitter:image" content="https://dsckishanganj.github.io/4starmobile/logo.png">
 
-<!-- 50 Targeted SEO Keywords -->
+<!-- Targeted SEO Keywords -->
 <meta name="keywords" content="4 star mobile, 4 star mobile kishanganj, mobile accessories kishanganj, mobile shop in kishanganj, best mobile shop kishanganj, mobile spare parts kishanganj, mobile display combo kishanganj, lcd display replacement kishanganj, touch screen folder kishanganj, mobile battery original kishanganj, mobile charger shop kishanganj, fast charger type c kishanganj, tempered glass 11d kishanganj, back cover mobile kishanganj, designer phone cases kishanganj, bluetooth earbuds kishanganj, wireless neckband kishanganj, power bank shop kishanganj, data cable type c kishanganj, iphone accessories kishanganj, samsung mobile spare parts kishanganj, vivo spare parts kishanganj, oppo spare parts kishanganj, realme spare parts kishanganj, redmi mi spare parts kishanganj, mobile repairing parts kishanganj, charging jack connector kishanganj, mobile camera lens glass kishanganj, mobile speaker mic kishanganj, mahavir marg mobile shop, fal chowk mobile accessories, ghas patti masjid mobile store, gandhi chowk mobile shop kishanganj, wholesale mobile accessories kishanganj, retail mobile accessories bihar, mobile accessories hub seemanchal, airpods earbuds shop kishanganj, boat neckband chargers kishanganj, otg adapter connector kishanganj, mobile stand holder kishanganj, aux cable audio jack kishanganj, sim tray pin kishanganj, gorilla glass screen protector, matte tempered glass kishanganj, original phone accessories store, mobile tools and spares kishanganj, mobile body housing panel kishanganj, uv tempered glass kishanganj, wireless car charger kishanganj, smartwatch straps accessories kishanganj">
 
 <meta name="robots" content="index, follow">
@@ -134,6 +134,58 @@
 </script>
 
 <style>
+/* Breaking News Ticker Bar */
+.news-ticker-bar {
+  background: #0f172a;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  font-size: 13px;
+  font-weight: 500;
+  border-bottom: 2px solid #ef4444;
+}
+.ticker-badge {
+  background: #ef4444;
+  color: #fff;
+  padding: 8px 14px;
+  font-weight: 700;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  z-index: 2;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+.ticker-content {
+  white-space: nowrap;
+  overflow: hidden;
+  box-sizing: border-box;
+  width: 100%;
+}
+.ticker-text {
+  display: inline-block;
+  padding-left: 100%;
+  animation: tickerScroll 25s linear infinite;
+}
+.ticker-text:hover {
+  animation-play-state: paused;
+}
+.ticker-text a {
+  color: #f8fafc;
+  text-decoration: none;
+  margin-right: 40px;
+}
+.ticker-text a:hover {
+  color: #38bdf8;
+  text-decoration: underline;
+}
+@keyframes tickerScroll {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-100%, 0, 0); }
+}
+
 /* Header logo display */
 .header-logo-wrap {
   display: flex;
@@ -146,6 +198,50 @@
   border-radius: 50%;
   object-fit: cover;
   box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+/* Quick Action Highlights */
+.quick-action-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 15px;
+  max-width: 1100px;
+  margin: -30px auto 30px auto;
+  padding: 0 15px;
+  position: relative;
+  z-index: 10;
+}
+.action-box {
+  background: #ffffff;
+  padding: 16px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  text-decoration: none;
+  color: inherit;
+  border-left: 4px solid #0066cc;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.action-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+.action-box.red-border { border-left-color: #ef4444; }
+.action-box.green-border { border-left-color: #10b981; }
+.action-icon {
+  font-size: 28px;
+}
+.action-title {
+  font-weight: 700;
+  font-size: 15px;
+  color: #0f172a;
+}
+.action-desc {
+  font-size: 12px;
+  color: #64748b;
+  margin-top: 2px;
 }
 
 /* Product image card styles */
@@ -243,7 +339,7 @@
 
 /* Protected Admin Section Styling (Hidden by default) */
 #admin-panel {
-  display: none; /* Default Hidden: Only unlocked via Secret PIN */
+  display: none;
   background: #f1f5f9;
   padding: 40px 15px;
   border-top: 2px dashed #0066cc;
@@ -308,6 +404,18 @@
 
 <body>
 
+<!-- 🔴 LIVE BREAKING NEWS TICKER (Chalti Hui Patti) -->
+<div class="news-ticker-bar">
+  <div class="ticker-badge">🔴 BREAKING NEWS</div>
+  <div class="ticker-content">
+    <div class="ticker-text">
+      <a href="news.html">⚡ <strong>Live Updates:</strong> Naye 5G Smartphones, Fast Chargers aur Technology ki taaza khabrein padhne ke liye click karein! →</a>
+      <a href="course.html">🎓 <strong>Free Video Classes:</strong> Ghar baithe Mobile Hardware & Repairing Course seekhein bilkul muft! Yahan dekhein →</a>
+      <a href="services/mobile-repair-spare-parts.html">🔧 <strong>Testing Counter:</strong> Dukan par display aur battery fit hone se pehle live check karne ki suvidha uplabdh hai! →</a>
+    </div>
+  </div>
+</div>
+
 <header class="header">
 <div class="logo header-logo-wrap">
   <img src="logo-round.png" alt="4 Star Mobile Logo" class="header-logo-img">
@@ -321,6 +429,8 @@
 <a href="#home">Home</a>
 <a href="#products">Categories</a>
 <a href="services/mobile-repair-spare-parts.html">Services & Spares</a>
+<a href="news.html" style="color: #ef4444; font-weight: bold;">● Tech News</a>
+<a href="course.html" style="color: #10b981; font-weight: bold;">🎓 Free Course</a>
 <a href="blog/original-vs-duplicate-display.html">Tech Guide</a>
 <a href="about.html">About Us</a>
 <a href="faq.html">FAQ</a>
@@ -331,7 +441,7 @@
 
 
 <!-- Hero Banner -->
-<section id="home" class="hero" style="background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('https://images.unsplash.com/photo-1556656793-08538906a9f8?w=1600&q=80') center/cover no-repeat; color: #fff; padding: 70px 20px;">
+<section id="home" class="hero" style="background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('https://images.unsplash.com/photo-1556656793-08538906a9f8?w=1600&q=80') center/cover no-repeat; color: #fff; padding: 70px 20px 80px 20px;">
 <div class="hero-content">
   <div style="background: rgba(255, 193, 7, 0.25); border: 1px solid #ffc107; color: #ffeb3b; display: inline-block; padding: 6px 16px; border-radius: 30px; margin-bottom: 15px; font-weight: 600;">
     ⭐ 5.0 Google Rating (22 Reviews)
@@ -349,6 +459,34 @@
   </div>
 </div>
 </section>
+
+
+<!-- Quick Feature Boxes (Breaking News & Free Course Highlights) -->
+<div class="quick-action-strip">
+  <a href="news.html" class="action-box red-border">
+    <div class="action-icon">📰</div>
+    <div>
+      <div class="action-title">Daily Tech & Mobile News</div>
+      <div class="action-desc">Naye phone launch aur market rate updates roz dekhein →</div>
+    </div>
+  </a>
+
+  <a href="course.html" class="action-box green-border">
+    <div class="action-icon">🎓</div>
+    <div>
+      <div class="action-title">Free Mobile Repairing Course</div>
+      <div class="action-desc">Hardware testing, motherboard & folder fit karna seekhein →</div>
+    </div>
+  </a>
+
+  <a href="services/mobile-repair-spare-parts.html" class="action-box">
+    <div class="action-icon">🔧</div>
+    <div>
+      <div class="action-title">Original Spare Parts Center</div>
+      <div class="action-desc">Folder combos, original batteries & CC charging boards →</div>
+    </div>
+  </a>
+</div>
 
 
 <!-- Interactive Product Categories Folders -->
@@ -617,6 +755,8 @@
 <div style="margin: 15px 0; font-size: 13px;">
   <a href="about.html" style="color: #cbd5e1; margin: 0 8px; text-decoration: none;">About Us</a> |
   <a href="services/mobile-repair-spare-parts.html" style="color: #cbd5e1; margin: 0 8px; text-decoration: none;">Services & Spares</a> |
+  <a href="news.html" style="color: #ef4444; font-weight: bold; margin: 0 8px; text-decoration: none;">Tech News</a> |
+  <a href="course.html" style="color: #10b981; font-weight: bold; margin: 0 8px; text-decoration: none;">Free Course</a> |
   <a href="blog/original-vs-duplicate-display.html" style="color: #cbd5e1; margin: 0 8px; text-decoration: none;">Tech Guide</a> |
   <a href="faq.html" style="color: #cbd5e1; margin: 0 8px; text-decoration: none;">FAQ</a> |
   <a href="enquiry.html" style="color: #cbd5e1; margin: 0 8px; text-decoration: none;">Spare Parts Enquiry</a> |
@@ -654,7 +794,7 @@
 
   let cachedProducts = [];
 
-  // Secret Password Setup (Change '7860' to any PIN you want)
+  // Secret Password Setup
   const ADMIN_SECRET_PIN = "7860";
 
   // Prompt Password to Open Admin
@@ -717,7 +857,7 @@
       });
     } catch (e) {
       console.error(e);
-      if (adminList) adminList.innerHTML = '<p style="color: red;">Error practical loading products.</p>';
+      if (adminList) adminList.innerHTML = '<p style="color: red;">Error loading products.</p>';
     }
   }
 
