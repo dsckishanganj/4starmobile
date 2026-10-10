@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="logo-round.png">
+<title>Daily Live Classes & Recorded Lectures | 4 STAR MOBILE</title>
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<style>
+  body {
+    background: #f8fafc;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  .header-nav {
+    background: #0f172a;
+    color: white;
+    padding: 14px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .back-btn {
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    background: #0284c7;
+    padding: 8px 16px;
+    border-radius: 20px;
+  }
+  .container {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 0 15px;
+  }
+  .top-title {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .top-title h1 {
+    font-size: 26px;
+    color: #0f172a;
+    margin-bottom: 5px;
+  }
+  .top-title p {
+    color: #64748b;
+    font-size: 14px;
+    margin: 0;
+  }
+  .classes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 18px;
+  }
+  .class-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 18px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s;
+  }
+  .class-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  }
+  .date-badge {
+    background: #e0f2fe;
+    color: #0369a1;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+    display: inline-block;
+    width: fit-content;
+    margin-bottom: 10px;
+  }
+  .class-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1e293b;
+    margin: 0 0 15px 0;
+  }
+  .watch-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #ef4444;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .watch-btn:hover {
+    background: #dc2626;
+  }
+</style>
+</head>
+<body>
+
+<div class="header-nav">
+  <div style="display:flex; align-items:center; gap:10px;">
+    <img src="logo-round.png" alt="Logo" style="width:34px; height:34px; border-radius:50%;">
+    <strong>★ 4 STAR MOBILE — Class Archive ★</strong>
+  </div>
+  <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Home</a>
+</div>
+
+<div class="container">
+  <div class="top-title">
+    <span style="background:#10b981; color:#fff; padding:4px 12px; border-radius:20px; font-size:11px; font-weight:700;">DAILY ARCHIVE</span>
+    <h1>Live Classes & Recorded Lectures</h1>
+    <p>Rozana hone wali classes ke video links aur lecture recordings yahan se open karein</p>
+  </div>
+
+  <div id="classesDisplayGrid" class="classes-grid">
+    <p style="grid-column: 1/-1; text-align: center; color: #64748b;">Loading classes...</p>
+  </div>
+</div>
+
+<script>
+  // Apni Google Sheet ka CSV Link yahan paste karein:
+  const CLASSES_CSV_URL = "APNA_CLASSES_CSV_LINK_YAHAN_DALEN";
+
+  function parseCSV(text) {
+    const lines = text.trim().split("\n");
+    const result = [];
+    for (let i = 1; i < lines.length; i++) {
+      if (!lines[i].trim()) continue;
+      const row = lines[i].split(",");
+      if (row.length >= 2) {
+        result.push({
+          date: row[0]?.replace(/"/g, "").trim() || "",
+          title: row[1]?.replace(/"/g, "").trim() || "Live Lecture",
+          videoUrl: row[2]?.replace(/"/g, "").trim() || "#"
+        });
+      }
+    }
+    return result;
+  }
+
+  async function loadClasses() {
+    const container = document.getElementById("classesDisplayGrid");
+    try {
+      const res = await fetch(CLASSES_CSV_URL);
+      const csvText = await res.text();
+      const classes = parseCSV(csvText);
+
+      if (classes.length === 0) {
+        container.innerHTML = `<p style="grid-column:1/-1; text-align:center;">Abhi koi class link available nahi hai.</p>`;
+        return;
+      }
+
+      container.innerHTML = "";
+      classes.forEach(item => {
+        const card = document.createElement("div");
+        card.className = "class-card";
+        card.innerHTML = `
+          <div>
+            <span class="date-badge"><i class="fa-regular fa-calendar"></i> ${item.date}</span>
+            <h3 class="class-title">${item.title}</h3>
+          </div>
+          <a href="${item.videoUrl}" target="_blank" class="watch-btn">
+            <i class="fa-solid fa-play"></i> Watch Recording
+          </a>
+        `;
+        container.appendChild(card);
+      });
+    } catch (e) {
+      console.error(e);
+      // Agar Sheet link nahi hai toh default demo cards dikheinge:
+      container.innerHTML = `
+        <div class="class-card">
+          <div>
+            <span class="date-badge"><i class="fa-regular fa-calendar"></i> 09-10-2026</span>
+            <h3 class="class-title">Live Class 09-10-2026</h3>
+          </div>
+          <a href="https://jmi.entraropen.com/student/subject" target="_blank" class="watch-btn">
+            <i class="fa-solid fa-play"></i> Watch Class
+          </a>
+        </div>
+        <div class="class-card">
+          <div>
+            <span class="date-badge"><i class="fa-regular fa-calendar"></i> 08-10-2026</span>
+            <h3 class="class-title">Live Class 08-10-2026</h3>
+          </div>
+          <a href="https://jmi.entraropen.com/student/subject" target="_blank" class="watch-btn">
+            <i class="fa-solid fa-play"></i> Watch Class
+          </a>
+        </div>
+      `;
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", loadClasses);
+</script>
+
+</body>
+</html>
