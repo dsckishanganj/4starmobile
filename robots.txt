@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dsckishanganj.github.io/4starmobile/sitemap.xml
