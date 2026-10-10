@@ -190,6 +190,56 @@
 .whatsapp-order-btn:hover {
   background: #1eb954;
 }
+
+/* In-Page Admin Panel Styling */
+.admin-section {
+  max-width: 650px;
+  margin: 30px auto;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  border: 1px solid #e2e8f0;
+}
+.admin-section input, .admin-section select {
+  width: 100%;
+  padding: 11px;
+  margin: 8px 0;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 15px;
+  box-sizing: border-box;
+}
+.admin-btn {
+  width: 100%;
+  background: #0066cc;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.admin-btn:hover {
+  background: #0052a3;
+}
+.admin-manage-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+.del-btn {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 5px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
 </style>
 </head>
 
@@ -318,15 +368,14 @@ Original Mobile Accessories • Genuine Spare Parts • LCD Display • Battery 
 </section>
 
 
-<!-- Dynamic Products Section (Managed via Admin Panel) -->
+<!-- Dynamic Real-time Products Section -->
 <section id="live-products" class="products" style="background: #ffffff; padding-top: 10px;">
-<h2>🔥 Live Products & In-Stock Items</h2>
-<p style="text-align: center; color: #666; margin-bottom: 25px;">Directly order via WhatsApp with instant price confirmation</p>
+<h2>🔥 Live Stock & Today's Deals</h2>
+<p style="text-align: center; color: #666; margin-bottom: 25px;">Direct WhatsApp order with quick delivery</p>
 
 <div id="dynamicProductsGrid" class="product-grid">
-  <!-- Dynamic cards loaded via Firestore will appear here -->
   <div style="grid-column: 1 / -1; text-align: center; padding: 20px; color: #888;">
-    Loading latest available products...
+    Loading available products...
   </div>
 </div>
 </section>
@@ -476,14 +525,37 @@ Original Mobile Accessories • Genuine Spare Parts • LCD Display • Battery 
 </section>
 
 
+<!-- Integrated Admin Section (Upload Products Directly) -->
+<section id="admin-panel" style="background: #f1f5f9; padding: 40px 15px;">
+  <div class="admin-section">
+    <h3 style="text-align: center; color: #0066cc; margin-bottom: 5px;">★ 4 STAR MOBILE — Manage Products ★</h3>
+    <p style="text-align: center; font-size: 13px; color: #64748b; margin-bottom: 20px;">Add new items here; they will instantly display on the website.</p>
+    
+    <form id="productForm">
+      <input type="text" id="pTitle" placeholder="Product Name (e.g. 65W Fast Charger)" required>
+      <input type="number" id="pPrice" placeholder="Price in ₹ (e.g. 499)" required>
+      <select id="pCategory">
+        <option value="Fast Chargers">Fast Chargers</option>
+        <option value="Mobile Covers">Mobile Covers</option>
+        <option value="Tempered Glass">Tempered Glass</option>
+        <option value="Earbuds & Neckband">Earbuds & Neckband</option>
+        <option value="Battery & Spares">Battery & Spares</option>
+        <option value="Data Cables">Data Cables</option>
+      </select>
+      <input type="url" id="pImageUrl" placeholder="Image URL (Link)" required>
+      <button type="submit" class="admin-btn">+ Add Product to Website</button>
+    </form>
+
+    <h4 style="margin: 25px 0 10px 0; color: #334155;">Active Uploaded Products</h4>
+    <div id="adminProductList">Loading...</div>
+  </div>
+</section>
+
+
 <footer>
 <h3>★ 4 STAR MOBILE ★</h3>
 <p>20+ Years Trusted Mobile Accessories & Spare Parts Hub</p>
 <p>© 2026 All Rights Reserved.</p>
-<!-- Secret Direct Admin Link -->
-<div style="margin-top: 15px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.1);">
-  <a href="admin.html" style="color: #888; font-size: 13px; text-decoration: none;">⚙️ Store Admin Panel</a>
-</div>
 </footer>
 
 
@@ -491,10 +563,10 @@ Original Mobile Accessories • Genuine Spare Parts • LCD Display • Battery 
 <i class="fa-brands fa-whatsapp"></i>
 </a>
 
-<!-- Firebase SDK & Dynamic Loading Script -->
+<!-- Firebase Backend Integration Script -->
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-  import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+  import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
   const firebaseConfig = {
     apiKey: "AIzaSyC-CAUchZ-IgmV463l3JBBmrYWD40uR6RQ",
@@ -508,22 +580,30 @@ Original Mobile Accessories • Genuine Spare Parts • LCD Display • Battery 
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
 
-  async function loadDynamicProducts() {
-    const grid = document.getElementById("dynamicProductsGrid");
-    if (!grid) return;
+  const productForm = document.getElementById("productForm");
+  const dynamicGrid = document.getElementById("dynamicProductsGrid");
+  const adminList = document.getElementById("adminProductList");
 
+  // Load and refresh products across both Customer Grid and Admin List
+  async function renderAllProducts() {
     try {
-      const querySnapshot = await getDocs(collection(db, "products"));
-      if (querySnapshot.empty) {
-        grid.innerHTML = '<div style="grid-column: 1 / -1; text-align: center; padding: 20px; color: #888;">Naye products jald hi update kiye jayenge!</div>';
+      const snapshot = await getDocs(collection(db, "products"));
+      
+      if (snapshot.empty) {
+        dynamicGrid.innerHTML = '<div style="grid-column: 1 / -1; text-align: center; padding: 20px; color: #888;">Naye products jald hi add kiye jayenge!</div>';
+        adminList.innerHTML = '<p style="color: #64748b; font-size: 14px;">No products added yet.</p>';
         return;
       }
 
-      grid.innerHTML = "";
-      querySnapshot.forEach((doc) => {
-        const item = doc.data();
-        const whatsappText = encodeURIComponent(`Hello 4 STAR MOBILE, mujhe ye product purchase/enquire karna hai: ${item.title} (Price: Rs. ${item.price}). Details bataiye.`);
-        
+      dynamicGrid.innerHTML = "";
+      adminList.innerHTML = "";
+
+      snapshot.forEach((docSnap) => {
+        const item = docSnap.data();
+        const docId = docSnap.id;
+        const whatsappText = encodeURIComponent(`Hello 4 STAR MOBILE, mujhe ye order karna hai: ${item.title} (Price: Rs. ${item.price}). Available hai?`);
+
+        // 1. Add to Customer Product Grid
         const card = document.createElement("div");
         card.className = "card";
         card.innerHTML = `
@@ -537,15 +617,60 @@ Original Mobile Accessories • Genuine Spare Parts • LCD Display • Battery 
             </a>
           </div>
         `;
-        grid.appendChild(card);
+        dynamicGrid.appendChild(card);
+
+        // 2. Add to Admin Manage List
+        const row = document.createElement("div");
+        row.className = "admin-manage-item";
+        row.innerHTML = `
+          <div>
+            <strong>${item.title}</strong> — ₹${item.price} <small style="color: #64748b;">(${item.category})</small>
+          </div>
+        `;
+        const delBtn = document.createElement("button");
+        delBtn.className = "del-btn";
+        delBtn.innerText = "Delete";
+        delBtn.onclick = async () => {
+          if (confirm(`Kya aap "${item.title}" ko delete karna chahte hain?`)) {
+            await deleteDoc(doc(db, "products", docId));
+            renderAllProducts();
+          }
+        };
+        row.appendChild(delBtn);
+        adminList.appendChild(row);
       });
     } catch (err) {
-      console.error("Error loading products:", err);
-      grid.innerHTML = '<div style="grid-column: 1 / -1; text-align: center; padding: 20px; color: #888;">Products load nahi ho paye. Kripya thodi der baad dekhein.</div>';
+      console.error(err);
+      dynamicGrid.innerHTML = '<div style="grid-column: 1 / -1; text-align: center; padding: 20px; color: #888;">Items load karne me dikkat hui.</div>';
+      adminList.innerHTML = '<p style="color: red;">Error loading products.</p>';
     }
   }
 
-  loadDynamicProducts();
+  // Handle Product Addition
+  productForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const title = document.getElementById("pTitle").value;
+    const price = document.getElementById("pPrice").value;
+    const category = document.getElementById("pCategory").value;
+    const imageUrl = document.getElementById("pImageUrl").value;
+
+    try {
+      await addDoc(collection(db, "products"), {
+        title,
+        price,
+        category,
+        imageUrl,
+        createdAt: new Date()
+      });
+      alert("Product Live Ho Gaya!");
+      productForm.reset();
+      renderAllProducts();
+    } catch (err) {
+      alert("Error: " + err.message);
+    }
+  });
+
+  renderAllProducts();
 </script>
 
 <script src="script.js"></script>
