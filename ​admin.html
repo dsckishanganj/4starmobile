@@ -11,28 +11,26 @@
     input, select, button { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
     button { background: #007bff; color: white; font-weight: bold; cursor: pointer; border: none; }
     button:hover { background: #0056b3; }
-    .product-row { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding: 8px 0; }
-    .del-btn { width: auto; background: #dc3545; padding: 5px 10px; margin: 0; font-size: 12px; }
+    .product-row { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding: 10px 0; }
+    .del-btn { width: auto; background: #dc3545; padding: 6px 12px; margin: 0; font-size: 13px; }
   </style>
-  <!-- Firebase SDK -->
+
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
     import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-    // Firebase Config
     const firebaseConfig = {
-      apiKey: "YOUR_API_KEY",
-      authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-      projectId: "YOUR_PROJECT_ID",
-      storageBucket: "YOUR_PROJECT_ID.appspot.com",
-      messagingSenderId: "SENDER_ID",
-      appId: "APP_ID"
+      apiKey: "AIzaSyC-CAUchZ-IgmV463l3JBBmrYWD40uR6RQ",
+      authDomain: "star-mobile-864c2.firebaseapp.com",
+      projectId: "star-mobile-864c2",
+      storageBucket: "star-mobile-864c2.firebasestorage.app",
+      messagingSenderId: "720705354769",
+      appId: "1:720705354769:web:16ce5c6b7f652c739f05b0"
     };
 
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
 
-    // Form submit karke item add karna
     document.getElementById("productForm").addEventListener("submit", async (e) => {
       e.preventDefault();
       const title = document.getElementById("title").value;
@@ -40,36 +38,44 @@
       const category = document.getElementById("category").value;
       const imageUrl = document.getElementById("imageUrl").value;
 
-      await addDoc(collection(db, "products"), {
-        title, price, category, imageUrl, createdAt: new Date()
-      });
-
-      alert("Product Website Par Live Ho Gaya!");
-      document.getElementById("productForm").reset();
-      loadItems();
+      try {
+        await addDoc(collection(db, "products"), {
+          title, price, category, imageUrl, createdAt: new Date()
+        });
+        alert("Product Live Ho Gaya!");
+        document.getElementById("productForm").reset();
+        loadItems();
+      } catch (err) {
+        alert("Error: " + err.message);
+      }
     });
 
-    // Existing products load karke dikhana
     async function loadItems() {
       const listContainer = document.getElementById("itemList");
       listContainer.innerHTML = "Loading...";
-      const snapshot = await getDocs(collection(db, "products"));
-      listContainer.innerHTML = "";
-      snapshot.forEach((d) => {
-        const item = d.data();
-        const div = document.createElement("div");
-        div.className = "product-row";
-        div.innerHTML = `<span>${item.title} - ₹${item.price}</span>`;
-        const btn = document.createElement("button");
-        btn.className = "del-btn";
-        btn.innerText = "Delete";
-        btn.onclick = async () => {
-          await deleteDoc(doc(db, "products", d.id));
-          loadItems();
-        };
-        div.appendChild(btn);
-        listContainer.appendChild(div);
-      });
+      try {
+        const snapshot = await getDocs(collection(db, "products"));
+        listContainer.innerHTML = "";
+        snapshot.forEach((d) => {
+          const item = d.data();
+          const div = document.createElement("div");
+          div.className = "product-row";
+          div.innerHTML = `<span><b>${item.title}</b> - ₹${item.price} (${item.category})</span>`;
+          const btn = document.createElement("button");
+          btn.className = "del-btn";
+          btn.innerText = "Delete";
+          btn.onclick = async () => {
+            if(confirm("Delete karna chahte hain?")) {
+              await deleteDoc(doc(db, "products", d.id));
+              loadItems();
+            }
+          };
+          div.appendChild(btn);
+          listContainer.appendChild(div);
+        });
+      } catch (err) {
+        listContainer.innerHTML = "Error: " + err.message;
+      }
     }
 
     window.onload = loadItems;
@@ -79,7 +85,7 @@
   <div class="card">
     <h2>4 STAR MOBILE Admin</h2>
     <form id="productForm">
-      <input type="text" id="title" placeholder="Product Name (e.g. 65W Fast Charger)" required>
+      <input type="text" id="title" placeholder="Product Name (e.g. iPhone 15 Pro Cover)" required>
       <input type="number" id="price" placeholder="Price (₹)" required>
       <select id="category">
         <option value="Covers">Mobile Covers</option>
@@ -89,7 +95,7 @@
         <option value="Batteries">Mobile Batteries</option>
         <option value="Accessories">Other Accessories</option>
       </select>
-      <input type="url" id="imageUrl" placeholder="Image URL / Link" required>
+      <input type="url" id="imageUrl" placeholder="Image Link / URL" required>
       <button type="submit">Add Product to Website</button>
     </form>
     <hr style="margin: 20px 0;">
