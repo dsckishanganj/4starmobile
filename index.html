@@ -493,13 +493,19 @@
 }
 .pill-lcd { background: #e0f2fe; color: #0369a1; }
 .pill-battery { background: #dcfce7; color: #15803d; }
+.pill-touchglass { background: #fef08a; color: #854d0e; }
+.pill-backcover { background: #fce7f3; color: #9d174d; }
+.pill-fastcharger { background: #fee2e2; color: #b91c1c; }
 .pill-subcc { background: #ffedd5; color: #c2410c; }
+.pill-headphone { background: #ede9fe; color: #6d28d9; }
+.pill-datacable { background: #ccfbf1; color: #0f766e; }
+.pill-default { background: #e2e8f0; color: #334155; }
 </style>
 </head>
 
 <body>
 
-<!-- 🔴 LIVE BREAKING NEWS TICKER (Chalti Hui Patti) -->
+<!-- 🔴 LIVE BREAKING NEWS TICKER -->
 <div class="news-ticker-bar">
   <div class="ticker-badge">🔴 BREAKING NEWS</div>
   <div class="ticker-content">
@@ -722,7 +728,7 @@
   </div>
 </div>
 
-<!-- 🔍 YAHAN SET KIYA HAI: GENUINE SPARE PARTS CARD KE THEEK NICHE WORKING SEARCH -->
+<!-- 🔍 YAHAN SET HAI: GENUINE SPARE PARTS CARD KE THEEK NICHE LIVE GOOGLE SHEET SEARCH -->
 <div id="parts-search-directory" class="spares-container-box">
   <div style="text-align: center;">
     <span class="spares-badge-tag">★ 100% GENUINE MOBILE SPARES DIRECTORY</span>
@@ -735,23 +741,26 @@
       <input 
         type="text" 
         id="sparesSearchInput" 
-        placeholder="Model, Brand ya Battery number search karein (e.g. Vivo Y200, BN53, Reno, M14)..."
+        placeholder="Model, Brand ya Part code search karein (e.g. Vivo Y200, BN53, Reno, M14, 65W)..."
         autocomplete="off"
       >
     </div>
 
     <!-- Quick Category Filter Buttons -->
     <div class="spares-tabs">
-      <button type="button" class="spares-tab-btn active-tab" onclick="setSparesFilter('all')">All Spare Parts</button>
-      <button type="button" class="spares-tab-btn" onclick="setSparesFilter('LCD')">LCD & Displays</button>
+      <button type="button" class="spares-tab-btn active-tab" onclick="setSparesFilter('all')">All Parts (500+)</button>
+      <button type="button" class="spares-tab-btn" onclick="setSparesFilter('LCD')">LCD Displays</button>
       <button type="button" class="spares-tab-btn" onclick="setSparesFilter('Battery')">Li-ion Batteries</button>
+      <button type="button" class="spares-tab-btn" onclick="setSparesFilter('Touch Glass')">Touch & Tempered</button>
+      <button type="button" class="spares-tab-btn" onclick="setSparesFilter('Back Cover')">Back Covers</button>
       <button type="button" class="spares-tab-btn" onclick="setSparesFilter('Sub CC')">Charging CC Boards</button>
+      <button type="button" class="spares-tab-btn" onclick="setSparesFilter('Fast Charger')">Chargers & Adapters</button>
     </div>
   </div>
 
   <!-- Live Results Grid -->
   <div id="sparesDisplayGrid" class="spares-cards-grid">
-    <!-- JavaScript se populate hoga -->
+    <p style="grid-column: 1/-1; text-align: center; color: #64748b; padding: 30px;">Loading spare parts directory from Google Sheet...</p>
   </div>
 </div>
 </section>
@@ -897,7 +906,6 @@
 </div>
 
 <p>© 2026 All Rights Reserved.</p>
-<!-- Secret Unlock Trigger -->
 <div style="margin-top: 15px; opacity: 0.6;">
   <span onclick="promptAdminLogin()" style="font-size: 11px; color: #aaa; cursor: pointer; text-decoration: none;">🔒 Staff Portal</span>
 </div>
@@ -908,7 +916,7 @@
 </a>
 
 
-<!-- Firebase Backend Integration & Protected Auth Engine -->
+<!-- Firebase Backend Integration -->
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
   import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
@@ -1071,49 +1079,64 @@
   syncProducts();
 </script>
 
-<!-- ⚡ INLINE LIVE SEARCH SCRIPT (Instant Working) -->
+<!-- ⚡ GOOGLE SHEET LIVE CONNECT & SEARCH ENGINE (500+ Items Integrated) -->
 <script>
-  const sparePartsDatabase = [
-    // --- POPULAR LCD COMBOS ---
-    { category: "LCD", title: "Vivo Y200 / Y200e 5G Display Combo", compatible: "Vivo Y200 5G, Y200e 5G, Vivo T2x 5G, iQOO Z7x" },
-    { category: "LCD", title: "Vivo Y16 / Y22 / Y02 Display", compatible: "Vivo Y16 4G, Vivo Y22, Vivo Y02, Y02s, Y02t" },
-    { category: "LCD", title: "Vivo V27 / V27 Pro / V29 AMOLED Display", compatible: "Vivo V27 5G, Vivo V27 Pro, Vivo V29 5G" },
-    { category: "LCD", title: "Samsung Galaxy M14 / A14 5G Display", compatible: "Samsung Galaxy M14 5G, A14 5G, F14 5G" },
-    { category: "LCD", title: "Samsung Galaxy M31 / M21 / M30s Combo", compatible: "Samsung Galaxy M31, Galaxy M21, Galaxy M30s, F41" },
-    { category: "LCD", title: "Samsung Galaxy A50 / A50s / A30s AMOLED", compatible: "Samsung Galaxy A50, A50s, A30, A30s" },
-    { category: "LCD", title: "Oppo Reno 8 / Reno 7 / A78 Display", compatible: "Oppo Reno 8 5G, Reno 7 5G, Oppo A78 5G, A58" },
-    { category: "LCD", title: "Oppo A53 / A54 / A15 Display Combo", compatible: "Oppo A53 (2020), Oppo A54, Oppo A15, A15s" },
-    { category: "LCD", title: "Realme 8 / 8 Pro / Narzo 30 Pro Display", compatible: "Realme 8 4G, Realme 8 Pro, Realme Narzo 30 Pro" },
-    { category: "LCD", title: "Realme C35 / Narzo 50A Prime Display", compatible: "Realme C35, Realme Narzo 50A Prime, Realme C31" },
-    { category: "LCD", title: "Redmi Note 12 / 12 Pro 5G Display Combo", compatible: "Xiaomi Redmi Note 12 5G, Note 12 Pro 5G, Poco X5" },
-    { category: "LCD", title: "Redmi Note 9 Pro / Note 9 Pro Max Combo", compatible: "Redmi Note 9 Pro, Note 9 Pro Max, Poco M2 Pro" },
-    { category: "LCD", title: "Redmi 9 / 9 Activ / Poco C3 Display", compatible: "Xiaomi Redmi 9, Redmi 9 Activ, Poco C3, Poco C31" },
+  // DIRECT EXPORT CSV LINK FROM YOUR GOOGLE SHEET
+  const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/1V4L-QSjipuuOSN774KsxOuJCuyGB5mSsuylf7_i8TtM/export?format=csv";
 
-    // --- POPULAR BATTERIES ---
-    { category: "Battery", title: "Vivo B-S1 Original Battery (5000mAh)", compatible: "Vivo Y11, Y12, Y15, Y17, Vivo U10" },
-    { category: "Battery", title: "Vivo B-O5 / B-Q7 High Capacity Battery", compatible: "Vivo Y20, Y20i, Y20G, Y12s, Y21 (2021), Y33s" },
-    { category: "Battery", title: "Vivo B-K3 Original Battery (4500mAh)", compatible: "Vivo S1 Pro, Vivo V17, Vivo Z1x" },
-    { category: "Battery", title: "Samsung EB-BG Series Battery (6000mAh)", compatible: "Samsung Galaxy M31, Galaxy M21, Galaxy F41, M30s" },
-    { category: "Battery", title: "Samsung EB-BA Series Replacement Battery", compatible: "Samsung Galaxy A50, Galaxy A30, Galaxy A20" },
-    { category: "Battery", title: "Redmi BN-53 Original Battery", compatible: "Xiaomi Redmi Note 9 Pro, Note 9 Pro Max, Poco M2 Pro" },
-    { category: "Battery", title: "Redmi BN-56 High Backup Battery", compatible: "Xiaomi Redmi 9A, Redmi 9C, Redmi 9 Activ" },
-    { category: "Battery", title: "Redmi BN-54 Original Battery", compatible: "Xiaomi Redmi Note 9 4G, Redmi 10X 4G" },
-    { category: "Battery", title: "Realme BLP-793 Original Battery", compatible: "Realme 7, Realme 8 4G, Realme Narzo 20 Pro" },
-    { category: "Battery", title: "Realme BLP-721 Replacement Battery", compatible: "Realme 5, Realme 5s, Realme 5i, Realme C3" },
-
-    // --- SUB CC CHARGING BOARDS ---
-    { category: "Sub CC", title: "Redmi Note 9 / Note 10 Charging Sub CC", compatible: "Redmi Note 9, Note 9S, Redmi Note 10 4G (Fast Charge + Mic)" },
-    { category: "Sub CC", title: "Vivo Y20 / Y21 Type-C Sub CC Board", compatible: "Vivo Y20, Y20i, Y21, Y21T, Y33s, Y15s" },
-    { category: "Sub CC", title: "Realme 7 / 8 / Narzo 20 Fast CC Board", compatible: "Realme 7, Realme 8 4G, Narzo 20 Pro, Narzo 30" },
-    { category: "Sub CC", title: "Samsung A12 / M12 / A13 CC Board", compatible: "Samsung Galaxy A12, Galaxy M12, Galaxy A13, F12" }
-  ];
-
+  let sparePartsDatabase = [];
   let currentSpareFilter = "all";
 
+  function parseCSV(text) {
+    const lines = text.trim().split("\n");
+    const result = [];
+    for (let i = 1; i < lines.length; i++) {
+      if (!lines[i].trim()) continue;
+      const row = lines[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
+      if (row.length >= 3) {
+        result.push({
+          category: row[0]?.replace(/^"|"$/g, '').trim() || "Spares",
+          title: row[1]?.replace(/^"|"$/g, '').trim() || "",
+          compatible: row[2]?.replace(/^"|"$/g, '').trim() || "",
+          specs: row[3]?.replace(/^"|"$/g, '').trim() || "",
+          imageUrl: row[4]?.replace(/^"|"$/g, '').trim() || ""
+        });
+      }
+    }
+    return result;
+  }
+
+  async function loadPartsFromSheet() {
+    const container = document.getElementById("sparesDisplayGrid");
+    try {
+      const res = await fetch(SHEET_CSV_URL);
+      if (!res.ok) throw new Error("Network response was not ok");
+      const csvText = await res.text();
+      sparePartsDatabase = parseCSV(csvText);
+      renderSparePartsDirectory();
+    } catch (error) {
+      console.error("Sheet loading error:", error);
+      if (container) {
+        container.innerHTML = `
+          <div style="grid-column: 1/-1; text-align: center; padding: 30px; color: #dc2626;">
+            <p><strong>Google Sheet data connect nahi ho saka.</strong></p>
+            <small style="color: #64748b;">Kripya check karein ki Google Sheet ki setting 'Anyone with the link can view' par set hai.</small>
+          </div>`;
+      }
+    }
+  }
+
   function getPillClass(cat) {
-    if (cat === "LCD") return "pill-lcd";
-    if (cat === "Battery") return "pill-battery";
-    return "pill-subcc";
+    const c = cat.toLowerCase();
+    if (c.includes("lcd")) return "pill-lcd";
+    if (c.includes("battery")) return "pill-battery";
+    if (c.includes("glass")) return "pill-touchglass";
+    if (c.includes("cover")) return "pill-backcover";
+    if (c.includes("sub cc")) return "pill-subcc";
+    if (c.includes("charger")) return "pill-fastcharger";
+    if (c.includes("headphone")) return "pill-headphone";
+    if (c.includes("cable")) return "pill-datacable";
+    return "pill-default";
   }
 
   function renderSparePartsDirectory() {
@@ -1125,9 +1148,10 @@
     container.innerHTML = "";
 
     const results = sparePartsDatabase.filter(item => {
-      const matchCat = (currentSpareFilter === "all") || (item.category === currentSpareFilter);
+      const matchCat = (currentSpareFilter === "all") || (item.category.toLowerCase() === currentSpareFilter.toLowerCase());
       const matchSearch = item.title.toLowerCase().includes(query) || 
-                          item.compatible.toLowerCase().includes(query);
+                          item.compatible.toLowerCase().includes(query) ||
+                          item.specs.toLowerCase().includes(query);
       return matchCat && matchSearch;
     });
 
@@ -1136,7 +1160,7 @@
         <div style="grid-column: 1 / -1; text-align: center; padding: 40px 10px; color: #64748b;">
           <i class="fa-solid fa-circle-exclamation" style="font-size: 28px; color: #cbd5e1; margin-bottom: 10px; display: block;"></i>
           <strong>Koi part match nahi hua!</strong>
-          <p style="margin: 5px 0 0 0; font-size: 13px;">Kripya sahi model number check karein ya direct counter/WhatsApp par contact karein.</p>
+          <p style="margin: 5px 0 0 0; font-size: 13px;">Dusra model number type karein ya direct counter/WhatsApp par contact karein.</p>
         </div>`;
       return;
     }
@@ -1144,12 +1168,17 @@
     results.forEach(item => {
       const card = document.createElement("div");
       card.className = "spare-item-card";
+      
+      const imgHtml = item.imageUrl ? `<img src="${item.imageUrl}" style="width: 100%; height: 110px; object-fit: cover; border-radius: 6px; margin-bottom: 8px;">` : '';
+
       card.innerHTML = `
+        ${imgHtml}
         <span class="spare-cat-pill ${getPillClass(item.category)}">${item.category}</span>
         <h4 style="margin: 0 0 6px 0; font-size: 15px; color: #0f172a; font-weight: 600;">${item.title}</h4>
-        <p style="margin: 0; font-size: 13px; color: #64748b; line-height: 1.4;">
+        <p style="margin: 0 0 4px 0; font-size: 13px; color: #64748b; line-height: 1.4;">
           <strong style="color: #334155;">Compatible Models:</strong> ${item.compatible}
         </p>
+        ${item.specs ? `<small style="color: #0284c7; font-weight: 500;">⚡ ${item.specs}</small>` : ''}
       `;
       container.appendChild(card);
     });
@@ -1165,13 +1194,12 @@
     renderSparePartsDirectory();
   }
 
-  // Live typing event
   document.addEventListener("DOMContentLoaded", () => {
     const input = document.getElementById("sparesSearchInput");
     if (input) {
       input.addEventListener("input", renderSparePartsDirectory);
     }
-    renderSparePartsDirectory();
+    loadPartsFromSheet();
   });
 </script>
 
