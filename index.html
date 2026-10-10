@@ -461,7 +461,7 @@
 </section>
 
 
-<!-- Quick Feature Boxes (Breaking News & Free Course Highlights) -->
+<!-- Quick Feature Boxes -->
 <div class="quick-action-strip">
   <a href="news.html" class="action-box red-border">
     <div class="action-icon">📰</div>
@@ -595,7 +595,7 @@
 </div>
 
 
-<!-- Store Highlights -->
+<!-- Store Highlights (Genuine Spare Parts Clickable Card Included) -->
 <section id="gallery" class="products" style="background: #f8f9fa;">
 <h2>Store Highlights & Services</h2>
 <div class="product-grid">
@@ -606,13 +606,18 @@
       <p>All phone model accessories available in wholesale & retail.</p>
     </div>
   </div>
-  <div class="card">
-    <img class="product-card-img" src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&q=80" alt="Genuine Repair Spare Parts Kishanganj">
-    <div class="card-content">
-      <h3>Genuine Spare Parts</h3>
-      <p>Displays, charging boards, batteries, and camera lenses.</p>
+
+  <!-- Direct Clickable Genuine Spare Parts Card -->
+  <a href="services/mobile-repair-spare-parts.html" style="text-decoration: none; color: inherit; display: block;">
+    <div class="card">
+      <img class="product-card-img" src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&q=80" alt="Genuine Repair Spare Parts Kishanganj">
+      <div class="card-content">
+        <h3 style="color: #0066cc;">Genuine Spare Parts →</h3>
+        <p>Displays, charging boards, batteries, and camera lenses. Click to see models list!</p>
+      </div>
     </div>
-  </div>
+  </a>
+
   <div class="card">
     <img class="product-card-img" src="https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&q=80" alt="Customer Support and Trust Kishanganj">
     <div class="card-content">
@@ -794,10 +799,8 @@
 
   let cachedProducts = [];
 
-  // Secret Password Setup
   const ADMIN_SECRET_PIN = "7860";
 
-  // Prompt Password to Open Admin
   window.promptAdminLogin = function() {
     const inputPin = prompt("Enter 4 STAR MOBILE Admin PIN:");
     if (inputPin === ADMIN_SECRET_PIN) {
@@ -810,13 +813,11 @@
     }
   };
 
-  // Lock and Hide Admin
   window.lockAdminPanel = function() {
     document.getElementById("admin-panel").style.display = "none";
     alert("Admin panel locked.");
   };
 
-  // Fetch all items from Firestore
   async function syncProducts() {
     const adminList = document.getElementById("adminProductList");
     try {
@@ -861,7 +862,6 @@
     }
   }
 
-  // Open Selected Folder
   window.openCategoryFolder = function(categoryName) {
     const modal = document.getElementById("categoryModal");
     const title = document.getElementById("modalTitle");
@@ -903,7 +903,6 @@
     document.body.style.overflow = "hidden";
   };
 
-  // Close Folder Modal
   window.closeCategoryFolder = function() {
     const modal = document.getElementById("categoryModal");
     modal.style.display = "none";
@@ -917,7 +916,6 @@
     }
   };
 
-  // Product Form Submit
   const productForm = document.getElementById("productForm");
   productForm.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -942,7 +940,6 @@
     }
   });
 
-  // Initial products sync on page load
   syncProducts();
 </script>
 
