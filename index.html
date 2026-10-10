@@ -400,22 +400,20 @@
   float: right;
 }
 
-/* Mobile Compatibility & Spares Search Styles */
-.spares-section {
-  padding: 40px 15px;
+/* 🔍 Spares Section & Live Search UI */
+.spares-container-box {
   background: #ffffff;
-  border-top: 1px solid #e2e8f0;
-  border-bottom: 1px solid #e2e8f0;
-}
-.spares-container {
-  max-width: 1200px;
-  margin: 0 auto;
+  border-radius: 12px;
+  padding: 25px 20px;
+  margin-top: 35px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 .spares-badge-tag {
   display: inline-block;
   background: #0284c7;
   color: #fff;
-  padding: 4px 12px;
+  padding: 5px 14px;
   border-radius: 20px;
   font-size: 11px;
   font-weight: 700;
@@ -435,7 +433,7 @@
   border-radius: 30px;
   outline: none;
   box-sizing: border-box;
-  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.1);
+  box-shadow: 0 3px 10px rgba(2, 132, 199, 0.1);
 }
 .spares-search-icon {
   position: absolute;
@@ -474,11 +472,15 @@
   gap: 15px;
 }
 .spare-item-card {
-  background: #ffffff;
+  background: #f8fafc;
   border: 1px solid #e2e8f0;
   border-radius: 10px;
   padding: 15px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.04);
+  text-align: left;
+  transition: transform 0.2s;
+}
+.spare-item-card:hover {
+  transform: translateY(-3px);
 }
 .spare-cat-pill {
   font-size: 11px;
@@ -521,7 +523,6 @@
 <nav>
 <a href="#home">Home</a>
 <a href="#products">Categories</a>
-<a href="#spare-parts-directory">Spare Parts Finder</a>
 <a href="services/mobile-repair-spare-parts.html">Services & Spares</a>
 <a href="news.html" style="color: #ef4444; font-weight: bold;">● Tech News</a>
 <a href="course.html" style="color: #10b981; font-weight: bold;">🎓 Free Course</a>
@@ -674,42 +675,6 @@
 </section>
 
 
-<!-- 🔍 WORKING SPARE PARTS DIRECTORY & LIVE SEARCH SYSTEM -->
-<section id="spare-parts-directory" class="spares-section">
-  <div class="spares-container">
-    <div style="text-align: center;">
-      <span class="spares-badge-tag">★ 100% GENUINE MOBILE SPARES DIRECTORY</span>
-      <h2 style="font-size: 26px; color: #1e293b; margin: 4px 0 8px 0;">Mobile Parts & Model Compatibility List</h2>
-      <p style="color: #64748b; font-size: 14px; margin: 0 0 15px 0;">Apne smartphone ke hisaab se compatible display combo, battery code aur spare parts search karein</p>
-      
-      <!-- Live Search Box with Icon -->
-      <div class="spares-search-wrap">
-        <i class="fa-solid fa-magnifying-glass spares-search-icon"></i>
-        <input 
-          type="text" 
-          id="sparesSearchInput" 
-          placeholder="Model, Brand ya Battery number search karein (e.g. Vivo Y200, BN53, Reno, M14)..."
-          autocomplete="off"
-        >
-      </div>
-
-      <!-- Quick Category Filter Buttons -->
-      <div class="spares-tabs">
-        <button type="button" class="spares-tab-btn active-tab" onclick="setSparesFilter('all')">All Spare Parts</button>
-        <button type="button" class="spares-tab-btn" onclick="setSparesFilter('LCD')">LCD & Displays</button>
-        <button type="button" class="spares-tab-btn" onclick="setSparesFilter('Battery')">Li-ion Batteries</button>
-        <button type="button" class="spares-tab-btn" onclick="setSparesFilter('Sub CC')">Charging CC Boards</button>
-      </div>
-    </div>
-
-    <!-- Live Results Render Grid -->
-    <div id="sparesDisplayGrid" class="spares-cards-grid">
-      <!-- JavaScript will automatically populate cards here -->
-    </div>
-  </div>
-</section>
-
-
 <!-- Category Folder Pop-up Modal Window -->
 <div id="categoryModal" class="modal-overlay">
   <div class="modal-content">
@@ -725,7 +690,7 @@
 </div>
 
 
-<!-- Store Highlights (Genuine Spare Parts Clickable Card Included) -->
+<!-- Store Highlights Section -->
 <section id="gallery" class="products" style="background: #f8f9fa;">
 <h2>Store Highlights & Services</h2>
 <div class="product-grid">
@@ -738,12 +703,12 @@
   </div>
 
   <!-- Direct Clickable Genuine Spare Parts Card -->
-  <a href="services/mobile-repair-spare-parts.html" style="text-decoration: none; color: inherit; display: block;">
-    <div class="card">
+  <a href="#parts-search-directory" style="text-decoration: none; color: inherit; display: block;">
+    <div class="card" style="border: 2px solid #0066cc;">
       <img class="product-card-img" src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&q=80" alt="Genuine Repair Spare Parts Kishanganj">
       <div class="card-content">
         <h3 style="color: #0066cc;">Genuine Spare Parts →</h3>
-        <p>Displays, charging boards, batteries, and camera lenses. Click to see models list!</p>
+        <p>Displays, charging boards, batteries, and camera lenses. Click karke niche model list search karein!</p>
       </div>
     </div>
   </a>
@@ -754,6 +719,39 @@
       <h3>20+ Years Trust</h3>
       <p>Direct support across 3 convenient branch locations in Kishanganj.</p>
     </div>
+  </div>
+</div>
+
+<!-- 🔍 YAHAN SET KIYA HAI: GENUINE SPARE PARTS CARD KE THEEK NICHE WORKING SEARCH -->
+<div id="parts-search-directory" class="spares-container-box">
+  <div style="text-align: center;">
+    <span class="spares-badge-tag">★ 100% GENUINE MOBILE SPARES DIRECTORY</span>
+    <h2 style="font-size: 24px; color: #1e293b; margin: 4px 0 8px 0;">Mobile Parts & Model Compatibility List</h2>
+    <p style="color: #64748b; font-size: 14px; margin: 0 0 15px 0;">Apne smartphone ke hisaab se compatible display combo, battery code aur spare parts search karein</p>
+    
+    <!-- Live Search Box with Icon -->
+    <div class="spares-search-wrap">
+      <i class="fa-solid fa-magnifying-glass spares-search-icon"></i>
+      <input 
+        type="text" 
+        id="sparesSearchInput" 
+        placeholder="Model, Brand ya Battery number search karein (e.g. Vivo Y200, BN53, Reno, M14)..."
+        autocomplete="off"
+      >
+    </div>
+
+    <!-- Quick Category Filter Buttons -->
+    <div class="spares-tabs">
+      <button type="button" class="spares-tab-btn active-tab" onclick="setSparesFilter('all')">All Spare Parts</button>
+      <button type="button" class="spares-tab-btn" onclick="setSparesFilter('LCD')">LCD & Displays</button>
+      <button type="button" class="spares-tab-btn" onclick="setSparesFilter('Battery')">Li-ion Batteries</button>
+      <button type="button" class="spares-tab-btn" onclick="setSparesFilter('Sub CC')">Charging CC Boards</button>
+    </div>
+  </div>
+
+  <!-- Live Results Grid -->
+  <div id="sparesDisplayGrid" class="spares-cards-grid">
+    <!-- JavaScript se populate hoga -->
   </div>
 </div>
 </section>
@@ -1073,7 +1071,7 @@
   syncProducts();
 </script>
 
-<!-- ⚡ INLINE LIVE SEARCH & MODEL DIRECTORY SCRIPT (Works Instantly) -->
+<!-- ⚡ INLINE LIVE SEARCH SCRIPT (Instant Working) -->
 <script>
   const sparePartsDatabase = [
     // --- POPULAR LCD COMBOS ---
@@ -1167,7 +1165,7 @@
     renderSparePartsDirectory();
   }
 
-  // Live search attachment
+  // Live typing event
   document.addEventListener("DOMContentLoaded", () => {
     const input = document.getElementById("sparesSearchInput");
     if (input) {
