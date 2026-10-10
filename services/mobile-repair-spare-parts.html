@@ -3,182 +3,337 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mobile Spare Parts & Repair Services | 4 STAR MOBILE Kishanganj</title>
+  <title>Genuine Mobile Spare Parts & Model Compatibility Catalog | 4 STAR MOBILE</title>
   <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "serviceType": "Mobile Spare Parts & Replacement Service",
-    "provider": {
-      "@type": "LocalBusiness",
-      "name": "4 STAR MOBILE",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Kishanganj",
-        "addressRegion": "Bihar",
-        "addressCountry": "IN"
-      },
-      "telephone": "+919473371370"
-    },
-    "areaServed": "Kishanganj",
-    "description": "Genuine LCD display, folders, battery replacements, charging flex, and fast chargers for all smartphone brands."
-  }
-  </script>
-
   <style>
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      background-color: #f8fafc;
+      background: #f8fafc;
       color: #1e293b;
       margin: 0;
       padding: 16px;
       line-height: 1.6;
     }
-    .service-container {
-      max-width: 800px;
+    .catalog-container {
+      max-width: 1000px;
       margin: 20px auto;
+    }
+    .header-box {
       background: #ffffff;
       padding: 24px;
       border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    }
-    .back-nav {
-      margin-bottom: 16px;
-    }
-    .back-nav a {
-      color: #0b3954;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 14px;
-    }
-    h1 {
-      color: #0b3954;
-      font-size: 1.6rem;
-      margin-top: 10px;
-    }
-    .subtitle {
-      color: #64748b;
-      font-size: 14px;
-      margin-bottom: 20px;
-      border-bottom: 1px solid #e2e8f0;
-      padding-bottom: 10px;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 15px;
-      margin: 20px 0;
-    }
-    .card {
-      border: 1px solid #e2e8f0;
-      border-radius: 8px;
-      padding: 16px;
-      background: #fdfefe;
-    }
-    .card h3 {
-      margin-top: 0;
-      color: #0f172a;
-      font-size: 1.1rem;
-    }
-    .card ul {
-      padding-left: 20px;
-      margin: 0;
-      color: #475569;
-      font-size: 14px;
-    }
-    .trust-badge {
-      background: #eff6ff;
-      border-left: 4px solid #3b82f6;
-      padding: 12px;
-      border-radius: 4px;
-      margin: 20px 0;
-      font-size: 14px;
-    }
-    .cta-area {
-      background: #ecfdf5;
-      border: 1px solid #a7f3d0;
-      padding: 20px;
-      border-radius: 8px;
       text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      margin-bottom: 25px;
+    }
+    .header-box h1 {
+      margin: 10px 0 6px 0;
+      color: #0b3954;
+      font-size: 1.8rem;
+    }
+    .badge-hub {
+      background: #0284c7;
+      color: white;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      display: inline-block;
+    }
+    /* Search Box */
+    .search-box-wrap {
+      margin: 20px auto 10px auto;
+      max-width: 500px;
+      position: relative;
+    }
+    .search-input {
+      width: 100%;
+      padding: 12px 16px 12px 42px;
+      border-radius: 30px;
+      border: 2px solid #cbd5e1;
+      font-size: 15px;
+      box-sizing: border-box;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .search-input:focus {
+      border-color: #0066cc;
+    }
+    .search-icon {
+      position: absolute;
+      left: 15px;
+      top: 14px;
+      color: #64748b;
+    }
+    /* Spare Parts Grid */
+    .parts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
       margin-top: 25px;
     }
-    .btn-order {
-      display: inline-block;
+    .part-card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      border-top: 4px solid #0066cc;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .part-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .part-icon {
+      font-size: 26px;
+      background: #eff6ff;
+      color: #0066cc;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+    }
+    .part-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin: 0;
+    }
+    .part-desc {
+      font-size: 13px;
+      color: #64748b;
+      margin: 4px 0 12px 0;
+    }
+    .supported-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #334155;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .models-chip-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 18px;
+    }
+    .model-chip {
+      background: #f1f5f9;
+      color: #334155;
+      font-size: 12px;
+      padding: 4px 9px;
+      border-radius: 6px;
+      border: 1px solid #e2e8f0;
+    }
+    .whatsapp-inquire-btn {
       background: #25d366;
       color: #ffffff;
-      padding: 12px 24px;
-      border-radius: 6px;
       text-decoration: none;
-      font-weight: bold;
-      margin-top: 10px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
     }
-    .btn-order:hover {
+    .whatsapp-inquire-btn:hover {
       background: #1ebc59;
     }
   </style>
 </head>
 <body>
 
-  <div class="service-container">
-    <div class="back-nav">
-      <a href="../index.html">← Home Par Wapas Jayein</a>
-    </div>
-
-    <h1>Original Spare Parts & Mobile Replacement Services</h1>
-    <div class="subtitle">4 STAR MOBILE • 20+ Years Trusted Store • Kishanganj, Bihar</div>
-
-    <p>Agar aapke phone ka display toot gaya hai, battery backup kamzor ho gaya hai, ya charging port dhila ho gaya hai, toh yahan sabhi bade brands ke 100% genuine quality testing parts uplabdh hain.</p>
-
-    <div class="grid">
-      <div class="card">
-        <h3>📱 Display & Touch Folders</h3>
-        <ul>
-          <li>Samsung, Vivo, Oppo, Realme, Redmi</li>
-          <li>Original OLED & IPS Panels</li>
-          <li>Smooth Touch & Zero Lag Testing</li>
-        </ul>
+  <div class="catalog-container">
+    <div class="header-box">
+      <a href="../index.html" style="color: #0b3954; text-decoration: none; font-weight: bold; font-size: 14px;">← Home Par Wapas Jayein</a>
+      <div style="margin-top: 15px;">
+        <span class="badge-hub">★ 100% GENUINE MOBILE SPARES DIRECTORY</span>
       </div>
+      <h1>Mobile Parts & Model Compatibility List</h1>
+      <p style="margin: 0; color: #64748b; font-size: 14px;">Apne smartphone ke hisaab se compatible display, battery aur spare parts check karein</p>
 
-      <div class="card">
-        <h3>🔋 Original Grade Batteries</h3>
-        <ul>
-          <li>High Backup Li-ion Batteries</li>
-          <li>Overcharging & Heat Protection IC</li>
-          <li>6 Mahine ki Replacement Warranty</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>⚡ Chargers & Fast Cables</h3>
-        <ul>
-          <li>33W / 65W / 80W / 120W Adapters</li>
-          <li>Braided Type-C & iPhone Lightning</li>
-          <li>Heavy Duty Copper Core Cables</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>🔧 Internal Spare Components</h3>
-        <ul>
-          <li>Charging CC Boards & Flex</li>
-          <li>Ringer, Mic & Loudspeakers</li>
-          <li>Camera Glass & Back Panels</li>
-        </ul>
+      <div class="search-box-wrap">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input type="text" id="partSearch" class="search-input" placeholder="Apna model ya part search karein (e.g. Vivo, Display, Redmi)..." onkeyup="filterParts()">
       </div>
     </div>
 
-    <div class="trust-badge">
-      <strong>Khaas Suvidha:</strong> Dukaan par testing table uplabdh hai jahan aap apna display aur battery fit hone se pehle poori tarah santusht ho kar check kar sakte hain.
-    </div>
+    <!-- Spare Parts Grid -->
+    <div class="parts-grid" id="partsContainer">
 
-    <div class="cta-area">
-      <h3 style="margin: 0; color: #065f46;">Apne Mobile Ka Part Rate Ya Availability Check Karein</h3>
-      <p style="margin: 8px 0; color: #047857;">Apna phone model WhatsApp par likhein, hum foran stock aur price confirm karenge.</p>
-      <a href="https://wa.me/919473371370?text=Hello%204%20STAR%20MOBILE,%20mujhe%20apne%20phone%20ke%20spare%20part%20ki%20availability%20aur%20rate%20jaanna%20hai" class="btn-order">Part Availability WhatsApp Karein</a>
+      <!-- Item 1: Display Folders -->
+      <div class="part-card">
+        <div>
+          <div class="part-header">
+            <div class="part-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+            <div>
+              <h3 class="part-title">LCD & OLED Display Combos</h3>
+              <p class="part-desc">Original grade, Diamond quality aur OG touch combos testing guarantee ke sath.</p>
+            </div>
+          </div>
+          <div class="supported-title">Supported Brands & Popular Models:</div>
+          <div class="models-chip-list">
+            <span class="model-chip">Samsung M/A/F Series</span>
+            <span class="model-chip">Vivo V/Y/T Series (Y200, T2x, Y16)</span>
+            <span class="model-chip">Oppo Reno / A Series (A78, A58)</span>
+            <span class="model-chip">Realme Narzo / C Series / Number Series</span>
+            <span class="model-chip">Redmi Note 10 / 11 / 12 / 13 Series</span>
+            <span class="model-chip">OnePlus Nord Series</span>
+            <span class="model-chip">iPhone (X / 11 / 12 / 13)</span>
+          </div>
+        </div>
+        <a href="https://wa.me/919473185145?text=Hello%204%20STAR%20MOBILE,%20mujhe%20apne%20phone%20ka%20Display%20Folder%20chahiye" class="whatsapp-inquire-btn" target="_blank">
+          <i class="fa-brands fa-whatsapp"></i> Model Ka Display Rate Jaanein
+        </a>
+      </div>
+
+      <!-- Item 2: Batteries -->
+      <div class="part-card">
+        <div>
+          <div class="part-header">
+            <div class="part-icon" style="color: #16a34a; background: #f0fdf4;"><i class="fa-solid fa-battery-full"></i></div>
+            <div>
+              <h3 class="part-title">Original Li-ion Batteries</h3>
+              <p class="part-desc">High capacity, long backup aur heating-free replacement battery 6-month warranty ke sath.</p>
+            </div>
+          </div>
+          <div class="supported-title">Supported Brands & Battery Models:</div>
+          <div class="models-chip-list">
+            <span class="model-chip">Samsung (BN50, EB-BG series)</span>
+            <span class="model-chip">Redmi / Poco (BN-53, BN-56, BN-62)</span>
+            <span class="model-chip">Vivo (B-S1, B-O5, B-Q7 series)</span>
+            <span class="model-chip">Realme / Oppo (BLP-729, BLP-793)</span>
+            <span class="model-chip">OnePlus (BLP-805 series)</span>
+            <span class="model-chip">iPhone Health 100% Packs</span>
+          </div>
+        </div>
+        <a href="https://wa.me/919473185145?text=Hello%204%20STAR%20MOBILE,%20mujhe%20Mobile%20Battery%20ka%20price%20aur%20stock%20puchna%20hai" class="whatsapp-inquire-btn" target="_blank">
+          <i class="fa-brands fa-whatsapp"></i> Battery Rate & Model Confirm Karein
+        </a>
+      </div>
+
+      <!-- Item 3: Charging CC Boards -->
+      <div class="part-card">
+        <div>
+          <div class="part-header">
+            <div class="part-icon" style="color: #f59e0b; background: #fffbeb;"><i class="fa-solid fa-bolt"></i></div>
+            <div>
+              <h3 class="part-title">Charging Jack & Sub CC Boards</h3>
+              <p class="part-desc">Fast charging support, Mic IC aur original network component ke sath pura sub-board.</p>
+            </div>
+          </div>
+          <div class="supported-title">Supported Smartphone Series:</div>
+          <div class="models-chip-list">
+            <span class="model-chip">Type-C Fast Charging Sub-Boards</span>
+            <span class="model-chip">Redmi Note 7/8/9/10/11 CC Board</span>
+            <span class="model-chip">Vivo Y11, Y12, Y20, Y21 Board</span>
+            <span class="model-chip">Realme 5, C11, C21, C35 Boards</span>
+            <span class="model-chip">Samsung A03s, A12, M12 Type-C Boards</span>
+          </div>
+        </div>
+        <a href="https://wa.me/919473185145?text=Hello%204%20STAR%20MOBILE,%20mujhe%20Charging%20Board%20(CC%20Board)%20chahiye" class="whatsapp-inquire-btn" target="_blank">
+          <i class="fa-brands fa-whatsapp"></i> Charging Board Stock Jaanein
+        </a>
+      </div>
+
+      <!-- Item 4: Camera Glass & Back Panels -->
+      <div class="part-card">
+        <div>
+          <div class="part-header">
+            <div class="part-icon" style="color: #dc2626; background: #fef2f2;"><i class="fa-solid fa-camera"></i></div>
+            <div>
+              <h3 class="part-title">Camera Lens Glass & Back Housing</h3>
+              <p class="part-desc">Toota hua camera shisha badalne ke liye clear lens aur original back panel body.</p>
+            </div>
+          </div>
+          <div class="supported-title">Supported Devices:</div>
+          <div class="models-chip-list">
+            <span class="model-chip">iPhone 11/12/13/14/15 Camera Rings</span>
+            <span class="model-chip">Redmi Note series Camera Lenses</span>
+            <span class="model-chip">Realme back panels with adhesive tape</span>
+            <span class="model-chip">Vivo V & Y series Glass Back Doors</span>
+            <span class="model-chip">Samsung Galaxy A & S series back covers</span>
+          </div>
+        </div>
+        <a href="https://wa.me/919473185145?text=Hello%204%20STAR%20MOBILE,%20camera%20lens%20ya%20back%20panel%20ke%20bare%20me%20puchna%20hai" class="whatsapp-inquire-btn" target="_blank">
+          <i class="fa-brands fa-whatsapp"></i> Camera Glass & Panel Inquire Karein
+        </a>
+      </div>
+
+      <!-- Item 5: Speakers, Ringer & Mic -->
+      <div class="part-card">
+        <div>
+          <div class="part-header">
+            <div class="part-icon" style="color: #9333ea; background: #faf5ff;"><i class="fa-solid fa-volume-high"></i></div>
+            <div>
+              <h3 class="part-title">Earpiece, Loudspeaker & Mic</h3>
+              <p class="part-desc">Dheemi awaaz ya phati awaaz ki samasya theek karne ke liye original audio buzzers.</p>
+            </div>
+          </div>
+          <div class="supported-title">Supported Devices:</div>
+          <div class="models-chip-list">
+            <span class="model-chip">Universal Ringer Box Speaker</span>
+            <span class="model-chip">Calling Top Earpiece Modules</span>
+            <span class="model-chip">Digital Noise-Canceling Microphone IC</span>
+            <span class="model-chip">Samsung, Vivo, Redmi, Oppo All Models</span>
+          </div>
+        </div>
+        <a href="https://wa.me/919473185145?text=Hello%204%20STAR%20MOBILE,%20speaker%20ya%20ringer%20spare%20part%20chahiye" class="whatsapp-inquire-btn" target="_blank">
+          <i class="fa-brands fa-whatsapp"></i> Speaker / Mic Rate Jaanein
+        </a>
+      </div>
+
+      <!-- Item 6: Fast Chargers & Adapters -->
+      <div class="part-card">
+        <div>
+          <div class="part-header">
+            <div class="part-icon" style="color: #0284c7; background: #f0f9ff;"><i class="fa-solid fa-plug"></i></div>
+            <div>
+              <h3 class="part-title">Super Fast Adapters & Cables</h3>
+              <p class="part-desc">VOOC, Dart, FlashCharge, QC 3.0 aur PD Type-C 33W se 80W original adapters.</p>
+            </div>
+          </div>
+          <div class="supported-title">Protocol & Brand Support:</div>
+          <div class="models-chip-list">
+            <span class="model-chip">Vivo FlashCharge (44W / 80W)</span>
+            <span class="model-chip">Realme SuperDart / Oppo SuperVOOC</span>
+            <span class="model-chip">Xiaomi SonicCharge (33W / 67W)</span>
+            <span class="model-chip">Samsung Super Fast Charging (25W / 45W)</span>
+            <span class="model-chip">iPhone 20W PD Type-C Adapters</span>
+          </div>
+        </div>
+        <a href="https://wa.me/919473185145?text=Hello%204%20STAR%20MOBILE,%20fast%20charger%20ke%20bare%20me%20puchna%20hai" class="whatsapp-inquire-btn" target="_blank">
+          <i class="fa-brands fa-whatsapp"></i> Charger Rate Confirm Karein
+        </a>
+      </div>
+
     </div>
   </div>
 
+  <script>
+    function filterParts() {
+      const query = document.getElementById("partSearch").value.toLowerCase();
+      const cards = document.querySelectorAll(".part-card");
+      cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        if (text.includes(query)) {
+          card.style.display = "flex";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
+  </script>
 </body>
 </html>
