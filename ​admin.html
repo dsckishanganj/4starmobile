@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>4 STAR MOBILE - Admin Panel</title>
+  <style>
+    body { font-family: sans-serif; background: #f4f6f9; padding: 20px; }
+    .card { max-width: 500px; margin: auto; background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+    h2 { color: #0a2540; text-align: center; }
+    input, select, button { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+    button { background: #007bff; color: white; font-weight: bold; cursor: pointer; border: none; }
+    button:hover { background: #0056b3; }
+    .product-row { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding: 8px 0; }
+    .del-btn { width: auto; background: #dc3545; padding: 5px 10px; margin: 0; font-size: 12px; }
+  </style>
+  <!-- Firebase SDK -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+    // Firebase Config
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+      projectId: "YOUR_PROJECT_ID",
+      storageBucket: "YOUR_PROJECT_ID.appspot.com",
+      messagingSenderId: "SENDER_ID",
+      appId: "APP_ID"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // Form submit karke item add karna
+    document.getElementById("productForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const title = document.getElementById("title").value;
+      const price = document.getElementById("price").value;
+      const category = document.getElementById("category").value;
+      const imageUrl = document.getElementById("imageUrl").value;
+
+      await addDoc(collection(db, "products"), {
+        title, price, category, imageUrl, createdAt: new Date()
+      });
+
+      alert("Product Website Par Live Ho Gaya!");
+      document.getElementById("productForm").reset();
+      loadItems();
+    });
+
+    // Existing products load karke dikhana
+    async function loadItems() {
+      const listContainer = document.getElementById("itemList");
+      listContainer.innerHTML = "Loading...";
+      const snapshot = await getDocs(collection(db, "products"));
+      listContainer.innerHTML = "";
+      snapshot.forEach((d) => {
+        const item = d.data();
+        const div = document.createElement("div");
+        div.className = "product-row";
+        div.innerHTML = `<span>${item.title} - ₹${item.price}</span>`;
+        const btn = document.createElement("button");
+        btn.className = "del-btn";
+        btn.innerText = "Delete";
+        btn.onclick = async () => {
+          await deleteDoc(doc(db, "products", d.id));
+          loadItems();
+        };
+        div.appendChild(btn);
+        listContainer.appendChild(div);
+      });
+    }
+
+    window.onload = loadItems;
+  </script>
+</head>
+<body>
+  <div class="card">
+    <h2>4 STAR MOBILE Admin</h2>
+    <form id="productForm">
+      <input type="text" id="title" placeholder="Product Name (e.g. 65W Fast Charger)" required>
+      <input type="number" id="price" placeholder="Price (₹)" required>
+      <select id="category">
+        <option value="Covers">Mobile Covers</option>
+        <option value="Glass">Tempered Glass</option>
+        <option value="Chargers">Fast Chargers</option>
+        <option value="Earbuds">Bluetooth Earbuds</option>
+        <option value="Batteries">Mobile Batteries</option>
+        <option value="Accessories">Other Accessories</option>
+      </select>
+      <input type="url" id="imageUrl" placeholder="Image URL / Link" required>
+      <button type="submit">Add Product to Website</button>
+    </form>
+    <hr style="margin: 20px 0;">
+    <h3>Live Products List</h3>
+    <div id="itemList">Loading...</div>
+  </div>
+</body>
+</html>
