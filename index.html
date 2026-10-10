@@ -161,16 +161,28 @@
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   background: #fff;
-  transition: transform 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+  position: relative;
 }
 .card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
 }
 .card-content {
   padding: 15px;
 }
 
-/* Dynamic WhatsApp Buy Button */
+/* Category Badge Link */
+.view-folder-btn {
+  display: inline-block;
+  margin-top: 10px;
+  color: #0066cc;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* WhatsApp Order Button */
 .whatsapp-order-btn {
   display: inline-flex;
   align-items: center;
@@ -179,22 +191,66 @@
   width: 100%;
   background: #25D366;
   color: white;
-  padding: 9px 0;
+  padding: 10px 0;
   border-radius: 6px;
   text-decoration: none;
   font-weight: 600;
   font-size: 0.95rem;
   margin-top: 10px;
-  transition: background 0.2s ease;
-}
-.whatsapp-order-btn:hover {
-  background: #1eb954;
 }
 
-/* In-Page Admin Panel Styling */
+/* Category Modal / Popup View */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  z-index: 99999;
+  overflow-y: auto;
+  padding: 20px 10px;
+  box-sizing: border-box;
+}
+.modal-content {
+  background: #fff;
+  max-width: 900px;
+  margin: 30px auto;
+  border-radius: 12px;
+  padding: 20px;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+.modal-close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #f1f5f9;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.folder-header {
+  border-bottom: 2px solid #edf2f7;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+}
+
+/* Protected Admin Section Styling (Hidden by default) */
+#admin-panel {
+  display: none; /* Default Hidden: Only unlocked via Secret PIN */
+  background: #f1f5f9;
+  padding: 40px 15px;
+  border-top: 2px dashed #0066cc;
+}
 .admin-section {
   max-width: 650px;
-  margin: 30px auto;
+  margin: 0 auto;
   background: #ffffff;
   padding: 25px;
   border-radius: 12px;
@@ -222,9 +278,6 @@
   cursor: pointer;
   margin-top: 10px;
 }
-.admin-btn:hover {
-  background: #0052a3;
-}
 .admin-manage-item {
   display: flex;
   justify-content: space-between;
@@ -239,6 +292,16 @@
   padding: 5px 12px;
   border-radius: 4px;
   cursor: pointer;
+}
+.logout-btn {
+  background: #64748b;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-size: 13px;
+  cursor: pointer;
+  float: right;
 }
 </style>
 </head>
@@ -256,8 +319,7 @@
 
 <nav>
 <a href="#home">Home</a>
-<a href="#products">Products</a>
-<a href="#live-products">New Stock</a>
+<a href="#products">Categories</a>
 <a href="#gallery">Store View</a>
 <a href="#services">About Us</a>
 <a href="#contact">Contact</a>
@@ -265,151 +327,158 @@
 </header>
 
 
-<!-- Hero Banner with Original Mobile Background Image -->
+<!-- Hero Banner -->
 <section id="home" class="hero" style="background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('https://images.unsplash.com/photo-1556656793-08538906a9f8?w=1600&q=80') center/cover no-repeat; color: #fff; padding: 70px 20px;">
-
 <div class="hero-content">
+  <div style="background: rgba(255, 193, 7, 0.25); border: 1px solid #ffc107; color: #ffeb3b; display: inline-block; padding: 6px 16px; border-radius: 30px; margin-bottom: 15px; font-weight: 600;">
+    ⭐ 5.0 Google Rating (22 Reviews)
+  </div>
 
-<div style="background: rgba(255, 193, 7, 0.25); border: 1px solid #ffc107; color: #ffeb3b; display: inline-block; padding: 6px 16px; border-radius: 30px; margin-bottom: 15px; font-weight: 600;">
-  ⭐ 5.0 Google Rating (22 Reviews)
-</div>
+  <h2 style="color: #fff; font-size: 2.3rem;">Premium Mobile Accessories Store</h2>
 
-<h2 style="color: #fff; font-size: 2.3rem;">Premium Mobile Accessories Store</h2>
+  <p style="color: #e0e0e0; max-width: 650px; margin: 15px auto;">
+  Original Mobile Accessories • Genuine Spare Parts • LCD Display • Battery • Charger • Data Cable • Neckband • Earbuds
+  </p>
 
-<p style="color: #e0e0e0; max-width: 650px; margin: 15px auto;">
-Original Mobile Accessories • Genuine Spare Parts • LCD Display • Battery • Charger • Data Cable • Neckband • Earbuds
-</p>
-
-<div class="hero-buttons">
-<a class="btn call" href="tel:9473185145">
-<i class="fa-solid fa-phone"></i> Call Now
-</a>
-
-<a class="btn whatsapp" href="https://wa.me/919473185145">
-<i class="fa-brands fa-whatsapp"></i> WhatsApp
-</a>
-</div>
-
-</div>
-</section>
-
-
-<!-- Best Products with Attractive Photos -->
-<section id="products" class="products">
-<h2>Our Best Products</h2>
-
-<div class="product-grid">
-
-<div class="card">
-<img class="product-card-img" src="https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=600&q=80" alt="Premium Mobile Covers Kishanganj">
-<div class="card-content">
-  <h3>Mobile Covers</h3>
-  <p>Premium Quality Shockproof & Designer Covers</p>
-</div>
-</div>
-
-<div class="card">
-<img class="product-card-img" src="https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600&q=80" alt="Tempered Glass Screen Protector Kishanganj">
-<div class="card-content">
-  <h3>Tempered Glass</h3>
-  <p>11D / 9D Full Glue HD Screen Protection</p>
-</div>
-</div>
-
-<div class="card">
-<img class="product-card-img" src="https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600&q=80" alt="Fast Mobile Charger Kishanganj">
-<div class="card-content">
-  <h3>Fast Chargers</h3>
-  <p>Super Fast 33W / 65W / 80W Type-C Adapters</p>
-</div>
-</div>
-
-<div class="card">
-<img class="product-card-img" src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=600&q=80" alt="Bluetooth Earbuds and Neckbands Kishanganj">
-<div class="card-content">
-  <h3>Bluetooth Earbuds</h3>
-  <p>High Bass Wireless TWS Earbuds & Neckbands</p>
-</div>
-</div>
-
-<div class="card">
-<img class="product-card-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Power_bank.JPG" alt="Power Bank Fast Charging Kishanganj">
-<div class="card-content">
-  <h3>Power Banks</h3>
-  <p>10,000mAh & 20,000mAh High Capacity Packs</p>
-</div>
-</div>
-
-<div class="card">
-<img class="product-card-img" src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600&q=80" alt="Original Replacement Mobile Battery Kishanganj">
-<div class="card-content">
-  <h3>Mobile Batteries</h3>
-  <p>100% Original Battery Replacements with Backup</p>
-</div>
-</div>
-
-<div class="card">
-<img class="product-card-img" src="https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=600&q=80" alt="Original LCD Display Combo Kishanganj">
-<div class="card-content">
-  <h3>LCD Displays</h3>
-  <p>Original & Premium Touch Display Combos</p>
-</div>
-</div>
-
-<div class="card">
-<img class="product-card-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/USB-C_cable_2017_A.jpg" alt="Braided Fast Data Cables Kishanganj">
-<div class="card-content">
-  <h3>Data Cables</h3>
-  <p>Heavy Duty Braided Type-C & Lightning Cables</p>
-</div>
-</div>
-
-</div>
-</section>
-
-
-<!-- Dynamic Real-time Products Section -->
-<section id="live-products" class="products" style="background: #ffffff; padding-top: 10px;">
-<h2>🔥 Live Stock & Today's Deals</h2>
-<p style="text-align: center; color: #666; margin-bottom: 25px;">Direct WhatsApp order with quick delivery</p>
-
-<div id="dynamicProductsGrid" class="product-grid">
-  <div style="grid-column: 1 / -1; text-align: center; padding: 20px; color: #888;">
-    Loading available products...
+  <div class="hero-buttons">
+    <a class="btn call" href="tel:9473185145"><i class="fa-solid fa-phone"></i> Call Now</a>
+    <a class="btn whatsapp" href="https://wa.me/919473185145"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
   </div>
 </div>
 </section>
 
 
-<!-- Visual Store Highlights -->
+<!-- Interactive Product Categories Folders -->
+<section id="products" class="products">
+<h2>Shop by Category (Click to Open Folder)</h2>
+<p style="text-align: center; color: #666; margin-bottom: 25px;">Kisi bhi category par click karein uske saare models aur items dekhne ke liye</p>
+
+<div class="product-grid">
+
+  <!-- Category 1: Fast Chargers -->
+  <div class="card" onclick="openCategoryFolder('Fast Chargers')">
+    <img class="product-card-img" src="https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600&q=80" alt="Fast Mobile Charger Kishanganj">
+    <div class="card-content">
+      <h3>⚡ Fast Chargers</h3>
+      <p>33W / 65W / 80W Type-C Super Fast Adapters</p>
+      <span class="view-folder-btn"><i class="fa-solid fa-folder-open"></i> Open Chargers Folder →</span>
+    </div>
+  </div>
+
+  <!-- Category 2: Mobile Covers -->
+  <div class="card" onclick="openCategoryFolder('Mobile Covers')">
+    <img class="product-card-img" src="https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=600&q=80" alt="Premium Mobile Covers Kishanganj">
+    <div class="card-content">
+      <h3>📱 Mobile Covers</h3>
+      <p>Shockproof, Silicone, Matte & Designer Cases</p>
+      <span class="view-folder-btn"><i class="fa-solid fa-folder-open"></i> Open Covers Folder →</span>
+    </div>
+  </div>
+
+  <!-- Category 3: Tempered Glass -->
+  <div class="card" onclick="openCategoryFolder('Tempered Glass')">
+    <img class="product-card-img" src="https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600&q=80" alt="Tempered Glass Screen Protector Kishanganj">
+    <div class="card-content">
+      <h3>🛡️ Tempered Glass</h3>
+      <p>11D / 9D Full Glue HD Screen & Privacy Glass</p>
+      <span class="view-folder-btn"><i class="fa-solid fa-folder-open"></i> Open Glass Folder →</span>
+    </div>
+  </div>
+
+  <!-- Category 4: Earbuds & Neckband -->
+  <div class="card" onclick="openCategoryFolder('Earbuds & Neckband')">
+    <img class="product-card-img" src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=600&q=80" alt="Bluetooth Earbuds and Neckbands Kishanganj">
+    <div class="card-content">
+      <h3>🎧 Bluetooth Earbuds</h3>
+      <p>TWS Wireless Earbuds & Long Battery Neckbands</p>
+      <span class="view-folder-btn"><i class="fa-solid fa-folder-open"></i> Open Audio Folder →</span>
+    </div>
+  </div>
+
+  <!-- Category 5: Power Banks -->
+  <div class="card" onclick="openCategoryFolder('Power Banks')">
+    <img class="product-card-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Power_bank.JPG" alt="Power Bank Fast Charging Kishanganj">
+    <div class="card-content">
+      <h3>🔋 Power Banks</h3>
+      <p>10,000mAh & 20,000mAh High Capacity Packs</p>
+      <span class="view-folder-btn"><i class="fa-solid fa-folder-open"></i> Open Power Banks Folder →</span>
+    </div>
+  </div>
+
+  <!-- Category 6: Battery & Spares -->
+  <div class="card" onclick="openCategoryFolder('Battery & Spares')">
+    <img class="product-card-img" src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600&q=80" alt="Original Replacement Mobile Battery Kishanganj">
+    <div class="card-content">
+      <h3>🔋 Mobile Batteries</h3>
+      <p>Original Battery Replacements with 6-month backup</p>
+      <span class="view-folder-btn"><i class="fa-solid fa-folder-open"></i> Open Battery Folder →</span>
+    </div>
+  </div>
+
+  <!-- Category 7: LCD Displays -->
+  <div class="card" onclick="openCategoryFolder('LCD Displays')">
+    <img class="product-card-img" src="https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=600&q=80" alt="Original LCD Display Combo Kishanganj">
+    <div class="card-content">
+      <h3>📲 LCD Displays</h3>
+      <p>Original & Premium Touch Display Combos</p>
+      <span class="view-folder-btn"><i class="fa-solid fa-folder-open"></i> Open Display Folder →</span>
+    </div>
+  </div>
+
+  <!-- Category 8: Data Cables -->
+  <div class="card" onclick="openCategoryFolder('Data Cables')">
+    <img class="product-card-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/USB-C_cable_2017_A.jpg" alt="Braided Fast Data Cables Kishanganj">
+    <div class="card-content">
+      <h3>🔌 Data Cables</h3>
+      <p>Braided Type-C, iPhone Lightning & Fast Cables</p>
+      <span class="view-folder-btn"><i class="fa-solid fa-folder-open"></i> Open Cables Folder →</span>
+    </div>
+  </div>
+
+</div>
+</section>
+
+
+<!-- Category Folder Pop-up Modal Window -->
+<div id="categoryModal" class="modal-overlay">
+  <div class="modal-content">
+    <button class="modal-close-btn" onclick="closeCategoryFolder()">✕</button>
+    <div class="folder-header">
+      <h2 id="modalTitle" style="color: #0066cc; margin: 0;">Category Folder</h2>
+      <p id="modalSubtitle" style="color: #64748b; margin: 4px 0 0 0; font-size: 14px;">Showing in-stock items</p>
+    </div>
+    <div id="modalProductsGrid" class="product-grid">
+      <!-- Products loaded here -->
+    </div>
+  </div>
+</div>
+
+
+<!-- Store Highlights -->
 <section id="gallery" class="products" style="background: #f8f9fa;">
 <h2>Store Highlights & Services</h2>
 <div class="product-grid">
-
-<div class="card">
-  <img class="product-card-img" src="https://images.unsplash.com/photo-1550009158-9ebf69173e03?w=600&q=80" alt="Electronics and Accessories Hub Kishanganj">
-  <div class="card-content">
-    <h3>Huge Accessories Stock</h3>
-    <p>All phone model accessories available in wholesale & retail.</p>
+  <div class="card">
+    <img class="product-card-img" src="https://images.unsplash.com/photo-1550009158-9ebf69173e03?w=600&q=80" alt="Electronics and Accessories Hub Kishanganj">
+    <div class="card-content">
+      <h3>Huge Accessories Stock</h3>
+      <p>All phone model accessories available in wholesale & retail.</p>
+    </div>
   </div>
-</div>
-
-<div class="card">
-  <img class="product-card-img" src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&q=80" alt="Genuine Repair Spare Parts Kishanganj">
-  <div class="card-content">
-    <h3>Genuine Spare Parts</h3>
-    <p>Displays, charging boards, batteries, and camera lenses.</p>
+  <div class="card">
+    <img class="product-card-img" src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&q=80" alt="Genuine Repair Spare Parts Kishanganj">
+    <div class="card-content">
+      <h3>Genuine Spare Parts</h3>
+      <p>Displays, charging boards, batteries, and camera lenses.</p>
+    </div>
   </div>
-</div>
-
-<div class="card">
-  <img class="product-card-img" src="https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&q=80" alt="Customer Support and Trust Kishanganj">
-  <div class="card-content">
-    <h3>20+ Years Trust</h3>
-    <p>Direct support across 3 convenient branch locations in Kishanganj.</p>
+  <div class="card">
+    <img class="product-card-img" src="https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&q=80" alt="Customer Support and Trust Kishanganj">
+    <div class="card-content">
+      <h3>20+ Years Trust</h3>
+      <p>Direct support across 3 convenient branch locations in Kishanganj.</p>
+    </div>
   </div>
-</div>
-
 </div>
 </section>
 
@@ -417,31 +486,26 @@ Original Mobile Accessories • Genuine Spare Parts • LCD Display • Battery 
 <section id="services" class="services">
 <h2>Why Choose 4 STAR MOBILE?</h2>
 <div class="service-grid">
-
-<div class="service-box">
-<i class="fa-solid fa-award"></i>
-<h3>20+ Years Trusted</h3>
-<p>Serving customers with genuine products and reliable service for over 20 years.</p>
-</div>
-
-<div class="service-box">
-<i class="fa-solid fa-mobile-screen-button"></i>
-<h3>All Accessories</h3>
-<p>Mobile Covers, Chargers, Batteries, Displays, Earbuds, Neckbands and more.</p>
-</div>
-
-<div class="service-box">
-<i class="fa-solid fa-screwdriver-wrench"></i>
-<h3>Spare Parts Hub</h3>
-<p>Quality mobile spare parts for many popular smartphone brands.</p>
-</div>
-
-<div class="service-box">
-<i class="fa-solid fa-shield-halved"></i>
-<h3>Tested Quality</h3>
-<p>We focus on genuine products and 100% customer satisfaction.</p>
-</div>
-
+  <div class="service-box">
+    <i class="fa-solid fa-award"></i>
+    <h3>20+ Years Trusted</h3>
+    <p>Serving customers with genuine products and reliable service for over 20 years.</p>
+  </div>
+  <div class="service-box">
+    <i class="fa-solid fa-mobile-screen-button"></i>
+    <h3>All Accessories</h3>
+    <p>Mobile Covers, Chargers, Batteries, Displays, Earbuds, Neckbands and more.</p>
+  </div>
+  <div class="service-box">
+    <i class="fa-solid fa-screwdriver-wrench"></i>
+    <h3>Spare Parts Hub</h3>
+    <p>Quality mobile spare parts for many popular smartphone brands.</p>
+  </div>
+  <div class="service-box">
+    <i class="fa-solid fa-shield-halved"></i>
+    <h3>Tested Quality</h3>
+    <p>We focus on genuine products and 100% customer satisfaction.</p>
+  </div>
 </div>
 </section>
 
@@ -449,25 +513,21 @@ Original Mobile Accessories • Genuine Spare Parts • LCD Display • Battery 
 <section class="reviews">
 <h2>Customer Reviews</h2>
 <div class="review-grid">
-
-<div class="review">
-<span style="color: #ffb400; font-size: 1.2rem;">⭐⭐⭐⭐⭐</span>
-<p>"Best mobile accessories shop in Kishanganj."</p>
-<h4>Happy Customer</h4>
-</div>
-
-<div class="review">
-<span style="color: #ffb400; font-size: 1.2rem;">⭐⭐⭐⭐⭐</span>
-<p>"Good quality products at reasonable prices."</p>
-<h4>Regular Customer</h4>
-</div>
-
-<div class="review">
-<span style="color: #ffb400; font-size: 1.2rem;">⭐⭐⭐⭐⭐</span>
-<p>"Friendly service and genuine accessories."</p>
-<h4>Customer</h4>
-</div>
-
+  <div class="review">
+    <span style="color: #ffb400; font-size: 1.2rem;">⭐⭐⭐⭐⭐</span>
+    <p>"Best mobile accessories shop in Kishanganj."</p>
+    <h4>Happy Customer</h4>
+  </div>
+  <div class="review">
+    <span style="color: #ffb400; font-size: 1.2rem;">⭐⭐⭐⭐⭐</span>
+    <p>"Good quality products at reasonable prices."</p>
+    <h4>Regular Customer</h4>
+  </div>
+  <div class="review">
+    <span style="color: #ffb400; font-size: 1.2rem;">⭐⭐⭐⭐⭐</span>
+    <p>"Friendly service and genuine accessories."</p>
+    <h4>Customer</h4>
+  </div>
 </div>
 </section>
 
@@ -482,7 +542,6 @@ Original Mobile Accessories • Genuine Spare Parts • LCD Display • Battery 
 </p>
 
 <div class="product-grid" style="text-align: left; margin: 30px auto; max-width: 1000px;">
-
   <div class="card" style="padding: 20px;">
     <h3>🏬 Branch 1 (Main Branch)</h3>
     <p>📍 Ground Floor, Mahavir Marg, Near Congress Office, Kishanganj - 855107</p>
@@ -503,47 +562,42 @@ Original Mobile Accessories • Genuine Spare Parts • LCD Display • Battery 
     <p><strong>📞 9473371371</strong></p>
     <a class="btn call" href="tel:9473371371" style="display: inline-block; margin-top: 10px; padding: 6px 12px; font-size: 0.85rem;">Call Branch 3</a>
   </div>
-
 </div>
 
 <p>✉ Email: <strong>4starmobile786@gmail.com</strong></p>
 
 <div class="contact-buttons" style="margin-top: 25px;">
-<a class="btn call" href="tel:9473371370">
-<i class="fa-solid fa-phone"></i> Call Primary
-</a>
-
-<a class="btn whatsapp" href="https://wa.me/919473185145">
-<i class="fa-brands fa-whatsapp"></i> WhatsApp Us
-</a>
-
-<a class="btn" href="https://maps.app.goo.gl/3uQMuZLJXKo3T6PT7" target="_blank" style="background: #1a73e8; color: white;">
-<i class="fa-solid fa-location-dot"></i> View on Google Maps
-</a>
+  <a class="btn call" href="tel:9473371370"><i class="fa-solid fa-phone"></i> Call Primary</a>
+  <a class="btn whatsapp" href="https://wa.me/919473185145"><i class="fa-brands fa-whatsapp"></i> WhatsApp Us</a>
+  <a class="btn" href="https://maps.app.goo.gl/3uQMuZLJXKo3T6PT7" target="_blank" style="background: #1a73e8; color: white;">
+    <i class="fa-solid fa-location-dot"></i> View on Google Maps
+  </a>
 </div>
-
 </section>
 
 
-<!-- Integrated Admin Section (Upload Products Directly) -->
-<section id="admin-panel" style="background: #f1f5f9; padding: 40px 15px;">
+<!-- Password Protected Admin Section (Hidden by Default) -->
+<section id="admin-panel">
   <div class="admin-section">
-    <h3 style="text-align: center; color: #0066cc; margin-bottom: 5px;">★ 4 STAR MOBILE — Manage Products ★</h3>
-    <p style="text-align: center; font-size: 13px; color: #64748b; margin-bottom: 20px;">Add new items here; they will instantly display on the website.</p>
+    <button class="logout-btn" onclick="lockAdminPanel()">🔒 Lock & Hide</button>
+    <h3 style="color: #0066cc; margin: 0 0 5px 0;">★ 4 STAR MOBILE — Store Admin Panel ★</h3>
+    <p style="font-size: 13px; color: #64748b; margin-bottom: 20px;">Only authenticated owners can view and manage this section.</p>
     
     <form id="productForm">
-      <input type="text" id="pTitle" placeholder="Product Name (e.g. 65W Fast Charger)" required>
+      <input type="text" id="pTitle" placeholder="Product Name (e.g. Bell 65W Fast Charger)" required>
       <input type="number" id="pPrice" placeholder="Price in ₹ (e.g. 499)" required>
       <select id="pCategory">
         <option value="Fast Chargers">Fast Chargers</option>
         <option value="Mobile Covers">Mobile Covers</option>
         <option value="Tempered Glass">Tempered Glass</option>
         <option value="Earbuds & Neckband">Earbuds & Neckband</option>
+        <option value="Power Banks">Power Banks</option>
         <option value="Battery & Spares">Battery & Spares</option>
+        <option value="LCD Displays">LCD Displays</option>
         <option value="Data Cables">Data Cables</option>
       </select>
-      <input type="url" id="pImageUrl" placeholder="Image URL (Link)" required>
-      <button type="submit" class="admin-btn">+ Add Product to Website</button>
+      <input type="url" id="pImageUrl" placeholder="Direct Image URL (.jpg / .png / .webp)" required>
+      <button type="submit" class="admin-btn">+ Add Product to Folder</button>
     </form>
 
     <h4 style="margin: 25px 0 10px 0; color: #334155;">Active Uploaded Products</h4>
@@ -556,14 +610,18 @@ Original Mobile Accessories • Genuine Spare Parts • LCD Display • Battery 
 <h3>★ 4 STAR MOBILE ★</h3>
 <p>20+ Years Trusted Mobile Accessories & Spare Parts Hub</p>
 <p>© 2026 All Rights Reserved.</p>
+<!-- Secret Unlock Trigger -->
+<div style="margin-top: 15px; opacity: 0.6;">
+  <span onclick="promptAdminLogin()" style="font-size: 11px; color: #aaa; cursor: pointer; text-decoration: none;">🔒 Staff Portal</span>
+</div>
 </footer>
-
 
 <a href="https://wa.me/919473185145" class="floating-whatsapp" target="_blank" aria-label="WhatsApp">
 <i class="fa-brands fa-whatsapp"></i>
 </a>
 
-<!-- Firebase Backend Integration Script -->
+
+<!-- Firebase Backend Integration & Protected Auth Engine -->
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
   import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
@@ -580,73 +638,133 @@ Original Mobile Accessories • Genuine Spare Parts • LCD Display • Battery 
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
 
-  const productForm = document.getElementById("productForm");
-  const dynamicGrid = document.getElementById("dynamicProductsGrid");
-  const adminList = document.getElementById("adminProductList");
+  let cachedProducts = [];
 
-  // Load and refresh products across both Customer Grid and Admin List
-  async function renderAllProducts() {
+  // Secret Password Setup (Change '7860' to any PIN you want)
+  const ADMIN_SECRET_PIN = "7860";
+
+  // Prompt Password to Open Admin
+  window.promptAdminLogin = function() {
+    const inputPin = prompt("Enter 4 STAR MOBILE Admin PIN:");
+    if (inputPin === ADMIN_SECRET_PIN) {
+      document.getElementById("admin-panel").style.display = "block";
+      document.getElementById("admin-panel").scrollIntoView({ behavior: 'smooth' });
+      syncProducts();
+      alert("Welcome Admin! Panel unlocked.");
+    } else if (inputPin !== null) {
+      alert("Galat Password! Access Denied.");
+    }
+  };
+
+  // Lock and Hide Admin
+  window.lockAdminPanel = function() {
+    document.getElementById("admin-panel").style.display = "none";
+    alert("Admin panel locked.");
+  };
+
+  // Fetch all items from Firestore
+  async function syncProducts() {
+    const adminList = document.getElementById("adminProductList");
     try {
       const snapshot = await getDocs(collection(db, "products"));
-      
+      cachedProducts = [];
+      if (adminList) adminList.innerHTML = "";
+
       if (snapshot.empty) {
-        dynamicGrid.innerHTML = '<div style="grid-column: 1 / -1; text-align: center; padding: 20px; color: #888;">Naye products jald hi add kiye jayenge!</div>';
-        adminList.innerHTML = '<p style="color: #64748b; font-size: 14px;">No products added yet.</p>';
+        if (adminList) adminList.innerHTML = '<p style="color: #64748b;">Abhi koi product upload nahi hai.</p>';
         return;
       }
-
-      dynamicGrid.innerHTML = "";
-      adminList.innerHTML = "";
 
       snapshot.forEach((docSnap) => {
         const item = docSnap.data();
         const docId = docSnap.id;
-        const whatsappText = encodeURIComponent(`Hello 4 STAR MOBILE, mujhe ye order karna hai: ${item.title} (Price: Rs. ${item.price}). Available hai?`);
+        cachedProducts.push({ id: docId, ...item });
 
-        // 1. Add to Customer Product Grid
+        if (adminList) {
+          const row = document.createElement("div");
+          row.className = "admin-manage-item";
+          row.innerHTML = `
+            <div>
+              <strong>${item.title}</strong> — ₹${item.price} <small style="color: #0066cc;">[${item.category}]</small>
+            </div>
+          `;
+          const delBtn = document.createElement("button");
+          delBtn.className = "del-btn";
+          delBtn.innerText = "Delete";
+          delBtn.onclick = async () => {
+            if (confirm(`"${item.title}" ko delete karna chahte hain?`)) {
+              await deleteDoc(doc(db, "products", docId));
+              syncProducts();
+            }
+          };
+          row.appendChild(delBtn);
+          adminList.appendChild(row);
+        }
+      });
+    } catch (e) {
+      console.error(e);
+      if (adminList) adminList.innerHTML = '<p style="color: red;">Error loading products.</p>';
+    }
+  }
+
+  // Open Selected Folder
+  window.openCategoryFolder = function(categoryName) {
+    const modal = document.getElementById("categoryModal");
+    const title = document.getElementById("modalTitle");
+    const grid = document.getElementById("modalProductsGrid");
+
+    title.innerText = `📁 ${categoryName}`;
+    grid.innerHTML = "";
+
+    const filtered = cachedProducts.filter(p => p.category === categoryName);
+
+    if (filtered.length === 0) {
+      grid.innerHTML = `
+        <div style="grid-column: 1 / -1; text-align: center; padding: 40px 20px; color: #64748b;">
+          <h3>Is folder me abhi stock update hona baaki hai!</h3>
+          <p>Orders ke liye direct WhatsApp par contact karein.</p>
+        </div>
+      `;
+    } else {
+      filtered.forEach((p) => {
         const card = document.createElement("div");
         card.className = "card";
+        const msg = encodeURIComponent(`Hello 4 STAR MOBILE, mujhe ye purchase karna hai: ${p.title} (Price: Rs. ${p.price}). Available hai?`);
+        
         card.innerHTML = `
-          <img class="product-card-img" src="${item.imageUrl || 'logo.png'}" alt="${item.title}" onerror="this.src='logo.png';">
+          <img class="product-card-img" src="${p.imageUrl || 'logo.png'}" alt="${p.title}" onerror="this.src='logo.png';">
           <div class="card-content">
-            <span style="font-size: 11px; background: #eef2ff; color: #0066cc; padding: 3px 8px; border-radius: 4px; font-weight: 600;">${item.category || 'Accessories'}</span>
-            <h3 style="margin-top: 8px; font-size: 1.1rem; color: #111;">${item.title}</h3>
-            <p style="font-size: 1.15rem; font-weight: 700; color: #0066cc; margin: 6px 0;">₹${item.price}</p>
-            <a href="https://wa.me/919473185145?text=${whatsappText}" target="_blank" class="whatsapp-order-btn">
+            <h3 style="font-size: 1.1rem; color: #111; margin-bottom: 5px;">${p.title}</h3>
+            <p style="font-size: 1.2rem; font-weight: 700; color: #0066cc; margin: 4px 0;">₹${p.price}</p>
+            <a href="https://wa.me/919473185145?text=${msg}" target="_blank" class="whatsapp-order-btn">
               <i class="fa-brands fa-whatsapp"></i> Order on WhatsApp
             </a>
           </div>
         `;
-        dynamicGrid.appendChild(card);
-
-        // 2. Add to Admin Manage List
-        const row = document.createElement("div");
-        row.className = "admin-manage-item";
-        row.innerHTML = `
-          <div>
-            <strong>${item.title}</strong> — ₹${item.price} <small style="color: #64748b;">(${item.category})</small>
-          </div>
-        `;
-        const delBtn = document.createElement("button");
-        delBtn.className = "del-btn";
-        delBtn.innerText = "Delete";
-        delBtn.onclick = async () => {
-          if (confirm(`Kya aap "${item.title}" ko delete karna chahte hain?`)) {
-            await deleteDoc(doc(db, "products", docId));
-            renderAllProducts();
-          }
-        };
-        row.appendChild(delBtn);
-        adminList.appendChild(row);
+        grid.appendChild(card);
       });
-    } catch (err) {
-      console.error(err);
-      dynamicGrid.innerHTML = '<div style="grid-column: 1 / -1; text-align: center; padding: 20px; color: #888;">Items load karne me dikkat hui.</div>';
-      adminList.innerHTML = '<p style="color: red;">Error loading products.</p>';
     }
-  }
 
-  // Handle Product Addition
+    modal.style.display = "block";
+    document.body.style.overflow = "hidden";
+  };
+
+  // Close Folder Modal
+  window.closeCategoryFolder = function() {
+    const modal = document.getElementById("categoryModal");
+    modal.style.display = "none";
+    document.body.style.overflow = "auto";
+  };
+
+  window.onclick = function(event) {
+    const modal = document.getElementById("categoryModal");
+    if (event.target == modal) {
+      closeCategoryFolder();
+    }
+  };
+
+  // Product Form Submit
+  const productForm = document.getElementById("productForm");
   productForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     const title = document.getElementById("pTitle").value;
@@ -662,18 +780,18 @@ Original Mobile Accessories • Genuine Spare Parts • LCD Display • Battery 
         imageUrl,
         createdAt: new Date()
       });
-      alert("Product Live Ho Gaya!");
+      alert(`Product "${title}" ${category} folder me add ho gaya!`);
       productForm.reset();
-      renderAllProducts();
+      syncProducts();
     } catch (err) {
       alert("Error: " + err.message);
     }
   });
 
-  renderAllProducts();
+  // Initial products sync on page load
+  syncProducts();
 </script>
 
 <script src="script.js"></script>
-
 </body>
 </html>
