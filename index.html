@@ -169,6 +169,27 @@
 .card-content {
   padding: 15px;
 }
+
+/* Dynamic WhatsApp Buy Button */
+.whatsapp-order-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  background: #25D366;
+  color: white;
+  padding: 9px 0;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-top: 10px;
+  transition: background 0.2s ease;
+}
+.whatsapp-order-btn:hover {
+  background: #1eb954;
+}
 </style>
 </head>
 
@@ -186,6 +207,7 @@
 <nav>
 <a href="#home">Home</a>
 <a href="#products">Products</a>
+<a href="#live-products">New Stock</a>
 <a href="#gallery">Store View</a>
 <a href="#services">About Us</a>
 <a href="#contact">Contact</a>
@@ -292,6 +314,20 @@ Original Mobile Accessories • Genuine Spare Parts • LCD Display • Battery 
 </div>
 </div>
 
+</div>
+</section>
+
+
+<!-- Dynamic Products Section (Managed via Admin Panel) -->
+<section id="live-products" class="products" style="background: #ffffff; padding-top: 10px;">
+<h2>🔥 Live Products & In-Stock Items</h2>
+<p style="text-align: center; color: #666; margin-bottom: 25px;">Directly order via WhatsApp with instant price confirmation</p>
+
+<div id="dynamicProductsGrid" class="product-grid">
+  <!-- Dynamic cards loaded via Firestore will appear here -->
+  <div style="grid-column: 1 / -1; text-align: center; padding: 20px; color: #888;">
+    Loading latest available products...
+  </div>
 </div>
 </section>
 
@@ -444,12 +480,73 @@ Original Mobile Accessories • Genuine Spare Parts • LCD Display • Battery 
 <h3>★ 4 STAR MOBILE ★</h3>
 <p>20+ Years Trusted Mobile Accessories & Spare Parts Hub</p>
 <p>© 2026 All Rights Reserved.</p>
+<!-- Secret Direct Admin Link -->
+<div style="margin-top: 15px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.1);">
+  <a href="admin.html" style="color: #888; font-size: 13px; text-decoration: none;">⚙️ Store Admin Panel</a>
+</div>
 </footer>
 
 
 <a href="https://wa.me/919473185145" class="floating-whatsapp" target="_blank" aria-label="WhatsApp">
 <i class="fa-brands fa-whatsapp"></i>
 </a>
+
+<!-- Firebase SDK & Dynamic Loading Script -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+  import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyC-CAUchZ-IgmV463l3JBBmrYWD40uR6RQ",
+    authDomain: "star-mobile-864c2.firebaseapp.com",
+    projectId: "star-mobile-864c2",
+    storageBucket: "star-mobile-864c2.firebasestorage.app",
+    messagingSenderId: "720705354769",
+    appId: "1:720705354769:web:16ce5c6b7f652c739f05b0"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  async function loadDynamicProducts() {
+    const grid = document.getElementById("dynamicProductsGrid");
+    if (!grid) return;
+
+    try {
+      const querySnapshot = await getDocs(collection(db, "products"));
+      if (querySnapshot.empty) {
+        grid.innerHTML = '<div style="grid-column: 1 / -1; text-align: center; padding: 20px; color: #888;">Naye products jald hi update kiye jayenge!</div>';
+        return;
+      }
+
+      grid.innerHTML = "";
+      querySnapshot.forEach((doc) => {
+        const item = doc.data();
+        const whatsappText = encodeURIComponent(`Hello 4 STAR MOBILE, mujhe ye product purchase/enquire karna hai: ${item.title} (Price: Rs. ${item.price}). Details bataiye.`);
+        
+        const card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `
+          <img class="product-card-img" src="${item.imageUrl || 'logo.png'}" alt="${item.title}" onerror="this.src='logo.png';">
+          <div class="card-content">
+            <span style="font-size: 11px; background: #eef2ff; color: #0066cc; padding: 3px 8px; border-radius: 4px; font-weight: 600;">${item.category || 'Accessories'}</span>
+            <h3 style="margin-top: 8px; font-size: 1.1rem; color: #111;">${item.title}</h3>
+            <p style="font-size: 1.15rem; font-weight: 700; color: #0066cc; margin: 6px 0;">₹${item.price}</p>
+            <a href="https://wa.me/919473185145?text=${whatsappText}" target="_blank" class="whatsapp-order-btn">
+              <i class="fa-brands fa-whatsapp"></i> Order on WhatsApp
+            </a>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    } catch (err) {
+      console.error("Error loading products:", err);
+      grid.innerHTML = '<div style="grid-column: 1 / -1; text-align: center; padding: 20px; color: #888;">Products load nahi ho paye. Kripya thodi der baad dekhein.</div>';
+    }
+  }
+
+  loadDynamicProducts();
+</script>
 
 <script src="script.js"></script>
 
