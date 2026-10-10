@@ -34,7 +34,7 @@
     .live-tag {
       background: #ef4444;
       color: white;
-      padding: 4px 10px;
+      padding: 4px 12px;
       border-radius: 20px;
       font-size: 12px;
       font-weight: bold;
@@ -65,7 +65,7 @@
     }
     .news-card img {
       width: 100%;
-      height: 160px;
+      height: 170px;
       object-fit: cover;
       background: #e2e8f0;
     }
@@ -79,9 +79,10 @@
       font-size: 12px;
       color: #64748b;
       margin-bottom: 6px;
+      font-weight: 600;
     }
     .news-title {
-      font-size: 1rem;
+      font-size: 1.05rem;
       font-weight: 700;
       color: #0f172a;
       line-height: 1.4;
@@ -97,7 +98,7 @@
     .read-more-btn {
       color: #0066cc;
       text-decoration: none;
-      font-weight: 600;
+      font-weight: 700;
       font-size: 13px;
       align-self: flex-start;
     }
@@ -105,7 +106,8 @@
       text-align: center;
       padding: 40px;
       font-weight: bold;
-      color: #64748b;
+      color: #0066cc;
+      font-size: 15px;
     }
   </style>
 </head>
@@ -118,70 +120,90 @@
         <span class="live-tag">● LIVE UPDATES</span>
       </div>
       <h1>Smartphone & Gadgets Daily News</h1>
-      <p style="margin: 0; color: #64748b; font-size: 14px;">Naye phone launch, accessories updates aur technology ki taza khabrein (Auto-Updated Daily)</p>
+      <p style="margin: 0; color: #64748b; font-size: 14px;">Naye smartphone launch, accessories aur technology ki taaza khabrein (Auto-Refreshed)</p>
     </div>
 
     <!-- Live Auto News Grid -->
     <div id="newsFeed" class="news-grid">
-      <div class="loading-spinner">Taza tech khabrein load ho rahi hain... Kripya intezar karein...</div>
+      <div class="loading-spinner">🔄 Taaza khabrein load ho rahi hain... Kripya 2 second intezar karein...</div>
     </div>
   </div>
 
   <script>
-    // Free Tech RSS Feed to JSON Converter (NDTV Gadgets 360 / Android Police RSS)
-    const RSS_URL = "https://gadgets360.com/rss/news";
-    const API_URL = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(RSS_URL)}`;
+    const FEEDS = [
+      "https://indianexpress.com/section/technology/feed/",
+      "https://www.theverge.com/rss/index.xml",
+      "https://gadgets360.com/rss/news"
+    ];
 
-    async function fetchTechNews() {
+    async function loadNews() {
       const feedContainer = document.getElementById("newsFeed");
-      try {
-        const res = await fetch(API_URL);
-        const data = await res.json();
 
-        if (data.status === "ok" && data.items.length > 0) {
-          feedContainer.innerHTML = "";
-          
-          // Show top 9 fresh articles
-          data.items.slice(0, 9).forEach(item => {
-            // Find thumbnail image
-            let imgUrl = item.thumbnail || item.enclosure.link || "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&q=80";
+      for (let feed of FEEDS) {
+        try {
+          const res = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed)}`);
+          const data = await res.json();
+
+          if (data && data.status === "ok" && data.items && data.items.length > 0) {
+            feedContainer.innerHTML = "";
             
-            // Format publication date
-            let pubDate = new Date(item.pubDate).toLocaleDateString("en-IN", {
-              day: 'numeric',
-              month: 'short',
-              year: 'numeric'
+            data.items.slice(0, 9).forEach((item, index) => {
+              // Image detection fallback
+              let imgUrl = item.thumbnail || (item.enclosure && item.enclosure.link) || "";
+              if (!imgUrl) {
+                const sampleImages = [
+                  "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&q=80",
+                  "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600&q=80",
+                  "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600&q=80"
+                ];
+                imgUrl = sampleImages[index % sampleImages.length];
+              }
+
+              let pubDate = new Date(item.pubDate).toLocaleDateString("en-IN", {
+                day: 'numeric',
+                month: 'short',
+                year: 'numeric'
+              });
+
+              let tempDiv = document.createElement("div");
+              tempDiv.innerHTML = item.description || "";
+              let cleanText = tempDiv.textContent || tempDiv.innerText || "";
+              let shortDesc = cleanText.length > 120 ? cleanText.substring(0, 120) + "..." : cleanText;
+
+              const card = document.createElement("div");
+              card.className = "news-card";
+              card.innerHTML = `
+                <img src="${imgUrl}" alt="${item.title}" onerror="this.src='logo.png';">
+                <div class="news-body">
+                  <span class="news-date">📅 ${pubDate}</span>
+                  <div class="news-title">${item.title}</div>
+                  <div class="news-desc">${shortDesc}</div>
+                  <a href="${item.link}" target="_blank" rel="noopener" class="read-more-btn">Puri Khabar Padhein →</a>
+                </div>
+              `;
+              feedContainer.appendChild(card);
             });
-
-            // Clean description snippet
-            let tempDiv = document.createElement("div");
-            tempDiv.innerHTML = item.description;
-            let cleanText = tempDiv.textContent || tempDiv.innerText || "";
-            let shortDesc = cleanText.length > 110 ? cleanText.substring(0, 110) + "..." : cleanText;
-
-            const card = document.createElement("div");
-            card.className = "news-card";
-            card.innerHTML = `
-              <img src="${imgUrl}" alt="${item.title}" onerror="this.src='logo.png';">
-              <div class="news-body">
-                <span class="news-date">📅 ${pubDate}</span>
-                <div class="news-title">${item.title}</div>
-                <div class="news-desc">${shortDesc}</div>
-                <a href="${item.link}" target="_blank" rel="noopener" class="read-more-btn">Puri Khabar Padhein →</a>
-              </div>
-            `;
-            feedContainer.appendChild(card);
-          });
-        } else {
-          feedContainer.innerHTML = "<p style='text-align:center;'>Aaj ki khabrein jaldi hi update hongi.</p>";
+            return; // Successful fetch, exit loop
+          }
+        } catch (e) {
+          console.warn("Feed failed, trying next...", e);
         }
-      } catch (err) {
-        console.error(err);
-        feedContainer.innerHTML = "<p style='text-align:center;'>Khabrein load karne me dikkat hui. Kripya page refresh karein.</p>";
       }
+
+      // Fallback display if API rate limit hits
+      feedContainer.innerHTML = `
+        <div style="grid-column: 1 / -1; background: #ffffff; padding: 30px; border-radius: 12px; text-align: center;">
+          <h3>⚡ Taaza Updates Update Ho Rahe Hain</h3>
+          <p style="color: #64748b;">Naye smartphones aur offers ki direct jankari ke liye WhatsApp par judiye.</p>
+          <a href="https://wa.me/919473185145?text=Hello%204%20STAR%20MOBILE,%20aaj%20ke%20naye%20products%20aur%20offers%20bhejiye" 
+             style="display: inline-block; background: #25d366; color: #fff; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; margin-top: 10px;">
+             WhatsApp Par Taza Offers Dekhein
+          </a>
+        </div>
+      `;
     }
 
-    fetchTechNews();
+    loadNews();
   </script>
 </body>
 </html>
