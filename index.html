@@ -399,107 +399,6 @@
   cursor: pointer;
   float: right;
 }
-
-/* 🔍 Spares Section & Live Search UI */
-.spares-container-box {
-  background: #ffffff;
-  border-radius: 12px;
-  padding: 25px 20px;
-  margin-top: 35px;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-}
-.spares-badge-tag {
-  display: inline-block;
-  background: #0284c7;
-  color: #fff;
-  padding: 5px 14px;
-  border-radius: 20px;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  margin-bottom: 10px;
-}
-.spares-search-wrap {
-  max-width: 650px;
-  margin: 20px auto;
-  position: relative;
-}
-.spares-search-wrap input {
-  width: 100%;
-  padding: 14px 20px 14px 45px;
-  font-size: 15px;
-  border: 2px solid #0284c7;
-  border-radius: 30px;
-  outline: none;
-  box-sizing: border-box;
-  box-shadow: 0 3px 10px rgba(2, 132, 199, 0.1);
-}
-.spares-search-icon {
-  position: absolute;
-  left: 18px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #0284c7;
-  font-size: 17px;
-}
-.spares-tabs {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-bottom: 25px;
-  flex-wrap: wrap;
-}
-.spares-tab-btn {
-  padding: 7px 18px;
-  border: 1px solid #cbd5e1;
-  background: #f8fafc;
-  color: #334155;
-  border-radius: 20px;
-  cursor: pointer;
-  font-size: 13px;
-  font-weight: 600;
-  transition: all 0.2s;
-}
-.spares-tab-btn.active-tab {
-  background: #0284c7;
-  color: #ffffff;
-  border-color: #0284c7;
-}
-.spares-cards-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 15px;
-}
-.spare-item-card {
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 10px;
-  padding: 15px;
-  text-align: left;
-  transition: transform 0.2s;
-}
-.spare-item-card:hover {
-  transform: translateY(-3px);
-}
-.spare-cat-pill {
-  font-size: 11px;
-  font-weight: 700;
-  padding: 3px 8px;
-  border-radius: 4px;
-  text-transform: uppercase;
-  display: inline-block;
-  margin-bottom: 8px;
-}
-.pill-lcd { background: #e0f2fe; color: #0369a1; }
-.pill-battery { background: #dcfce7; color: #15803d; }
-.pill-touchglass { background: #fef08a; color: #854d0e; }
-.pill-backcover { background: #fce7f3; color: #9d174d; }
-.pill-fastcharger { background: #fee2e2; color: #b91c1c; }
-.pill-subcc { background: #ffedd5; color: #c2410c; }
-.pill-headphone { background: #ede9fe; color: #6d28d9; }
-.pill-datacable { background: #ccfbf1; color: #0f766e; }
-.pill-default { background: #e2e8f0; color: #334155; }
 </style>
 </head>
 
@@ -529,7 +428,7 @@
 <nav>
 <a href="#home">Home</a>
 <a href="#products">Categories</a>
-<a href="services/mobile-repair-spare-parts.html">Services & Spares</a>
+<a href="services/mobile-repair-spare-parts.html" style="color: #0284c7; font-weight: 700;">🔧 Spares Directory</a>
 <a href="news.html" style="color: #ef4444; font-weight: bold;">● Tech News</a>
 <a href="course.html" style="color: #10b981; font-weight: bold;">🎓 Free Course</a>
 <a href="blog/original-vs-duplicate-display.html">Tech Guide</a>
@@ -696,7 +595,7 @@
 </div>
 
 
-<!-- Store Highlights Section -->
+<!-- Store Highlights Section (CLEAN & LINKED DIRECTLY TO SPARES DIRECTORY) -->
 <section id="gallery" class="products" style="background: #f8f9fa;">
 <h2>Store Highlights & Services</h2>
 <div class="product-grid">
@@ -708,13 +607,14 @@
     </div>
   </div>
 
-  <!-- Direct Clickable Genuine Spare Parts Card -->
-  <a href="#parts-search-directory" style="text-decoration: none; color: inherit; display: block;">
+  <!-- Direct Clickable Genuine Spare Parts Card to Open Dedicated Search Page -->
+  <a href="services/mobile-repair-spare-parts.html" style="text-decoration: none; color: inherit; display: block;">
     <div class="card" style="border: 2px solid #0066cc;">
       <img class="product-card-img" src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&q=80" alt="Genuine Repair Spare Parts Kishanganj">
       <div class="card-content">
         <h3 style="color: #0066cc;">Genuine Spare Parts →</h3>
-        <p>Displays, charging boards, batteries, and camera lenses. Click karke niche model list search karein!</p>
+        <p>500+ LCD folder combos, original batteries, tempered glass & charging CC boards search karein!</p>
+        <span class="view-folder-btn"><i class="fa-solid fa-magnifying-glass"></i> Open Parts Directory Page →</span>
       </div>
     </div>
   </a>
@@ -725,42 +625,6 @@
       <h3>20+ Years Trust</h3>
       <p>Direct support across 3 convenient branch locations in Kishanganj.</p>
     </div>
-  </div>
-</div>
-
-<!-- 🔍 YAHAN SET HAI: GENUINE SPARE PARTS CARD KE THEEK NICHE LIVE GOOGLE SHEET SEARCH -->
-<div id="parts-search-directory" class="spares-container-box">
-  <div style="text-align: center;">
-    <span class="spares-badge-tag">★ 100% GENUINE MOBILE SPARES DIRECTORY</span>
-    <h2 style="font-size: 24px; color: #1e293b; margin: 4px 0 8px 0;">Mobile Parts & Model Compatibility List</h2>
-    <p style="color: #64748b; font-size: 14px; margin: 0 0 15px 0;">Apne smartphone ke hisaab se compatible display combo, battery code aur spare parts search karein</p>
-    
-    <!-- Live Search Box with Icon -->
-    <div class="spares-search-wrap">
-      <i class="fa-solid fa-magnifying-glass spares-search-icon"></i>
-      <input 
-        type="text" 
-        id="sparesSearchInput" 
-        placeholder="Model, Brand ya Part code search karein (e.g. Vivo Y200, BN53, Reno, M14, 65W)..."
-        autocomplete="off"
-      >
-    </div>
-
-    <!-- Quick Category Filter Buttons -->
-    <div class="spares-tabs">
-      <button type="button" class="spares-tab-btn active-tab" onclick="setSparesFilter('all')">All Parts (500+)</button>
-      <button type="button" class="spares-tab-btn" onclick="setSparesFilter('LCD')">LCD Displays</button>
-      <button type="button" class="spares-tab-btn" onclick="setSparesFilter('Battery')">Li-ion Batteries</button>
-      <button type="button" class="spares-tab-btn" onclick="setSparesFilter('Touch Glass')">Touch & Tempered</button>
-      <button type="button" class="spares-tab-btn" onclick="setSparesFilter('Back Cover')">Back Covers</button>
-      <button type="button" class="spares-tab-btn" onclick="setSparesFilter('Sub CC')">Charging CC Boards</button>
-      <button type="button" class="spares-tab-btn" onclick="setSparesFilter('Fast Charger')">Chargers & Adapters</button>
-    </div>
-  </div>
-
-  <!-- Live Results Grid -->
-  <div id="sparesDisplayGrid" class="spares-cards-grid">
-    <p style="grid-column: 1/-1; text-align: center; color: #64748b; padding: 30px;">Loading spare parts directory from Google Sheet...</p>
   </div>
 </div>
 </section>
@@ -859,7 +723,7 @@
 </section>
 
 
-<!-- Password Protected Admin Section (Hidden by Default) -->
+<!-- Password Protected Admin Section -->
 <section id="admin-panel">
   <div class="admin-section">
     <button class="logout-btn" onclick="lockAdminPanel()">🔒 Lock & Hide</button>
@@ -1077,130 +941,6 @@
   });
 
   syncProducts();
-</script>
-
-<!-- ⚡ GOOGLE SHEET LIVE CONNECT & SEARCH ENGINE (500+ Items Integrated) -->
-<script>
-  // DIRECT EXPORT CSV LINK FROM YOUR GOOGLE SHEET
-  const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/1V4L-QSjipuuOSN774KsxOuJCuyGB5mSsuylf7_i8TtM/export?format=csv";
-
-  let sparePartsDatabase = [];
-  let currentSpareFilter = "all";
-
-  function parseCSV(text) {
-    const lines = text.trim().split("\n");
-    const result = [];
-    for (let i = 1; i < lines.length; i++) {
-      if (!lines[i].trim()) continue;
-      const row = lines[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
-      if (row.length >= 3) {
-        result.push({
-          category: row[0]?.replace(/^"|"$/g, '').trim() || "Spares",
-          title: row[1]?.replace(/^"|"$/g, '').trim() || "",
-          compatible: row[2]?.replace(/^"|"$/g, '').trim() || "",
-          specs: row[3]?.replace(/^"|"$/g, '').trim() || "",
-          imageUrl: row[4]?.replace(/^"|"$/g, '').trim() || ""
-        });
-      }
-    }
-    return result;
-  }
-
-  async function loadPartsFromSheet() {
-    const container = document.getElementById("sparesDisplayGrid");
-    try {
-      const res = await fetch(SHEET_CSV_URL);
-      if (!res.ok) throw new Error("Network response was not ok");
-      const csvText = await res.text();
-      sparePartsDatabase = parseCSV(csvText);
-      renderSparePartsDirectory();
-    } catch (error) {
-      console.error("Sheet loading error:", error);
-      if (container) {
-        container.innerHTML = `
-          <div style="grid-column: 1/-1; text-align: center; padding: 30px; color: #dc2626;">
-            <p><strong>Google Sheet data connect nahi ho saka.</strong></p>
-            <small style="color: #64748b;">Kripya check karein ki Google Sheet ki setting 'Anyone with the link can view' par set hai.</small>
-          </div>`;
-      }
-    }
-  }
-
-  function getPillClass(cat) {
-    const c = cat.toLowerCase();
-    if (c.includes("lcd")) return "pill-lcd";
-    if (c.includes("battery")) return "pill-battery";
-    if (c.includes("glass")) return "pill-touchglass";
-    if (c.includes("cover")) return "pill-backcover";
-    if (c.includes("sub cc")) return "pill-subcc";
-    if (c.includes("charger")) return "pill-fastcharger";
-    if (c.includes("headphone")) return "pill-headphone";
-    if (c.includes("cable")) return "pill-datacable";
-    return "pill-default";
-  }
-
-  function renderSparePartsDirectory() {
-    const input = document.getElementById("sparesSearchInput");
-    const container = document.getElementById("sparesDisplayGrid");
-    if (!input || !container) return;
-
-    const query = input.value.toLowerCase().trim();
-    container.innerHTML = "";
-
-    const results = sparePartsDatabase.filter(item => {
-      const matchCat = (currentSpareFilter === "all") || (item.category.toLowerCase() === currentSpareFilter.toLowerCase());
-      const matchSearch = item.title.toLowerCase().includes(query) || 
-                          item.compatible.toLowerCase().includes(query) ||
-                          item.specs.toLowerCase().includes(query);
-      return matchCat && matchSearch;
-    });
-
-    if (results.length === 0) {
-      container.innerHTML = `
-        <div style="grid-column: 1 / -1; text-align: center; padding: 40px 10px; color: #64748b;">
-          <i class="fa-solid fa-circle-exclamation" style="font-size: 28px; color: #cbd5e1; margin-bottom: 10px; display: block;"></i>
-          <strong>Koi part match nahi hua!</strong>
-          <p style="margin: 5px 0 0 0; font-size: 13px;">Dusra model number type karein ya direct counter/WhatsApp par contact karein.</p>
-        </div>`;
-      return;
-    }
-
-    results.forEach(item => {
-      const card = document.createElement("div");
-      card.className = "spare-item-card";
-      
-      const imgHtml = item.imageUrl ? `<img src="${item.imageUrl}" style="width: 100%; height: 110px; object-fit: cover; border-radius: 6px; margin-bottom: 8px;">` : '';
-
-      card.innerHTML = `
-        ${imgHtml}
-        <span class="spare-cat-pill ${getPillClass(item.category)}">${item.category}</span>
-        <h4 style="margin: 0 0 6px 0; font-size: 15px; color: #0f172a; font-weight: 600;">${item.title}</h4>
-        <p style="margin: 0 0 4px 0; font-size: 13px; color: #64748b; line-height: 1.4;">
-          <strong style="color: #334155;">Compatible Models:</strong> ${item.compatible}
-        </p>
-        ${item.specs ? `<small style="color: #0284c7; font-weight: 500;">⚡ ${item.specs}</small>` : ''}
-      `;
-      container.appendChild(card);
-    });
-  }
-
-  function setSparesFilter(cat) {
-    currentSpareFilter = cat;
-    document.querySelectorAll(".spares-tab-btn").forEach(btn => {
-      const isMatch = (cat === "all" && btn.innerText.includes("All")) || 
-                      (btn.innerText.toLowerCase().includes(cat.toLowerCase()));
-      btn.classList.toggle("active-tab", isMatch);
-    });
-    renderSparePartsDirectory();
-  }
-
-  document.addEventListener("DOMContentLoaded", () => {
-    const input = document.getElementById("sparesSearchInput");
-    if (input) {
-      input.addEventListener("input", renderSparePartsDirectory);
-    }
-    loadPartsFromSheet();
-  });
 </script>
 
 <script src="script.js"></script>
