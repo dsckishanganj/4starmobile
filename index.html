@@ -224,7 +224,7 @@
   box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 
-/* Dynamic Hero Section Background */
+/* ================= MODERN DYNAMIC HERO SECTION ================= */
 .hero-phone-bg {
   position: relative;
   background-color: #0b1120;
@@ -232,13 +232,12 @@
   background-position: center center !important;
   background-repeat: no-repeat !important;
   color: #fff;
-  padding: 70px 20px 80px 20px;
+  padding: 55px 15px 75px 15px;
   text-align: center;
   transition: background-image 1.2s ease-in-out;
   overflow: hidden;
 }
 
-/* Dark Gradient Overlay for Maximum Readability */
 .hero-phone-bg::before {
   content: "";
   position: absolute;
@@ -246,13 +245,97 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(180deg, rgba(15, 23, 42, 0.85) 0%, rgba(15, 23, 42, 0.72) 50%, rgba(15, 23, 42, 0.88) 100%);
+  background: linear-gradient(180deg, rgba(11, 17, 32, 0.88) 0%, rgba(15, 23, 42, 0.75) 50%, rgba(11, 17, 32, 0.92) 100%);
   z-index: 1;
 }
 
 .hero-content {
   position: relative;
   z-index: 2;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Branch Quick Switcher Chips */
+.branch-pill-bar {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+.branch-pill {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #f1f5f9;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.branch-pill:hover {
+  background: #0066cc;
+  border-color: #0066cc;
+  color: #fff;
+}
+
+/* Dynamic Live Animated Text */
+#dynamicHeroTitle {
+  color: #fff;
+  font-size: 2.2rem;
+  font-weight: 800;
+  min-height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.4s ease;
+}
+#dynamicHeroDesc {
+  color: #cbd5e1;
+  max-width: 680px;
+  margin: 10px auto 20px auto;
+  font-size: 1rem;
+  line-height: 1.5;
+  min-height: 48px;
+  transition: opacity 0.4s ease;
+}
+
+/* Model Search Box in Hero */
+.parts-search-container {
+  max-width: 520px;
+  margin: 0 auto 22px auto;
+  display: flex;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  border-radius: 30px;
+  overflow: hidden;
+  border: 2px solid rgba(255,255,255,0.25);
+  background: #fff;
+}
+.parts-search-container input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 12px 18px;
+  font-size: 14px;
+}
+.parts-search-container button {
+  background: #25D366;
+  color: #fff;
+  border: none;
+  padding: 0 18px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.2s ease;
+}
+.parts-search-container button:hover {
+  background: #1eb855;
 }
 
 /* Quick Action Highlights */
@@ -324,7 +407,6 @@
   padding: 15px;
 }
 
-/* Category Badge Link */
 .view-folder-btn {
   display: inline-block;
   margin-top: 10px;
@@ -333,7 +415,6 @@
   font-size: 14px;
 }
 
-/* WhatsApp Order Button */
 .whatsapp-order-btn {
   display: inline-flex;
   align-items: center;
@@ -495,18 +576,34 @@
 </nav>
 </header>
 
-<!-- Hero Banner (Dynamic Auto-Changing Parts & Phones Background) -->
+<!-- ================= HERO BANNER WITH DYNAMIC BACKGROUND & SMART TEXT ================= -->
 <section id="home" class="hero hero-phone-bg">
 <div class="hero-content">
-  <div style="background: rgba(255, 193, 7, 0.25); border: 1px solid #ffc107; color: #ffeb3b; display: inline-block; padding: 6px 16px; border-radius: 30px; margin-bottom: 15px; font-weight: 600;">
-    ⭐ 5.0 Google Rating (22 Reviews)
+
+  <!-- Branch Switcher Chips -->
+  <div class="branch-pill-bar">
+    <a href="tel:9473185145" class="branch-pill">🏬 Main Branch (Mahavir Marg)</a>
+    <a href="tel:9308865738" class="branch-pill">🔧 Display & Battery Hub (Fal Chowk)</a>
+    <a href="tel:9473371371" class="branch-pill">📱 Glass & Cover (Gandhi Chowk)</a>
   </div>
 
-  <h2 style="color: #fff; font-size: 2.3rem;">Premium Mobile Accessories Store</h2>
+  <div style="background: rgba(255, 193, 7, 0.25); border: 1px solid #ffc107; color: #ffeb3b; display: inline-block; padding: 6px 16px; border-radius: 30px; margin-bottom: 12px; font-weight: 600; font-size: 13px;">
+    ⭐ 5.0 Rating (22+ Reviews) • 🔬 Testing Counter Live
+  </div>
 
-  <p style="color: #e0e0e0; max-width: 650px; margin: 15px auto;">
-  Original Mobile Accessories • Genuine Spare Parts • LCD Display • Battery • Charger • Data Cable • Neckband • Earbuds
+  <!-- Dynamic Heading & Dynamic Paragraph (Updated automatically via JS) -->
+  <h2 id="dynamicHeroTitle">★ 4 STAR MOBILE ★</h2>
+  <p id="dynamicHeroDesc">
+    20+ Years Trusted Mobile Accessories & Genuine Spare Parts Hub in Kishanganj.
   </p>
+
+  <!-- Instant Model Stock Checker -->
+  <div class="parts-search-container">
+    <input type="text" id="modelSearchInput" placeholder="Apna Phone Model likhein (e.g. Redmi 12, Vivo Y20)...">
+    <button type="button" onclick="searchModelOnWhatsApp()">
+      <i class="fa-brands fa-whatsapp"></i> Rate Check
+    </button>
+  </div>
 
   <div class="hero-buttons">
     <a class="btn call" href="tel:9473371370"><i class="fa-solid fa-phone"></i> Call Primary</a>
@@ -1005,31 +1102,85 @@
 
 <script src="script.js"></script>
 
-<!-- Auto Background Changer for Hero Section -->
+<!-- ================= DYNAMIC SYNCED HERO ROTATOR & SEARCH LOGIC ================= -->
 <script>
-  (function() {
-    var heroWallpapers = [
-      'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=1600&q=80', // Smartphones
-      'https://images.unsplash.com/photo-1597740985671-2a8a3b80532e?w=1600&q=80', // Repair Tools & Parts
-      'https://images.unsplash.com/photo-1588508065123-287b28e013da?w=1600&q=80', // Fast Chargers & Cable
-      'https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=1600&q=80', // Motherboard & Chips
-      'https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?w=1600&q=80', // Mobile Gadgets
-      'https://images.unsplash.com/photo-1580910051074-3eb694886505?w=1600&q=80'  // LCD Displays & Screen
-    ];
-
-    var heroSection = document.getElementById('home');
-    if (!heroSection) return;
-
-    var currentBgIndex = Math.floor(Math.random() * heroWallpapers.length);
-
-    function setHeroBackground() {
-      heroSection.style.backgroundImage = "url('" + heroWallpapers[currentBgIndex] + "')";
-      currentBgIndex = (currentBgIndex + 1) % heroWallpapers.length;
+  // Dynamic Slides Data: Photo + Title + Tagline Sync
+  const heroSlides = [
+    {
+      img: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=1600&q=80',
+      title: '⚡ Latest 5G Smartphones & Gadgets',
+      desc: 'All Brands Mobile Accessories, Neckbands, Premium Covers & 11D Full Glue Tempered Glass in Kishanganj.'
+    },
+    {
+      img: 'https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=1600&q=80',
+      title: '📲 Original LCD Display & Folder Combos',
+      desc: 'OLED, INCELL & Original Quality Displays with Live Testing Counter facility before fitting!'
+    },
+    {
+      img: 'https://images.unsplash.com/photo-1588508065123-287b28e013da?w=1600&q=80',
+      title: '⚡ 33W, 65W & 80W Super Fast Chargers',
+      desc: 'Braided Type-C Fast Data Cables, Heavy Power Banks & Original Adapters with warranty support.'
+    },
+    {
+      img: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=1600&q=80',
+      title: '🔋 High-Backup Original Mobile Batteries',
+      desc: 'Long life certified replacement batteries for Redmi, Realme, Samsung, Vivo, Oppo & iPhone.'
+    },
+    {
+      img: 'https://images.unsplash.com/photo-1597740985671-2a8a3b80532e?w=1600&q=80',
+      title: '🔧 Professional Spares & IC Hardware Tools',
+      desc: 'Motherboard spares, CC charging boards, camera lens, OCA tools & genuine technical parts center.'
     }
+  ];
 
-    setHeroBackground();
-    setInterval(setHeroBackground, 5000);
-  })();
+  let currentSlideIndex = Math.floor(Math.random() * heroSlides.length);
+
+  function syncHeroSlide() {
+    const heroEl = document.getElementById('home');
+    const titleEl = document.getElementById('dynamicHeroTitle');
+    const descEl = document.getElementById('dynamicHeroDesc');
+
+    if (!heroEl || !titleEl || !descEl) return;
+
+    // Smooth Text Fade
+    titleEl.style.opacity = '0';
+    descEl.style.opacity = '0';
+
+    setTimeout(() => {
+      const slide = heroSlides[currentSlideIndex];
+      heroEl.style.backgroundImage = "url('" + slide.img + "')";
+      titleEl.innerText = slide.title;
+      descEl.innerText = slide.desc;
+
+      titleEl.style.opacity = '1';
+      descEl.style.opacity = '1';
+
+      currentSlideIndex = (currentSlideIndex + 1) % heroSlides.length;
+    }, 300);
+  }
+
+  // Quick WhatsApp Search Logic for Phone Models
+  function searchModelOnWhatsApp() {
+    const inputVal = document.getElementById('modelSearchInput').value.trim();
+    if (!inputVal) {
+      alert("Kripya apna phone model likhein (e.g. Redmi Note 10)");
+      return;
+    }
+    const targetMsg = encodeURIComponent(`Hello 4 STAR MOBILE, mujhe "${inputVal}" ke liye Display Combo / Battery / Cover / Parts ka stock aur price check karna hai.`);
+    window.open(`https://wa.me/919473371370?text=${targetMsg}`, '_blank');
+  }
+
+  // Allow 'Enter' key in search box
+  document.getElementById('modelSearchInput').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+      searchModelOnWhatsApp();
+    }
+  });
+
+  window.addEventListener('DOMContentLoaded', () => {
+    syncHeroSlide();
+    setInterval(syncHeroSlide, 5000); // Cycles every 5 seconds
+  });
 </script>
 </body>
 </html>
