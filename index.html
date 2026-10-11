@@ -170,7 +170,6 @@ html, body {
   padding: 0;
   overflow-x: hidden;
   background-color: #0b1120;
-  font-family: 'Poppins', sans-serif;
 }
 
 /* Breaking News Ticker Bar */
@@ -226,111 +225,52 @@ html, body {
   100% { transform: translate3d(-100%, 0, 0); }
 }
 
-/* Header & Nav Styling - Colourful & Modern */
+/* Clean Header Style */
 .header {
   width: 100%;
-  background: linear-gradient(180deg, #070d19 0%, #0b1528 100%);
-  padding: 20px 10px 15px 10px;
-  box-sizing: border-box;
+  background-color: #0b1120;
+  padding: 15px 10px;
   text-align: center;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 .header-logo-wrap {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 14px;
-  margin-bottom: 18px;
+  gap: 12px;
+  margin-bottom: 12px;
 }
 .header-logo-img {
-  width: 52px;
-  height: 52px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 0 15px rgba(255, 193, 7, 0.4);
-  border: 2px solid #ffc107;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 
-.header h1 {
-  font-size: 1.7rem;
-  color: #facc15;
-  margin: 0;
-  font-weight: 800;
-  text-shadow: 0 2px 10px rgba(250, 204, 21, 0.3);
-  letter-spacing: 0.5px;
-}
-.header p {
-  color: #94a3b8;
-  margin: 3px 0 0 0;
-  font-size: 13px;
-  font-weight: 500;
-}
-
-/* Navigation Links - Pill Badges Style */
+/* Nav Menu: Original Clean Look + Desktop Cut Prevention */
 nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 8px 12px;
-  max-width: 1200px;
+  gap: 12px 18px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 8px 10px;
+  padding: 6px 10px;
 }
 
 nav a {
-  color: #f1f5f9;
+  color: #ffffff;
   text-decoration: none;
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 500;
   white-space: nowrap;
-  padding: 6px 14px;
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  transition: all 0.25s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
+  transition: color 0.2s ease;
 }
 
 nav a:hover {
-  background: rgba(255, 255, 255, 0.18);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-}
-
-/* Custom Highlight Colours for Special Navigation Items */
-nav a.nav-faq {
-  color: #fbbf24;
-  border-color: rgba(251, 191, 36, 0.4);
-  background: rgba(251, 191, 36, 0.1);
-}
-nav a.nav-faq:hover {
-  background: #fbbf24;
-  color: #0b1120;
-}
-
-nav a.nav-enquiry {
-  color: #a855f7;
-  border-color: rgba(168, 85, 247, 0.4);
-  background: rgba(168, 85, 247, 0.12);
-}
-nav a.nav-enquiry:hover {
-  background: #a855f7;
-  color: #fff;
-}
-
-nav a.nav-contact {
-  color: #22c55e;
-  border-color: rgba(34, 197, 94, 0.5);
-  background: rgba(34, 197, 94, 0.15);
-  box-shadow: 0 0 10px rgba(34, 197, 94, 0.2);
-}
-nav a.nav-contact:hover {
-  background: #22c55e;
-  color: #fff;
+  color: #38bdf8;
 }
 
 /* ================= MODERN DYNAMIC HERO SECTION ================= */
@@ -341,12 +281,11 @@ nav a.nav-contact:hover {
   background-position: center center !important;
   background-repeat: no-repeat !important;
   color: #fff;
-  padding: 50px 15px 75px 15px;
+  padding: 55px 15px 75px 15px;
   text-align: center;
   transition: background-image 1.2s ease-in-out;
   overflow: hidden;
   width: 100%;
-  box-sizing: border-box;
 }
 
 .hero-phone-bg::before {
@@ -356,7 +295,7 @@ nav a.nav-contact:hover {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(180deg, rgba(11, 17, 32, 0.90) 0%, rgba(15, 23, 42, 0.78) 50%, rgba(11, 17, 32, 0.94) 100%);
+  background: linear-gradient(180deg, rgba(11, 17, 32, 0.88) 0%, rgba(15, 23, 42, 0.75) 50%, rgba(11, 17, 32, 0.92) 100%);
   z-index: 1;
 }
 
@@ -383,16 +322,15 @@ nav a.nav-contact:hover {
   color: #f1f5f9;
   font-size: 11px;
   font-weight: 600;
-  padding: 6px 14px;
+  padding: 5px 12px;
   border-radius: 20px;
   text-decoration: none;
   transition: all 0.2s ease;
 }
 .branch-pill:hover {
-  background: #0284c7;
-  border-color: #38bdf8;
+  background: #0066cc;
+  border-color: #0066cc;
   color: #fff;
-  transform: translateY(-1px);
 }
 
 /* Dynamic Live Animated Text */
@@ -405,7 +343,6 @@ nav a.nav-contact:hover {
   align-items: center;
   justify-content: center;
   transition: opacity 0.4s ease;
-  word-break: break-word;
 }
 #dynamicHeroDesc {
   color: #cbd5e1;
@@ -423,8 +360,8 @@ nav a.nav-contact:hover {
   width: 100%;
   margin: 0 auto 22px auto;
   display: flex;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.35);
-  border-radius: 35px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  border-radius: 30px;
   overflow: hidden;
   border: 2px solid rgba(255,255,255,0.25);
   background: #fff;
@@ -434,73 +371,51 @@ nav a.nav-contact:hover {
   min-width: 0;
   border: none;
   outline: none;
-  padding: 13px 18px;
+  padding: 12px 18px;
   font-size: 14px;
 }
 .parts-search-container button {
-  background: linear-gradient(135deg, #25D366, #128C7E);
+  background: #25D366;
   color: #fff;
   border: none;
-  padding: 0 20px;
+  padding: 0 18px;
   font-size: 14px;
   font-weight: 700;
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 7px;
+  gap: 6px;
   white-space: nowrap;
-  transition: all 0.2s ease;
+  transition: background 0.2s ease;
 }
 .parts-search-container button:hover {
-  background: linear-gradient(135deg, #1fa855, #0f6f63);
+  background: #1eb855;
 }
 
-/* ================= COLOURFUL & BOLD HERO ACTION BUTTONS ================= */
+/* Hero Action Buttons */
 .hero-buttons {
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 15px;
+  gap: 12px;
   flex-wrap: wrap;
-  margin-top: 15px;
 }
-
 .hero-buttons .btn {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 13px 26px;
-  border-radius: 30px;
+  gap: 8px;
+  padding: 12px 22px;
+  border-radius: 25px;
   text-decoration: none;
-  font-size: 15px;
   font-weight: 700;
-  letter-spacing: 0.3px;
-  transition: all 0.3s ease;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  font-size: 14px;
 }
-
-/* Primary Call Button - Vibrant Orange Gradient */
 .hero-buttons .btn.call {
-  background: linear-gradient(135deg, #ff9900, #ff5500);
-  color: #ffffff;
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: #f59e0b;
+  color: #fff;
 }
-.hero-buttons .btn.call:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 10px 25px rgba(255, 115, 0, 0.45);
-}
-
-/* Primary WhatsApp Button - Ultra Glowing Green Gradient */
 .hero-buttons .btn.whatsapp {
-  background: linear-gradient(135deg, #25D366, #059669);
-  color: #ffffff;
-  border: 2px solid rgba(255, 255, 255, 0.35);
-  box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
-}
-.hero-buttons .btn.whatsapp:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 0 28px rgba(37, 211, 102, 0.7);
+  background: #25D366;
+  color: #fff;
 }
 
 /* Quick Action Highlights */
@@ -514,24 +429,23 @@ nav a.nav-contact:hover {
   position: relative;
   z-index: 10;
   width: 100%;
-  box-sizing: border-box;
 }
 .action-box {
   background: #ffffff;
   padding: 16px 20px;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   display: flex;
   align-items: center;
   gap: 15px;
   text-decoration: none;
   color: inherit;
-  border-left: 5px solid #0066cc;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border-left: 4px solid #0066cc;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .action-box:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 24px rgba(0,0,0,0.18);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 .action-box.red-border { border-left-color: #ef4444; }
 .action-box.green-border { border-left-color: #10b981; }
@@ -559,8 +473,8 @@ nav a.nav-contact:hover {
 }
 .card {
   overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   background: #fff;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   cursor: pointer;
@@ -568,7 +482,7 @@ nav a.nav-contact:hover {
 }
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 22px rgba(0,0,0,0.14);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
 }
 .card-content {
   padding: 15px;
@@ -588,20 +502,14 @@ nav a.nav-contact:hover {
   justify-content: center;
   gap: 8px;
   width: 100%;
-  background: linear-gradient(135deg, #25D366, #128C7E);
+  background: #25D366;
   color: white;
-  padding: 11px 0;
-  border-radius: 8px;
+  padding: 10px 0;
+  border-radius: 6px;
   text-decoration: none;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 0.95rem;
   margin-top: 10px;
-  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.whatsapp-order-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.45);
 }
 
 /* Category Modal / Popup View */
@@ -612,21 +520,19 @@ nav a.nav-contact:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.75);
-  backdrop-filter: blur(4px);
+  background: rgba(0,0,0,0.7);
   z-index: 99999;
   overflow-y: auto;
   padding: 20px 10px;
-  box-sizing: border-box;
 }
 .modal-content {
   background: #fff;
   max-width: 900px;
   margin: 30px auto;
-  border-radius: 14px;
-  padding: 22px;
+  border-radius: 12px;
+  padding: 20px;
   position: relative;
-  box-shadow: 0 12px 35px rgba(0,0,0,0.4);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 .modal-close-btn {
   position: absolute;
@@ -670,7 +576,6 @@ nav a.nav-contact:hover {
   border: 1px solid #cbd5e1;
   border-radius: 6px;
   font-size: 15px;
-  box-sizing: border-box;
 }
 .admin-btn {
   width: 100%;
@@ -709,30 +614,6 @@ nav a.nav-contact:hover {
   cursor: pointer;
   float: right;
 }
-
-/* Floating WhatsApp Button Glow Effect */
-.floating-whatsapp {
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-  background: linear-gradient(135deg, #25D366, #128C7E);
-  color: white;
-  width: 58px;
-  height: 58px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 32px;
-  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
-  z-index: 9999;
-  text-decoration: none;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-.floating-whatsapp:hover {
-  transform: scale(1.1);
-  box-shadow: 0 10px 30px rgba(37, 211, 102, 0.7);
-}
 </style>
 </head>
 
@@ -754,23 +635,24 @@ nav a.nav-contact:hover {
 <div class="logo header-logo-wrap">
   <img src="logo-round.png" alt="4 Star Mobile Logo" class="header-logo-img">
   <div>
-    <h1>★ 4 STAR MOBILE ★</h1>
-    <p>20+ Years Trusted Mobile Accessories Hub</p>
+    <h1 style="color: #fff; margin: 0; font-size: 1.6rem; font-weight: 800;">★ 4 STAR MOBILE ★</h1>
+    <p style="color: #94a3b8; margin: 2px 0 0 0; font-size: 13px;">20+ Years Trusted Mobile Accessories Hub</p>
   </div>
 </div>
 
+<!-- Clean Nav Links (Pehle Jaisa Plain Text Look) -->
 <nav>
-<a href="#home">🏠 Home</a>
-<a href="#products">🛍️ Categories</a>
-<a href="services/mobile-repair-spare-parts.html" style="color: #38bdf8; border-color: rgba(56, 189, 248, 0.4);">🔧 Spares Directory</a>
-<a href="news.html" style="color: #f87171; border-color: rgba(248, 113, 113, 0.4);">⚡ Tech News</a>
-<a href="course.html" style="color: #34d399; border-color: rgba(52, 211, 153, 0.4);">🎓 Free Course</a>
-<a href="digital-marketing/" style="color: #60a5fa; border-color: rgba(96, 165, 250, 0.4);">📱 Digital Marketing</a>
-<a href="blog/original-vs-duplicate-display.html">📖 Tech Guide</a>
-<a href="about.html">🏢 About Us</a>
-<a href="faq.html" class="nav-faq">❓ FAQ</a>
-<a href="enquiry.html" class="nav-enquiry">📝 Enquiry</a>
-<a href="#contact" class="nav-contact"><i class="fa-solid fa-phone"></i> Contact</a>
+<a href="#home">Home</a>
+<a href="#products">Categories</a>
+<a href="services/mobile-repair-spare-parts.html" style="color: #38bdf8; font-weight: 600;">🔧 Spares Directory</a>
+<a href="news.html" style="color: #ef4444; font-weight: 600;">● Tech News</a>
+<a href="course.html" style="color: #10b981; font-weight: 600;">🎓 Free Course</a>
+<a href="digital-marketing/" style="color: #60a5fa; font-weight: 600;">📱 Digital Marketing</a>
+<a href="blog/original-vs-duplicate-display.html">Tech Guide</a>
+<a href="about.html">About Us</a>
+<a href="faq.html">FAQ</a>
+<a href="enquiry.html">Enquiry</a>
+<a href="#contact">Contact</a>
 </nav>
 </header>
 
@@ -785,7 +667,7 @@ nav a.nav-contact:hover {
     <a href="tel:9473371371" class="branch-pill">📱 Glass & Cover (Gandhi Chowk)</a>
   </div>
 
-  <div style="background: rgba(255, 193, 7, 0.22); border: 1px solid #ffc107; color: #ffeb3b; display: inline-block; padding: 6px 18px; border-radius: 30px; margin-bottom: 14px; font-weight: 600; font-size: 13px; box-shadow: 0 0 12px rgba(255, 193, 7, 0.25);">
+  <div style="background: rgba(255, 193, 7, 0.25); border: 1px solid #ffc107; color: #ffeb3b; display: inline-block; padding: 6px 16px; border-radius: 30px; margin-bottom: 12px; font-weight: 600; font-size: 13px;">
     ⭐ 5.0 Rating (22+ Reviews) • 🔬 Testing Counter Live
   </div>
 
@@ -799,18 +681,13 @@ nav a.nav-contact:hover {
   <div class="parts-search-container">
     <input type="text" id="modelSearchInput" placeholder="Apna Phone Model likhein (e.g. Redmi 12, Vivo Y20)...">
     <button type="button" onclick="searchModelOnWhatsApp()">
-      <i class="fa-brands fa-whatsapp" style="font-size: 16px;"></i> Rate Check
+      <i class="fa-brands fa-whatsapp"></i> Rate Check
     </button>
   </div>
 
-  <!-- Big Colourful Hero Action Buttons -->
   <div class="hero-buttons">
-    <a class="btn call" href="tel:9473371370">
-      <i class="fa-solid fa-phone"></i> Call Primary
-    </a>
-    <a class="btn whatsapp" href="https://wa.me/919473371370?text=Hello%204%20STAR%20MOBILE,%20mujhe%20enquiry%20karni%20hai" target="_blank">
-      <i class="fa-brands fa-whatsapp" style="font-size: 18px;"></i> WhatsApp Order & Enquiry
-    </a>
+    <a class="btn call" href="tel:9473371370"><i class="fa-solid fa-phone"></i> Call Primary</a>
+    <a class="btn whatsapp" href="https://wa.me/919473371370?text=Hello%204%20STAR%20MOBILE,%20mujhe%20enquiry%20karni%20hai" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
   </div>
 </div>
 </section>
@@ -1041,34 +918,30 @@ nav a.nav-contact:hover {
     <h3>🏬 Branch 1 (Main Branch - Accessories)</h3>
     <p>📍 Ground Floor, Mahavir Marg, Near Congress Office, Kishanganj - 855107</p>
     <p><strong>📞 9473185145</strong></p>
-    <a class="btn call" href="tel:9473185145" style="display: inline-block; margin-top: 10px; padding: 8px 16px; font-size: 0.85rem; background: #0066cc; color: white; border-radius: 6px; text-decoration: none; font-weight: 600;">Call Branch 1</a>
+    <a class="btn call" href="tel:9473185145" style="display: inline-block; margin-top: 10px; padding: 6px 12px; font-size: 0.85rem;">Call Branch 1</a>
   </div>
 
   <div class="card" style="padding: 20px;">
     <h3>🏬 Branch 2 (Display, Battery & Parts Hub)</h3>
     <p>📍 Fal Chowk, Ghas Patti Masjid, Kishanganj - 855107</p>
     <p><strong>📞 9308865738</strong></p>
-    <a class="btn call" href="tel:9308865738" style="display: inline-block; margin-top: 10px; padding: 8px 16px; font-size: 0.85rem; background: #0066cc; color: white; border-radius: 6px; text-decoration: none; font-weight: 600;">Call Branch 2</a>
+    <a class="btn call" href="tel:9308865738" style="display: inline-block; margin-top: 10px; padding: 6px 12px; font-size: 0.85rem;">Call Branch 2</a>
   </div>
 
   <div class="card" style="padding: 20px;">
     <h3>🏬 Branch 3 (Tempered Glass & Covers)</h3>
     <p>📍 Gandhi Chowk, Opposite Goyal Drugs House, Kishanganj Bazar - 855107</p>
     <p><strong>📞 9473371371</strong></p>
-    <a class="btn call" href="tel:9473371371" style="display: inline-block; margin-top: 10px; padding: 8px 16px; font-size: 0.85rem; background: #0066cc; color: white; border-radius: 6px; text-decoration: none; font-weight: 600;">Call Branch 3</a>
+    <a class="btn call" href="tel:9473371371" style="display: inline-block; margin-top: 10px; padding: 6px 12px; font-size: 0.85rem;">Call Branch 3</a>
   </div>
 </div>
 
 <p>✉ Email: <strong>4starmobile786@gmail.com</strong></p>
 
-<div class="contact-buttons" style="margin-top: 25px; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
-  <a class="btn call" href="tel:9473371370" style="background: linear-gradient(135deg, #ff9900, #ff5500); color: white; padding: 12px 22px; border-radius: 30px; text-decoration: none; font-weight: 700;">
-    <i class="fa-solid fa-phone"></i> Call Primary
-  </a>
-  <a class="btn whatsapp" href="https://wa.me/919473371370?text=Hello%204%20STAR%20MOBILE,%20mujhe%20enquiry%20karni%20hai" target="_blank" style="background: linear-gradient(135deg, #25D366, #059669); color: white; padding: 12px 22px; border-radius: 30px; text-decoration: none; font-weight: 700; box-shadow: 0 4px 15px rgba(37,211,102,0.4);">
-    <i class="fa-brands fa-whatsapp"></i> WhatsApp Us
-  </a>
-  <a class="btn" href="https://maps.app.goo.gl/3uQMuZLJXKo3T6PT7" target="_blank" style="background: #1a73e8; color: white; padding: 12px 22px; border-radius: 30px; text-decoration: none; font-weight: 700;">
+<div class="contact-buttons" style="margin-top: 25px;">
+  <a class="btn call" href="tel:9473371370"><i class="fa-solid fa-phone"></i> Call Primary</a>
+  <a class="btn whatsapp" href="https://wa.me/919473371370?text=Hello%204%20STAR%20MOBILE,%20mujhe%20enquiry%20karni%20hai" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp Us</a>
+  <a class="btn" href="https://maps.app.goo.gl/3uQMuZLJXKo3T6PT7" target="_blank" style="background: #1a73e8; color: white;">
     <i class="fa-solid fa-location-dot"></i> View on Google Maps
   </a>
 </div>
