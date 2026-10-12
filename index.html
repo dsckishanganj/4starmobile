@@ -640,7 +640,7 @@ nav a:hover {
   </div>
 </div>
 
-<!-- Clean Nav Links (Pehle Jaisa Plain Text Look) -->
+<!-- Clean Nav Links -->
 <nav>
 <a href="#home">Home</a>
 <a href="#products">Categories</a>
@@ -656,7 +656,7 @@ nav a:hover {
 </nav>
 </header>
 
-<!-- ================= HERO BANNER WITH DYNAMIC BACKGROUND & SMART TEXT ================= -->
+<!-- ================= HERO BANNER ================= -->
 <section id="home" class="hero hero-phone-bg">
 <div class="hero-content">
 
@@ -671,7 +671,6 @@ nav a:hover {
     ⭐ 5.0 Rating (22+ Reviews) • 🔬 Testing Counter Live
   </div>
 
-  <!-- Dynamic Heading & Dynamic Paragraph (Updated automatically via JS) -->
   <h2 id="dynamicHeroTitle">★ 4 STAR MOBILE ★</h2>
   <p id="dynamicHeroDesc">
     20+ Years Trusted Mobile Accessories & Genuine Spare Parts Hub in Kishanganj.
@@ -806,6 +805,16 @@ nav a:hover {
     </div>
   </div>
 
+  <!-- Category 9: Spare Parts & Tools (YAHAN FIT KIYA GAYA HAI) -->
+  <div class="card" onclick="openCategoryFolder('Spares & Tools')">
+    <img class="product-card-img" src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&q=80" alt="Mobile Motherboard SMD Machine Repair Tools Kishanganj">
+    <div class="card-content">
+      <h3>🔧 Spares & Tools</h3>
+      <p>SMD Machine, Soldering Iron, Motherboard, CC Jack & Tools</p>
+      <span class="view-folder-btn"><i class="fa-solid fa-folder-open"></i> Open Tools Folder →</span>
+    </div>
+  </div>
+
 </div>
 </section>
 
@@ -825,7 +834,6 @@ nav a:hover {
 <section id="gallery" class="products" style="background: #f8f9fa;">
 <h2>Store Highlights & Services</h2>
 <div class="product-grid">
-  <!-- Card 1: Huge Accessories Stock -->
   <div class="card">
     <img class="product-card-img" src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80" alt="Huge Accessories Stock Kishanganj">
     <div class="card-content">
@@ -834,7 +842,6 @@ nav a:hover {
     </div>
   </div>
 
-  <!-- Card 2: Genuine Spare Parts -->
   <a href="services/mobile-repair-spare-parts.html" style="text-decoration: none; color: inherit; display: block;">
     <div class="card" style="border: 2px solid #0066cc;">
       <img class="product-card-img" src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80" alt="Genuine Spare Parts Kishanganj">
@@ -846,7 +853,6 @@ nav a:hover {
     </div>
   </a>
 
-  <!-- Card 3: 20+ Years Trust -->
   <div class="card">
     <img class="product-card-img" src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=80" alt="20+ Years Trust Kishanganj">
     <div class="card-content">
@@ -955,7 +961,7 @@ nav a:hover {
     <p style="font-size: 13px; color: #64748b; margin-bottom: 20px;">Only authenticated owners can view and manage this section.</p>
     
     <form id="productForm">
-      <input type="text" id="pTitle" placeholder="Product Name (e.g. Bell 65W Fast Charger)" required>
+      <input type="text" id="pTitle" placeholder="Product Name (e.g. Quick 850A SMD Machine / Iron Bit)" required>
       <input type="number" id="pPrice" placeholder="Price in ₹ (e.g. 499)" required>
       <select id="pCategory">
         <option value="Fast Chargers">Fast Chargers</option>
@@ -966,6 +972,7 @@ nav a:hover {
         <option value="Battery & Spares">Battery & Spares</option>
         <option value="LCD Displays">LCD Displays</option>
         <option value="Data Cables">Data Cables</option>
+        <option value="Spares & Tools">Spares & Tools</option>
       </select>
       <input type="url" id="pImageUrl" placeholder="Direct Image URL (.jpg / .png / .webp)" required>
       <button type="submit" class="admin-btn">+ Add Product to Folder</button>
@@ -1027,7 +1034,7 @@ nav a:hover {
   function getCategoryWhatsAppNumber(categoryName) {
     if (categoryName === "Tempered Glass" || categoryName === "Mobile Covers") {
       return "919473371371";
-    } else if (categoryName === "LCD Displays" || categoryName === "Battery & Spares") {
+    } else if (categoryName === "LCD Displays" || categoryName === "Battery & Spares" || categoryName === "Spares & Tools") {
       return "919308865738";
     } else {
       return "919473185145";
@@ -1184,7 +1191,6 @@ nav a:hover {
 
 <!-- ================= DYNAMIC SYNCED HERO ROTATOR & SEARCH LOGIC ================= -->
 <script>
-  // Dynamic Slides Data: Photo + Title + Tagline Sync
   const heroSlides = [
     {
       img: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=1600&q=80',
@@ -1222,7 +1228,6 @@ nav a:hover {
 
     if (!heroEl || !titleEl || !descEl) return;
 
-    // Smooth Text Fade
     titleEl.style.opacity = '0';
     descEl.style.opacity = '0';
 
@@ -1239,7 +1244,6 @@ nav a:hover {
     }, 300);
   }
 
-  // Quick WhatsApp Search Logic for Phone Models
   function searchModelOnWhatsApp() {
     const inputVal = document.getElementById('modelSearchInput').value.trim();
     if (!inputVal) {
@@ -1250,7 +1254,6 @@ nav a:hover {
     window.open(`https://wa.me/919473371370?text=${targetMsg}`, '_blank');
   }
 
-  // Allow 'Enter' key in search box
   document.getElementById('modelSearchInput').addEventListener('keypress', function(e) {
     if (e.key === 'Enter') {
       searchModelOnWhatsApp();
@@ -1259,7 +1262,7 @@ nav a:hover {
 
   window.addEventListener('DOMContentLoaded', () => {
     syncHeroSlide();
-    setInterval(syncHeroSlide, 5000); // Cycles every 5 seconds
+    setInterval(syncHeroSlide, 5000);
   });
 </script>
 </body>
