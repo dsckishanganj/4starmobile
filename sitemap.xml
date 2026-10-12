@@ -1,39 +1,115 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Main Home Page -->
   <url>
     <loc>https://dsckishanganj.github.io/4starmobile/</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
+
+  <!-- Service Landing Pages (Ad Campaign Practice) -->
   <url>
     <loc>https://dsckishanganj.github.io/4starmobile/services/mobile-repair-spare-parts.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
+
   <url>
-    <loc>https://dsckishanganj.github.io/4starmobile/blog/original-vs-duplicate-display.html</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://dsckishanganj.github.io/4starmobile/about.html</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://dsckishanganj.github.io/4starmobile/faq.html</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://dsckishanganj.github.io/4starmobile/enquiry.html</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://dsckishanganj.github.io/4starmobile/terms.html</loc>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://dsckishanganj.github.io/4starmobile/news.html</loc>
+    <loc>https://dsckishanganj.github.io/4starmobile/battery-replacement.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
+
+  <!-- Course & Training Page -->
   <url>
     <loc>https://dsckishanganj.github.io/4starmobile/course.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
+
+  <!-- News & Updates -->
+  <url>
+    <loc>https://dsckishanganj.github.io/4starmobile/news.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Blog Page (SEO & Keywords Practice) -->
+  <url>
+    <loc>https://dsckishanganj.github.io/4starmobile/blog/original-vs-duplicate-display.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Local SEO & Store Contact -->
+  <url>
+    <loc>https://dsckishanganj.github.io/4starmobile/contact.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Customer Social Proof / Reviews -->
+  <url>
+    <loc>https://dsckishanganj.github.io/4starmobile/reviews.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- FAQ Page (Schema Practice) -->
+  <url>
+    <loc>https://dsckishanganj.github.io/4starmobile/faq.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Lead Capture / Enquiry Form -->
+  <url>
+    <loc>https://dsckishanganj.github.io/4starmobile/enquiry.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- About Store Page -->
+  <url>
+    <loc>https://dsckishanganj.github.io/4starmobile/about.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Ads Compliance / Privacy Policy -->
+  <url>
+    <loc>https://dsckishanganj.github.io/4starmobile/privacy-policy.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Terms & Conditions -->
+  <url>
+    <loc>https://dsckishanganj.github.io/4starmobile/terms.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Conversion Goal / Thank You Page -->
+  <url>
+    <loc>https://dsckishanganj.github.io/4starmobile/thank-you.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
 </urlset>
