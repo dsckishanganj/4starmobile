@@ -172,6 +172,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html, body {
   width: 100%;
   max-width: 100%;
@@ -774,17 +778,17 @@ nav a:hover {
   </div>
 </div>
 
-<!-- Clean Nav Links with Marketing Pages Included -->
+<!-- Clean Nav Links with Direct Official Tech Blogs Link -->
 <nav>
 <a href="#home">Home</a>
 <a href="#products">Categories</a>
 <a href="services/mobile-repair-spare-parts.html" style="color: #38bdf8; font-weight: 600;">🔧 Spares Directory</a>
 <a href="battery-replacement.html" style="color: #f59e0b; font-weight: 600;">⚡ Battery Hub</a>
+<a href="#blog-section" style="color: #38bdf8; font-weight: 700;">📰 Tech Blogs</a>
 <a href="news.html" style="color: #ef4444; font-weight: 600;">● Tech News</a>
 <a href="course.html" style="color: #10b981; font-weight: 600;">🎓 Free Course</a>
 <a href="digital-marketing/" style="color: #60a5fa; font-weight: 600;">📱 Digital Marketing</a>
 <a href="reviews.html" style="color: #fbbf24; font-weight: 600;">⭐ Reviews</a>
-<a href="blog/original-vs-duplicate-display.html">Tech Guide</a>
 <a href="about.html">About Us</a>
 <a href="faq.html">FAQ</a>
 <a href="enquiry.html">Enquiry</a>
@@ -1113,65 +1117,69 @@ nav a:hover {
 </div>
 </section>
 
-<!-- ================= LATEST TECH BLOG & GUIDES SECTION ================= -->
-<section id="blog-section" class="products" style="background: #0f172a; padding: 45px 15px; border-top: 2px solid #1e293b; border-bottom: 2px solid #1e293b;">
-  <div style="max-width: 1100px; margin: 0 auto;">
-    <div style="text-align: center; margin-bottom: 30px;">
-      <span style="background: #2563eb; color: #fff; font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">Knowledge Base & Guides</span>
-      <h2 style="color: #ffffff; font-size: 26px; margin: 10px 0 6px 0; font-weight: 800;">Latest Mobile Tech Blogs</h2>
-      <p style="color: #94a3b8; font-size: 14px; margin: 0;">Mobile parts ki asli pehchan aur jaruri jankari padhein</p>
-    </div>
+<!-- ================= OFFICIAL LATEST TECH BLOG & GUIDES SECTION ================= -->
+<section id="blog-section" class="products" style="background: #020617; padding: 60px 16px; border-top: 2px solid #1e293b; border-bottom: 2px solid #1e293b; clear: both; width: 100%;">
+  <div style="max-width: 1100px; margin: 0 auto; text-align: center;">
+    
+    <span style="background: #2563eb; color: #ffffff; font-size: 12px; font-weight: 700; padding: 5px 14px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px; display: inline-block; margin-bottom: 12px;">
+      Knowledge Base & Guides
+    </span>
+    
+    <h2 style="color: #ffffff; font-size: 26px; font-weight: 800; margin-bottom: 8px;">
+      Latest Mobile Tech Blogs
+    </h2>
+    <p style="color: #94a3b8; font-size: 14px; max-width: 600px; margin: 0 auto 35px auto;">
+      Mobile spare parts ki asli pehchan, repairing tips aur jaruri tech updates padhein
+    </p>
 
-    <div class="product-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+    <!-- Cards Grid -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; text-align: left;">
       
-      <!-- Featured Blog 1: Original vs Duplicate Display -->
-      <a href="blog/original-vs-duplicate-display.html" style="text-decoration: none; color: inherit; display: block;">
-        <div class="card" style="background: #1e293b; border: 1px solid #334155; color: #fff; border-radius: 12px; overflow: hidden; transition: transform 0.2s ease, box-shadow 0.2s ease;">
-          <img class="product-card-img" src="https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=600&q=80" alt="Original vs Duplicate Display Guide" style="height: 190px;">
-          <div class="card-content" style="padding: 20px;">
-            <div style="display: flex; gap: 8px; margin-bottom: 8px;">
-              <span style="background: rgba(56, 189, 248, 0.2); color: #38bdf8; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 4px;">Display Guide</span>
-              <span style="color: #64748b; font-size: 12px;">5 Min Read</span>
-            </div>
-            <h3 style="color: #ffffff; font-size: 17px; font-weight: 700; margin-bottom: 8px; line-height: 1.4;">
-              Original vs Duplicate Display: Asli aur Nakli Combo Folder ki Pehchan Kaise Karein?
-            </h3>
-            <p style="color: #94a3b8; font-size: 13px; line-height: 1.5; margin-bottom: 15px;">
-              OLED, INCELL aur First Copy display mein kya farak hota hai? Touch sensitivity aur color contrast kaise check karein, janein poori jankari.
-            </p>
-            <span style="color: #38bdf8; font-weight: 600; font-size: 13px; display: inline-flex; align-items: center; gap: 6px;">
-              Read Full Article <i class="fa-solid fa-arrow-right"></i>
-            </span>
+      <!-- Card 1: Original vs Duplicate Display -->
+      <div style="background: #0f172a; border: 1px solid #334155; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+        <img src="https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=600&q=80" alt="Original vs Duplicate Display Guide" style="width: 100%; height: 180px; object-fit: cover; display: block;">
+        <div style="padding: 20px;">
+          <div style="display: flex; gap: 8px; margin-bottom: 10px;">
+            <span style="background: rgba(56, 189, 248, 0.2); color: #38bdf8; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 4px;">Display Guide</span>
+            <span style="color: #64748b; font-size: 12px;">5 Min Read</span>
           </div>
+          <h3 style="color: #ffffff; font-size: 17px; font-weight: 700; line-height: 1.4; margin-bottom: 10px;">
+            Original vs Duplicate Display: Asli aur Nakli Folder ki Pehchan Kaise Karein?
+          </h3>
+          <p style="color: #94a3b8; font-size: 13px; line-height: 1.5; margin-bottom: 18px;">
+            OLED, INCELL aur First Copy display mein kya farak hota hai? Touch aur colors live check karne ka tarika janein.
+          </p>
+          <a href="blog/original-vs-duplicate-display.html" style="display: inline-block; background: #2563eb; color: #ffffff; font-weight: 600; font-size: 13px; padding: 10px 18px; border-radius: 6px; text-decoration: none;">
+            Read Full Article →
+          </a>
         </div>
-      </a>
+      </div>
 
-      <!-- Featured Blog 2: Battery Life & Health Tips -->
-      <a href="battery-replacement.html" style="text-decoration: none; color: inherit; display: block;">
-        <div class="card" style="background: #1e293b; border: 1px solid #334155; color: #fff; border-radius: 12px; overflow: hidden; transition: transform 0.2s ease, box-shadow 0.2s ease;">
-          <img class="product-card-img" src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600&q=80" alt="Battery Health Guide" style="height: 190px;">
-          <div class="card-content" style="padding: 20px;">
-            <div style="display: flex; gap: 8px; margin-bottom: 8px;">
-              <span style="background: rgba(34, 197, 94, 0.2); color: #22c55e; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 4px;">Battery Tips</span>
-              <span style="color: #64748b; font-size: 12px;">3 Min Read</span>
-            </div>
-            <h3 style="color: #ffffff; font-size: 17px; font-weight: 700; margin-bottom: 8px; line-height: 1.4;">
-              Mobile Battery Backup Badhane aur Original Battery Chunne ke Best Tarike
-            </h3>
-            <p style="color: #94a3b8; font-size: 13px; line-height: 1.5; margin-bottom: 15px;">
-              Fast charging se battery kharab hoti hai ya nahi? Phone battery health kaise maintain karein aur replacement kab karwayein.
-            </p>
-            <span style="color: #22c55e; font-weight: 600; font-size: 13px; display: inline-flex; align-items: center; gap: 6px;">
-              Explore Battery Guide <i class="fa-solid fa-arrow-right"></i>
-            </span>
+      <!-- Card 2: Battery Life & Health Tips -->
+      <div style="background: #0f172a; border: 1px solid #334155; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+        <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600&q=80" alt="Battery Backup Guide" style="width: 100%; height: 180px; object-fit: cover; display: block;">
+        <div style="padding: 20px;">
+          <div style="display: flex; gap: 8px; margin-bottom: 10px;">
+            <span style="background: rgba(34, 197, 94, 0.2); color: #22c55e; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 4px;">Battery Tips</span>
+            <span style="color: #64748b; font-size: 12px;">3 Min Read</span>
           </div>
+          <h3 style="color: #ffffff; font-size: 17px; font-weight: 700; line-height: 1.4; margin-bottom: 10px;">
+            Mobile Battery Backup Badhane aur Original Battery Chunne ke Best Tarike
+          </h3>
+          <p style="color: #94a3b8; font-size: 13px; line-height: 1.5; margin-bottom: 18px;">
+            Fast charger se battery par kya asar padta hai? Phone ki battery health lambe samay tak maintain kaise rakhein.
+          </p>
+          <a href="battery-replacement.html" style="display: inline-block; background: #16a34a; color: #ffffff; font-weight: 600; font-size: 13px; padding: 10px 18px; border-radius: 6px; text-decoration: none;">
+            Explore Battery Guide →
+          </a>
         </div>
-      </a>
+      </div>
 
     </div>
   </div>
 </section>
 
+<!-- ================= CUSTOMER REVIEWS ================= -->
 <section class="reviews">
 <h2>Customer Reviews</h2>
 <div class="review-grid">
@@ -1196,6 +1204,7 @@ nav a:hover {
 </div>
 </section>
 
+<!-- ================= STORE CONTACT SECTION ================= -->
 <section id="contact" class="contact">
 <h2>Contact 4 STAR MOBILE</h2>
 <p><strong>20+ Years Trusted Mobile Accessories & Spare Parts Hub</strong></p>
@@ -1499,7 +1508,7 @@ nav a:hover {
       });
     } catch (e) {
       console.error(e);
-      if (adminList) adminList.innerHTML = '<p style="color: red;'>Error loading products.</p>';
+      if (adminList) adminList.innerHTML = '<p style="color: red;">Error loading products.</p>';
     }
   }
 
