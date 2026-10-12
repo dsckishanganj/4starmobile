@@ -626,7 +626,7 @@ nav a:hover {
     <div class="ticker-text">
       <a href="news.html">⚡ <strong>Live Updates:</strong> Naye 5G Smartphones, Fast Chargers aur Technology ki taaza khabrein padhne ke liye click karein! →</a>
       <a href="course.html">🎓 <strong>Free Video Classes:</strong> Ghar baithe Mobile Hardware & Repairing Course seekhein bilkul muft! Yahan dekhein →</a>
-      <a href="spare-parts-complete-hub.html">🔧 <strong>Testing Counter:</strong> Dukan par display aur battery fit hone se pehle live check karne ki suvidha uplabdh hai! →</a>
+      <a href="services/mobile-repair-spare-parts.html">🔧 <strong>Testing Counter:</strong> Dukan par display aur battery fit hone se pehle live check karne ki suvidha uplabdh hai! →</a>
     </div>
   </div>
 </div>
@@ -640,16 +640,15 @@ nav a:hover {
   </div>
 </div>
 
-<!-- Clean Nav Links -->
+<!-- Clean Nav Links (Pehle Jaisa Plain Look) -->
 <nav>
 <a href="#home">Home</a>
 <a href="#products">Categories</a>
-<a href="spare-parts-complete-hub.html" style="color: #38bdf8; font-weight: 600;">🔧 Spares Encyclopedia</a>
-<a href="huge-accessories-stock.html" style="color: #f59e0b; font-weight: 600;">📦 Accessories Stock</a>
-<a href="tested-quality-standard.html" style="color: #10b981; font-weight: 600;">🔬 Quality Standard</a>
-<a href="trust-and-experience.html" style="color: #38bdf8; font-weight: 600;">⭐ 20+ Years Trust</a>
+<a href="services/mobile-repair-spare-parts.html" style="color: #38bdf8; font-weight: 600;">🔧 Spares Directory</a>
 <a href="news.html" style="color: #ef4444; font-weight: 600;">● Tech News</a>
 <a href="course.html" style="color: #10b981; font-weight: 600;">🎓 Free Course</a>
+<a href="digital-marketing/" style="color: #60a5fa; font-weight: 600;">📱 Digital Marketing</a>
+<a href="blog/original-vs-duplicate-display.html">Tech Guide</a>
 <a href="about.html">About Us</a>
 <a href="faq.html">FAQ</a>
 <a href="enquiry.html">Enquiry</a>
@@ -694,27 +693,27 @@ nav a:hover {
 
 <!-- Quick Feature Boxes -->
 <div class="quick-action-strip">
-  <a href="huge-accessories-stock.html" class="action-box red-border">
-    <div class="action-icon">📦</div>
+  <a href="news.html" class="action-box red-border">
+    <div class="action-icon">📰</div>
     <div>
-      <div class="action-title">Huge Accessories Stock</div>
-      <div class="action-desc">Wholesale & retail back covers, 11D glass, cables aur chargers →</div>
+      <div class="action-title">Daily Tech & Mobile News</div>
+      <div class="action-desc">Naye phone launch aur market rate updates roz dekhein →</div>
     </div>
   </a>
 
-  <a href="spare-parts-complete-hub.html" class="action-box green-border">
+  <a href="course.html" class="action-box green-border">
+    <div class="action-icon">🎓</div>
+    <div>
+      <div class="action-title">Free Mobile Repairing Course</div>
+      <div class="action-desc">Hardware testing, motherboard & folder fit karna seekhein →</div>
+    </div>
+  </a>
+
+  <a href="services/mobile-repair-spare-parts.html" class="action-box">
     <div class="action-icon">🔧</div>
     <div>
       <div class="action-title">Original Spare Parts Center</div>
-      <div class="action-desc">Folder combos, original batteries, SMD tools & CC charging boards →</div>
-    </div>
-  </a>
-
-  <a href="trust-and-experience.html" class="action-box">
-    <div class="action-icon">⭐</div>
-    <div>
-      <div class="action-title">20+ Years Trusted Legacy</div>
-      <div class="action-desc">Kishanganj mein 3 prime branches aur 50,000+ satisfied customers →</div>
+      <div class="action-desc">Folder combos, original batteries & CC charging boards →</div>
     </div>
   </a>
 </div>
@@ -806,17 +805,15 @@ nav a:hover {
     </div>
   </div>
 
-  <!-- Category 9: Spare Parts & Tools (Connected to Directory) -->
-  <a href="spare-parts-complete-hub.html" style="text-decoration: none; color: inherit; display: block;">
-    <div class="card" style="border: 2px solid #0066cc;">
-      <img class="product-card-img" src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&q=80" alt="Mobile Motherboard SMD Machine Repair Tools Kishanganj">
-      <div class="card-content">
-        <h3 style="color: #0066cc;">🔧 Spares & Tools Directory →</h3>
-        <p>SMD Machine, Soldering Iron, Motherboard, CC Jack & Tools</p>
-        <span class="view-folder-btn"><i class="fa-solid fa-book-open"></i> Master Article Kholein →</span>
-      </div>
+  <!-- Category 9: Spare Parts & Tools (Box Filled + Opens Modal Popup) -->
+  <div class="card" onclick="openCategoryFolder('Spares & Tools')">
+    <img class="product-card-img" src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&q=80" alt="Mobile Motherboard SMD Machine Repair Tools Kishanganj">
+    <div class="card-content">
+      <h3>🔧 Spare Parts & Tools</h3>
+      <p>SMD Machine, Soldering Iron, Motherboard, CC Jack & Tools</p>
+      <span class="view-folder-btn"><i class="fa-solid fa-folder-open"></i> Open Tools Folder →</span>
     </div>
-  </a>
+  </div>
 
 </div>
 </section>
@@ -833,91 +830,66 @@ nav a:hover {
   </div>
 </div>
 
-<!-- ================= STORE HIGHLIGHTS (CONNECTED TO NEW PAGES) ================= -->
+<!-- Store Highlights Section (Original Simple Format) -->
 <section id="gallery" class="products" style="background: #f8f9fa;">
 <h2>Store Highlights & Services</h2>
 <div class="product-grid">
-
-  <!-- Link 1: Huge Accessories Stock -->
-  <a href="huge-accessories-stock.html" style="text-decoration: none; color: inherit; display: block;">
-    <div class="card">
-      <img class="product-card-img" src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80" alt="Huge Accessories Stock Kishanganj">
-      <div class="card-content">
-        <h3>Huge Accessories Stock →</h3>
-        <p>All phone model accessories available in wholesale & retail.</p>
-        <span class="view-folder-btn"><i class="fa-solid fa-book-open"></i> Pura Article Padhein →</span>
-      </div>
+  <!-- Card 1: Huge Accessories Stock -->
+  <div class="card">
+    <img class="product-card-img" src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80" alt="Huge Accessories Stock Kishanganj">
+    <div class="card-content">
+      <h3>Huge Accessories Stock</h3>
+      <p>All phone model accessories available in wholesale & retail.</p>
     </div>
-  </a>
+  </div>
 
-  <!-- Link 2: Genuine Spare Parts Complete Hub -->
-  <a href="spare-parts-complete-hub.html" style="text-decoration: none; color: inherit; display: block;">
+  <!-- Card 2: Genuine Spare Parts -->
+  <a href="services/mobile-repair-spare-parts.html" style="text-decoration: none; color: inherit; display: block;">
     <div class="card" style="border: 2px solid #0066cc;">
       <img class="product-card-img" src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80" alt="Genuine Spare Parts Kishanganj">
       <div class="card-content">
-        <h3 style="color: #0066cc;">Genuine Spare Parts & Tools →</h3>
-        <p>500+ LCD folder combos, SMD machine, motherboard ICs & tools ka poora article padhein!</p>
-        <span class="view-folder-btn"><i class="fa-solid fa-magnifying-glass"></i> A-to-Z Directory Kholein →</span>
+        <h3 style="color: #0066cc;">Genuine Spare Parts →</h3>
+        <p>500+ LCD folder combos, original batteries, tempered glass & charging CC boards search karein!</p>
+        <span class="view-folder-btn"><i class="fa-solid fa-magnifying-glass"></i> Open Parts Directory Page →</span>
       </div>
     </div>
   </a>
 
-  <!-- Link 3: 20+ Years Trust & Experience -->
-  <a href="trust-and-experience.html" style="text-decoration: none; color: inherit; display: block;">
-    <div class="card">
-      <img class="product-card-img" src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=80" alt="20+ Years Trust Kishanganj">
-      <div class="card-content">
-        <h3>20+ Years Trust →</h3>
-        <p>Direct support across 3 convenient branch locations in Kishanganj.</p>
-        <span class="view-folder-btn"><i class="fa-solid fa-book-open"></i> Hamara Safar Padhein →</span>
-      </div>
+  <!-- Card 3: 20+ Years Trust -->
+  <div class="card">
+    <img class="product-card-img" src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=80" alt="20+ Years Trust Kishanganj">
+    <div class="card-content">
+      <h3>20+ Years Trust</h3>
+      <p>Direct support across 3 convenient branch locations in Kishanganj.</p>
     </div>
-  </a>
-
+  </div>
 </div>
 </section>
 
-<!-- ================= WHY CHOOSE 4 STAR MOBILE (CONNECTED TO NEW PAGES) ================= -->
+<!-- Why Choose 4 STAR MOBILE Section (Original Simple Format) -->
 <section id="services" class="services">
 <h2>Why Choose 4 STAR MOBILE?</h2>
 <div class="service-grid">
-
-  <!-- Box 1 -> Trust Page -->
-  <a href="trust-and-experience.html" style="text-decoration: none; color: inherit; display: block;">
-    <div class="service-box">
-      <i class="fa-solid fa-award"></i>
-      <h3>20+ Years Trusted</h3>
-      <p>Serving customers with genuine products and reliable service for over 20 years.</p>
-    </div>
-  </a>
-
-  <!-- Box 2 -> Accessories Page -->
-  <a href="huge-accessories-stock.html" style="text-decoration: none; color: inherit; display: block;">
-    <div class="service-box">
-      <i class="fa-solid fa-mobile-screen-button"></i>
-      <h3>All Accessories</h3>
-      <p>Mobile Covers, Chargers, Batteries, Displays, Earbuds, Neckbands and more.</p>
-    </div>
-  </a>
-
-  <!-- Box 3 -> Spare Parts Page -->
-  <a href="spare-parts-complete-hub.html" style="text-decoration: none; color: inherit; display: block;">
-    <div class="service-box">
-      <i class="fa-solid fa-screwdriver-wrench"></i>
-      <h3>Spare Parts Hub</h3>
-      <p>Quality mobile spare parts for many popular smartphone brands.</p>
-    </div>
-  </a>
-
-  <!-- Box 4 -> Tested Quality Page -->
-  <a href="tested-quality-standard.html" style="text-decoration: none; color: inherit; display: block;">
-    <div class="service-box">
-      <i class="fa-solid fa-shield-halved"></i>
-      <h3>Tested Quality</h3>
-      <p>We focus on genuine products and 100% customer satisfaction.</p>
-    </div>
-  </a>
-
+  <div class="service-box">
+    <i class="fa-solid fa-award"></i>
+    <h3>20+ Years Trusted</h3>
+    <p>Serving customers with genuine products and reliable service for over 20 years.</p>
+  </div>
+  <div class="service-box">
+    <i class="fa-solid fa-mobile-screen-button"></i>
+    <h3>All Accessories</h3>
+    <p>Mobile Covers, Chargers, Batteries, Displays, Earbuds, Neckbands and more.</p>
+  </div>
+  <div class="service-box">
+    <i class="fa-solid fa-screwdriver-wrench"></i>
+    <h3>Spare Parts Hub</h3>
+    <p>Quality mobile spare parts for many popular smartphone brands.</p>
+  </div>
+  <div class="service-box">
+    <i class="fa-solid fa-shield-halved"></i>
+    <h3>Tested Quality</h3>
+    <p>We focus on genuine products and 100% customer satisfaction.</p>
+  </div>
 </div>
 </section>
 
@@ -1021,12 +993,11 @@ nav a:hover {
 
 <div style="margin: 15px 0; font-size: 13px;">
   <a href="about.html" style="color: #cbd5e1; margin: 0 8px; text-decoration: none;">About Us</a> |
-  <a href="huge-accessories-stock.html" style="color: #cbd5e1; margin: 0 8px; text-decoration: none;">Accessories Stock</a> |
-  <a href="spare-parts-complete-hub.html" style="color: #cbd5e1; margin: 0 8px; text-decoration: none;">Spares Encyclopedia</a> |
-  <a href="tested-quality-standard.html" style="color: #cbd5e1; margin: 0 8px; text-decoration: none;">Quality Testing</a> |
-  <a href="trust-and-experience.html" style="color: #cbd5e1; margin: 0 8px; text-decoration: none;">20+ Years Trust</a> |
+  <a href="services/mobile-repair-spare-parts.html" style="color: #cbd5e1; margin: 0 8px; text-decoration: none;">Services & Spares</a> |
   <a href="news.html" style="color: #ef4444; font-weight: bold; margin: 0 8px; text-decoration: none;">Tech News</a> |
   <a href="course.html" style="color: #10b981; font-weight: bold; margin: 0 8px; text-decoration: none;">Free Course</a> |
+  <a href="digital-marketing/" style="color: #38bdf8; font-weight: bold; margin: 0 8px; text-decoration: none;">Digital Marketing</a> |
+  <a href="blog/original-vs-duplicate-display.html" style="color: #cbd5e1; margin: 0 8px; text-decoration: none;">Tech Guide</a> |
   <a href="faq.html" style="color: #cbd5e1; margin: 0 8px; text-decoration: none;">FAQ</a> |
   <a href="enquiry.html" style="color: #cbd5e1; margin: 0 8px; text-decoration: none;">Spare Parts Enquiry</a> |
   <a href="terms.html" style="color: #cbd5e1; margin: 0 8px; text-decoration: none;">Rules & Warranty</a>
