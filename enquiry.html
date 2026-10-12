@@ -1,80 +1,113 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Enquiry / Spare Parts Requirement | 4 STAR MOBILE</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You | 4 STAR MOBILE Kishanganj</title>
+    <meta name="robots" content="noindex, nofollow">
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JFYE07M7SG"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JFYE07M7SG"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-    gtag('config', 'G-JFYE07M7SG');
-  </script>
+      gtag('config', 'G-JFYE07M7SG');
 
-  <style>
-    body { font-family: sans-serif; background: #f0f4f8; padding: 20px; }
-    .card { max-width: 500px; margin: 20px auto; background: #fff; padding: 25px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-    input, select, textarea, button { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; }
-    button { background: #25d366; color: white; border: none; font-size: 16px; font-weight: bold; cursor: pointer; }
-    button:hover { background: #1ebc59; }
-  </style>
+      // Conversion Event for Google Analytics
+      gtag('event', 'generate_lead', {
+        'event_category': 'Enquiry',
+        'event_label': 'Thank You Page View'
+      });
+    </script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+        }
+        body {
+            background-color: #f0f4f8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .thank-you-card {
+            background: #ffffff;
+            max-width: 460px;
+            width: 100%;
+            padding: 35px 25px;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        .check-icon {
+            width: 65px;
+            height: 65px;
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 34px;
+            margin: 0 auto 18px;
+            font-weight: bold;
+        }
+        h1 {
+            color: #1a1a1a;
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+        p {
+            color: #4a5568;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 22px;
+        }
+        .btn-home {
+            display: inline-block;
+            background-color: #0d6efd;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: 0.2s;
+        }
+        .btn-home:hover {
+            background-color: #0b5ed7;
+        }
+        .whatsapp-note {
+            margin-top: 22px;
+            font-size: 14px;
+            color: #64748b;
+        }
+        .whatsapp-note a {
+            color: #25d366;
+            text-decoration: none;
+            font-weight: 600;
+        }
+    </style>
 </head>
 <body>
-  <div class="card">
-    <h2>📱 Parts & Item Enquiry</h2>
-    <p>Apna model aur zaroori saman likhein, hum foran update denge.</p>
-    
-    <label>Aapka Naam:</label>
-    <input type="text" id="custName" placeholder="Apna naam daalein">
 
-    <label>Mobile Brand & Model:</label>
-    <input type="text" id="custModel" placeholder="e.g. Vivo Y20, Redmi Note 10">
+    <div class="thank-you-card">
+        <div class="check-icon">&#10003;</div>
+        <h1>Shukriya!</h1>
+        <p>Aapki enquiry hume mil gayi hai. 4 STAR MOBILE ki team aapse jald hi rabta karegi.</p>
+        <a href="https://dsckishanganj.github.io/4starmobile/" class="btn-home">Home Page par wapas jayein</a>
+        
+        <div class="whatsapp-note">
+            Foran jankari ke liye seedhe <a href="https://wa.me/919473371370">WhatsApp karein</a>
+        </div>
+    </div>
 
-    <label>Kaunsa Part Chahiye?</label>
-    <select id="partType">
-      <option value="Folder/Display">Folder / Display</option>
-      <option value="Battery">Original Battery</option>
-      <option value="Fast Charger">Fast Charger / Cable</option>
-      <option value="Power Bank">Power Bank</option>
-      <option value="Other Spare Part">Other Spare Part</option>
-    </select>
-
-    <label>Koi Khaas Sawal ya Detail:</label>
-    <textarea id="custMsg" rows="3" placeholder="Apni baat likhein..."></textarea>
-
-    <button onclick="sendToWhatsApp()">WhatsApp Par Bhejein</button>
-    <p style="text-align: center;"><a href="index.html">← Back to Home</a></p>
-  </div>
-
-  <script>
-    function sendToWhatsApp() {
-      var name = document.getElementById('custName').value;
-      var model = document.getElementById('custModel').value;
-      var part = document.getElementById('partType').value;
-      var msg = document.getElementById('custMsg').value;
-      
-      var fullText = "Hello 4 STAR MOBILE,%0A%0A*New Enquiry*%0A*Name:* " + encodeURIComponent(name) + "%0A*Model:* " + encodeURIComponent(model) + "%0A*Required Part:* " + encodeURIComponent(part) + "%0A*Details:* " + encodeURIComponent(msg);
-      
-      // 1. Google Analytics me conversion event trigger
-      if (typeof gtag === 'function') {
-        gtag('event', 'generate_lead', {
-          'event_category': 'Enquiry',
-          'event_label': part
-        });
-      }
-
-      // 2. Naye tab me WhatsApp chat open karega
-      window.open("https://wa.me/919473371370?text=" + fullText, "_blank");
-
-      // 3. User ko Thank You page par redirect karega
-      setTimeout(function() {
-        window.location.href = "thank-you.html";
-      }, 500);
-    }
-  </script>
 </body>
 </html>
