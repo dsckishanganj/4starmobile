@@ -703,6 +703,50 @@ nav a:hover {
 .tech-admin-table tr:nth-child(even) {
   background: #f8fafc;
 }
+
+/* Floating Action Button for Mobile Marketing */
+.floating-bottom-bar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #0f172a;
+  padding: 8px 12px;
+  box-shadow: 0 -4px 12px rgba(0,0,0,0.2);
+  z-index: 9999;
+  justify-content: space-around;
+  gap: 10px;
+}
+.floating-bottom-bar a {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.floating-bottom-bar .bar-call {
+  background: #f59e0b;
+  color: white;
+}
+.floating-bottom-bar .bar-wa {
+  background: #25D366;
+  color: white;
+}
+@media (max-width: 600px) {
+  .floating-bottom-bar {
+    display: flex;
+  }
+  body {
+    padding-bottom: 60px;
+  }
+}
 </style>
 </head>
 
@@ -716,6 +760,7 @@ nav a:hover {
       <a href="news.html">⚡ <strong>Live Updates:</strong> Naye 5G Smartphones, Fast Chargers aur Technology ki taaza khabrein padhne ke liye click karein! →</a>
       <a href="course.html">🎓 <strong>Free Video Classes:</strong> Ghar baithe Mobile Hardware & Repairing Course seekhein bilkul muft! Yahan dekhein →</a>
       <a href="services/mobile-repair-spare-parts.html">🔧 <strong>Testing Counter:</strong> Dukan par display aur battery fit hone se pehle live check karne ki suvidha uplabdh hai! →</a>
+      <a href="battery-replacement.html">🔋 <strong>Battery Offer:</strong> Original battery replacement & warranty support check karein! →</a>
     </div>
   </div>
 </div>
@@ -729,19 +774,21 @@ nav a:hover {
   </div>
 </div>
 
-<!-- Clean Nav Links -->
+<!-- Clean Nav Links with Marketing Pages Included -->
 <nav>
 <a href="#home">Home</a>
 <a href="#products">Categories</a>
 <a href="services/mobile-repair-spare-parts.html" style="color: #38bdf8; font-weight: 600;">🔧 Spares Directory</a>
+<a href="battery-replacement.html" style="color: #f59e0b; font-weight: 600;">⚡ Battery Hub</a>
 <a href="news.html" style="color: #ef4444; font-weight: 600;">● Tech News</a>
 <a href="course.html" style="color: #10b981; font-weight: 600;">🎓 Free Course</a>
 <a href="digital-marketing/" style="color: #60a5fa; font-weight: 600;">📱 Digital Marketing</a>
+<a href="reviews.html" style="color: #fbbf24; font-weight: 600;">⭐ Reviews</a>
 <a href="blog/original-vs-duplicate-display.html">Tech Guide</a>
 <a href="about.html">About Us</a>
 <a href="faq.html">FAQ</a>
 <a href="enquiry.html">Enquiry</a>
-<a href="#contact">Contact</a>
+<a href="contact.html" style="color: #38bdf8; font-weight: 600;">Contact Us</a>
 </nav>
 </header>
 
@@ -995,7 +1042,19 @@ nav a:hover {
     </div>
   </a>
 
-  <!-- 3. 20+ Years Trust -> Opens trust-and-experience.html -->
+  <!-- 3. Battery & Fast Charger Ad Landing Page Box -->
+  <a href="battery-replacement.html" style="text-decoration: none; color: inherit; display: block;">
+    <div class="card" style="border: 2px solid #f59e0b;">
+      <img class="product-card-img" src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=600&q=80" alt="Battery and Charger Special Landing Page">
+      <div class="card-content">
+        <h3 style="color: #f59e0b;">⚡ Battery & Chargers Hub →</h3>
+        <p>Original high-backup mobile batteries & super fast chargers with 6-month warranty.</p>
+        <span class="view-folder-btn" style="color: #f59e0b;"><i class="fa-solid fa-bolt"></i> View Battery Hub Page →</span>
+      </div>
+    </div>
+  </a>
+
+  <!-- 4. 20+ Years Trust -> Opens trust-and-experience.html -->
   <a href="trust-and-experience.html" style="text-decoration: none; color: inherit; display: block;">
     <div class="card">
       <img class="product-card-img" src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=80" alt="20+ Years Trust Kishanganj">
@@ -1060,18 +1119,21 @@ nav a:hover {
   <div class="review">
     <span style="color: #ffb400; font-size: 1.2rem;">⭐⭐⭐⭐⭐</span>
     <p>"Best mobile accessories shop in Kishanganj."</p>
-    <h4>Happy Customer</h4>
+    <h4>Rahul Kumar</h4>
   </div>
   <div class="review">
     <span style="color: #ffb400; font-size: 1.2rem;">⭐⭐⭐⭐⭐</span>
     <p>"Good quality products at reasonable prices."</p>
-    <h4>Regular Customer</h4>
+    <h4>Mohd Tariq</h4>
   </div>
   <div class="review">
     <span style="color: #ffb400; font-size: 1.2rem;">⭐⭐⭐⭐⭐</span>
     <p>"Friendly service and genuine accessories."</p>
-    <h4>Customer</h4>
+    <h4>Happy Customer</h4>
   </div>
+</div>
+<div style="text-align: center; margin-top: 20px;">
+  <a href="reviews.html" style="color: #38bdf8; font-weight: 600; text-decoration: none; font-size: 14px;">View All Customer Reviews & Ratings →</a>
 </div>
 </section>
 
@@ -1164,13 +1226,17 @@ nav a:hover {
 <div style="margin: 15px 0; font-size: 13px;">
   <a href="about.html" style="color: #cbd5e1; margin: 0 8px; text-decoration: none;">About Us</a> |
   <a href="services/mobile-repair-spare-parts.html" style="color: #cbd5e1; margin: 0 8px; text-decoration: none;">Services & Spares</a> |
+  <a href="battery-replacement.html" style="color: #f59e0b; margin: 0 8px; text-decoration: none;">Battery Hub</a> |
+  <a href="contact.html" style="color: #38bdf8; margin: 0 8px; text-decoration: none;">Contact Us</a> |
   <a href="news.html" style="color: #ef4444; font-weight: bold; margin: 0 8px; text-decoration: none;">Tech News</a> |
   <a href="course.html" style="color: #10b981; font-weight: bold; margin: 0 8px; text-decoration: none;">Free Course</a> |
   <a href="digital-marketing/" style="color: #38bdf8; font-weight: bold; margin: 0 8px; text-decoration: none;">Digital Marketing</a> |
+  <a href="reviews.html" style="color: #cbd5e1; margin: 0 8px; text-decoration: none;">Reviews</a> |
   <a href="blog/original-vs-duplicate-display.html" style="color: #cbd5e1; margin: 0 8px; text-decoration: none;">Tech Guide</a> |
   <a href="faq.html" style="color: #cbd5e1; margin: 0 8px; text-decoration: none;">FAQ</a> |
-  <a href="enquiry.html" style="color: #cbd5e1; margin: 0 8px; text-decoration: none;">Spare Parts Enquiry</a> |
-  <a href="terms.html" style="color: #cbd5e1; margin: 0 8px; text-decoration: none;">Rules & Warranty</a>
+  <a href="enquiry.html" style="color: #cbd5e1; margin: 0 8px; text-decoration: none;">Enquiry Form</a> |
+  <a href="terms.html" style="color: #cbd5e1; margin: 0 8px; text-decoration: none;">Rules & Warranty</a> |
+  <a href="privacy-policy.html" style="color: #cbd5e1; margin: 0 8px; text-decoration: none;">Privacy Policy</a>
 </div>
 
 <p>© 2026 All Rights Reserved.</p>
@@ -1183,6 +1249,12 @@ nav a:hover {
 <a href="https://wa.me/919473371370?text=Hello%204%20STAR%20MOBILE,%20mujhe%20enquiry%20karni%20hai" class="floating-whatsapp" target="_blank" aria-label="WhatsApp">
 <i class="fa-brands fa-whatsapp"></i>
 </a>
+
+<!-- Mobile Quick Action Floating Bar -->
+<div class="floating-bottom-bar">
+  <a href="tel:9473371370" class="bar-call"><i class="fa-solid fa-phone"></i> Call Now</a>
+  <a href="https://wa.me/919473371370?text=Hello%204%20STAR%20MOBILE,%20mujhe%20enquiry%20karni%20hai" target="_blank" class="bar-wa"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+</div>
 
 <!-- Firebase Backend Integration -->
 <script type="module">
