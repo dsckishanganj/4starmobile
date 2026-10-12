@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>20+ Years Trust & Excellence | 4 STAR MOBILE Kishanganj</title>
+<meta name="description" content="Kishanganj mein 20+ saalon ka atoot vishwas. 4 STAR MOBILE ki 3 branches, testing counter, genuine accessories aur customer commitment ki poori kahani.">
+<link rel="icon" type="image/png" href="logo-round.png">
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<style>
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  body {
+    background-color: #0b1120;
+    color: #e2e8f0;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.85;
+  }
+  .article-wrapper {
+    max-width: 980px;
+    margin: 40px auto;
+    background: #111827;
+    padding: 45px 35px;
+    border-radius: 16px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+    border: 1px solid #1f2937;
+  }
+  @media (max-width: 768px) {
+    .article-wrapper {
+      padding: 25px 16px;
+      margin: 15px auto;
+    }
+  }
+  .badge-trust {
+    background: linear-gradient(90deg, rgba(245, 158, 11, 0.2), rgba(234, 179, 8, 0.1));
+    color: #f59e0b;
+    padding: 6px 18px;
+    border-radius: 30px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 22px;
+    border: 1px solid rgba(245, 158, 11, 0.4);
+  }
+  h1 {
+    color: #38bdf8;
+    font-size: 2.3rem;
+    font-weight: 800;
+    line-height: 1.3;
+    margin-bottom: 20px;
+  }
+  h2 {
+    color: #60a5fa;
+    margin-top: 45px;
+    border-bottom: 2px solid #1e293b;
+    padding-bottom: 10px;
+    font-size: 1.55rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  h3 {
+    color: #f59e0b;
+    margin-top: 25px;
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+  p {
+    color: #cbd5e1;
+    font-size: 1.03rem;
+    margin: 16px 0;
+  }
+  ul, ol {
+    padding-left: 24px;
+    margin: 16px 0;
+  }
+  li {
+    margin-bottom: 12px;
+    color: #cbd5e1;
+    font-size: 1rem;
+  }
+  .nav-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #0066cc;
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-bottom: 25px;
+    transition: all 0.2s ease;
+  }
+  .nav-back:hover {
+    background: #0052a3;
+    transform: translateX(-4px);
+  }
+
+  /* Eye-Catching Stats Strip */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin: 30px 0;
+  }
+  .stat-card {
+    background: linear-gradient(145deg, #1e293b, #0f172a);
+    padding: 22px 18px;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid #334155;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  }
+  .stat-number {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: #38bdf8;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-label {
+    font-size: 0.88rem;
+    color: #94a3b8;
+    font-weight: 500;
+  }
+
+  /* Image Showcase */
+  .img-showcase {
+    width: 100%;
+    margin: 25px 0;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #334155;
+    background: #0f172a;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+  }
+  .img-showcase img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    display: block;
+  }
+  @media (max-width: 768px) {
+    .img-showcase img {
+      height: 230px;
+    }
+  }
+  .img-caption {
+    padding: 12px 18px;
+    font-size: 0.9rem;
+    color: #94a3b8;
+    background: #1e293b;
+    border-top: 1px solid #334155;
+    font-style: italic;
+  }
+
+  /* 3 Branches Showcase Cards */
+  .branch-showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin: 30px 0;
+  }
+  .branch-card {
+    background: #1e293b;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #334155;
+    transition: transform 0.25s ease;
+  }
+  .branch-card:hover {
+    transform: translateY(-5px);
+  }
+  .branch-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
+  .branch-card-body {
+    padding: 20px;
+  }
+  .branch-card-body h4 {
+    margin: 0 0 10px 0;
+    color: #f59e0b;
+    font-size: 1.18rem;
+    font-weight: 700;
+  }
+  .branch-card-body p {
+    font-size: 0.92rem;
+    margin: 6px 0;
+    color: #cbd5e1;
+    line-height: 1.5;
+  }
+  .branch-tel {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #38bdf8;
+    font-weight: 700;
+    text-decoration: none;
+    margin-top: 10px;
+    font-size: 0.95rem;
+  }
+
+  /* Core Values Pillars */
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+    margin: 25px 0;
+  }
+  .pillar-box {
+    background: #1e293b;
+    border-left: 4px solid #0066cc;
+    padding: 18px;
+    border-radius: 8px;
+  }
+  .pillar-box.amber { border-left-color: #f59e0b; }
+  .pillar-box.green { border-left-color: #10b981; }
+  .pillar-box.cyan { border-left-color: #38bdf8; }
+  .pillar-title {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: #f8fafc;
+    margin-bottom: 6px;
+  }
+  .pillar-desc {
+    font-size: 0.88rem;
+    color: #94a3b8;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  /* CTA Box */
+  .cta-trust-box {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    border: 2px solid #0066cc;
+    border-radius: 14px;
+    padding: 35px 25px;
+    text-align: center;
+    margin-top: 45px;
+  }
+  .whatsapp-btn {
+    background: #25D366;
+    color: white;
+    padding: 13px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 18px;
+    font-size: 1.05rem;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.35);
+  }
+</style>
+</head>
+<body>
+
+<div class="article-wrapper">
+  <a href="index.html" class="nav-back"><i class="fa-solid fa-arrow-left"></i> Home Page par Wapas Jayein</a>
+  <br>
+  <span class="badge-trust">⭐ 20+ Years Trusted Legacy • Kishanganj, Bihar</span>
+
+  <h1>20+ Saalon Ka Atoot Vishwas: 4 STAR MOBILE Ki Safalta aur Service Ki Kahani</h1>
+
+  <p>Technology har 6 mahine mein badal jaati hai—keypad phones se shuru hokar 3G, 4G aur ab high-speed 5G smartphones ka zamana aa chuka hai. Lekin pichle do dashakon mein jo cheez Kishanganj aur Seemanchal ke logon ke dil mein bilkul nahi badli, wo hai <strong>4 STAR MOBILE</strong> ke prati vishwas aur imandari ka rishta. Mahavir Marg se shuru hua yeh safar aaj 3 specialized branches aur hazaron santusht grahakon ke sath kshetra ka sabse bada mobile accessories aur genuine spare parts center ban chuka hai.</p>
+
+  <!-- Interactive Key Stats -->
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-number">20+</div>
+      <div class="stat-label">Years of Direct Experience</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">3</div>
+      <div class="stat-label">Prime Branch Locations</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">50,000+</div>
+      <div class="stat-label">Satisfied Happy Customers</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">5.0 ★</div>
+      <div class="stat-label">Google Verified Rating</div>
+    </div>
+  </div>
+
+  <!-- Showcase Image 1: Retail Trust -->
+  <div class="img-showcase">
+    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1100&q=80" alt="Customer Service and Trust Experience">
+    <div class="img-caption">Dedicated Customer Support: Har grahak ko sahi salah aur transparent product information pradan karna hamari pehli prathmikta hai.</div>
+  </div>
+
+  <h2><i class="fa-solid fa-gem" style="color: #38bdf8;"></i> Hamare Vishwas Ke 4 Mukhya Stambh (Core Values)</h2>
+  <p>Market mein saste aur duplicate products bechkar munafa kamana aasan hota hai, lekin 20 saalon tak ek hi shehar mein sar uthakar dukan chalana sirf aur sirf naitikta aur sahi quality se sambhav hai:</p>
+
+  <div class="pillars-grid">
+    <div class="pillar-box">
+      <div class="pillar-title">1. Sahi Jankari (No Duplicate Cheating)</div>
+      <p class="pillar-desc">Customer ko saaf bataya jaata hai ki kaun sa product original service-pack grade hai aur kaun sa budget grade hai. Koi jhooth ya chhipi hui baat nahi.</p>
+    </div>
+    <div class="pillar-box amber">
+      <div class="pillar-title">2. Live Testing Counter</div>
+      <p class="pillar-desc">Display, battery aur circuit components ko grahak ke samne live multimeter aur screen tester par check karwaya jaata hai.</p>
+    </div>
+    <div class="pillar-box green">
+      <div class="pillar-title">3. Wholesale & Retail Ek Chhat Ke Niche</div>
+      <p class="pillar-desc">Single customer ko retail support aur aas-paas ke gaon-qasbon ke dukandaron ko direct bulk wholesale rate uplabdh karana.</p>
+    </div>
+    <div class="pillar-box cyan">
+      <div class="pillar-title">4. Warranty & After-Sales Respect</div>
+      <p class="pillar-desc">Kisi bhi charger, battery ya electronic device par committed replacement aur testing warranty ka poora samman kiya jaata hai.</p>
+    </div>
+  </div>
+
+  <h2><i class="fa-solid fa-store" style="color: #f59e0b;"></i> Kishanganj Mein 3 Specialized Branches Ka Network</h2>
+  <p>Grahakon ki suvidha aur har category par deep technical focus rakhne ke liye hamari 3 alag-alag branches Kishanganj ke pramukh bazaaron mein sevarat hain:</p>
+
+  <div class="branch-showcase-grid">
+    <!-- Branch 1 -->
+    <div class="branch-card">
+      <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&q=80" alt="4 Star Mobile Main Branch Mahavir Marg">
+      <div class="branch-card-body">
+        <h4>🏬 Branch 1: Main Head Office</h4>
+        <p><strong>Location:</strong> Ground Floor, Mahavir Marg, Near Congress Office, Kishanganj - 855107</p>
+        <p><strong>Specialty:</strong> Complete wholesale mobile accessories, GaN fast chargers, Bluetooth audio aur brand merchandise hub.</p>
+        <a href="tel:9473185145" class="branch-tel"><i class="fa-solid fa-phone"></i> 9473185145</a>
+      </div>
+    </div>
+
+    <!-- Branch 2 -->
+    <div class="branch-card">
+      <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=500&q=80" alt="4 Star Mobile Spares Hub Fal Chowk">
+      <div class="branch-card-body">
+        <h4>🏬 Branch 2: Display & Hardware Hub</h4>
+        <p><strong>Location:</strong> Fal Chowk, Ghas Patti Masjid, Kishanganj - 855107</p>
+        <p><strong>Specialty:</strong> 500+ LCD folder combos, high backup batteries, charging CC boards, SMD machines aur technician counter.</p>
+        <a href="tel:9308865738" class="branch-tel"><i class="fa-solid fa-phone"></i> 9308865738</a>
+      </div>
+    </div>
+
+    <!-- Branch 3 -->
+    <div class="branch-card">
+      <img src="https://images.unsplash.com/photo-1580910051074-3eb694886505?w=500&q=80" alt="4 Star Mobile Glass & Cover Hub Gandhi Chowk">
+      <div class="branch-card-body">
+        <h4>🏬 Branch 3: Glass & Designer Covers</h4>
+        <p><strong>Location:</strong> Gandhi Chowk, Opposite Goyal Drugs House, Kishanganj Bazar - 855107</p>
+        <p><strong>Specialty:</strong> 11D/9D privacy screen glass, UV curved protectors, camera guards aur fancy shockproof armor covers.</p>
+        <a href="tel:9473371371" class="branch-tel"><i class="fa-solid fa-phone"></i> 9473371371</a>
+      </div>
+    </div>
+  </div>
+
+  <h2><i class="fa-solid fa-award" style="color: #10b981;"></i> Seemanchal Ke Dukandaron Ke Sath Mazboot Rishta</h2>
+  <p>Bahadurganj, Thakurganj, Pothia, Dighalbank, Kochadhaman aur West Bengal ke border ilaqon ke sainkadon mobile technicians 4 STAR MOBILE se regular parts aur accessories purchase karte hain. Unka bharosa is baat par hai ki:</p>
+  <ul>
+    <li>Stock mein hamesha latest models ke display folders aur connectors uplabdh rehte hain.</li>
+    <li>Faulty product aane par instant checking aur counter replacement support diya jaata hai.</li>
+    <li>Market fluctuations ke dauran bhi fair wholesale pricing di jaati hai taaki dukandar acha munafa kama sakein.</li>
+  </ul>
+
+  <!-- Showcase Image 2: Quality & Hardware Check -->
+  <div class="img-showcase">
+    <img src="https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=1100&q=80" alt="Display Screen Quality Inspection">
+    <div class="img-caption">Quality Testing: Har folder aur accessories ki batch testing ki jaati hai taaki zero dead-on-arrival complaint ho.</div>
+  </div>
+
+  <h2><i class="fa-solid fa-handshake-angle" style="color: #38bdf8;"></i> Hum Par Bharosa Kyun Karein?</h2>
+  <p>Online websites par saste daamon mein duplicate items milna aam baat hai jahan delivery ke baad koi sunwai nahi hoti. 4 STAR MOBILE par aap samne khade hokar product inspect kar sakte hain, technical team se direct advice le sakte hain aur kisi bhi pareshani par dukan par aakar solution pa sakte hain. Yahi 20 saal ka wo vishwas hai jo hazaaron parivaron ko hamari taraf khenchta hai.</p>
+
+  <div class="cta-trust-box">
+    <h3 style="margin-top:0; color:#38bdf8; font-size:1.45rem;">20+ Years Trusted Parivar Ka Hissa Banein</h3>
+    <p style="max-width: 700px; margin: 10px auto; color: #cbd5e1;">Aapko kisi bhi branch par visit karna ho, products ka wholesale ya retail quotation chahiye ho, ya direct guidance chahiye ho—humse abhi judein.</p>
+    <a href="https://wa.me/919473371370?text=Hello%204%20STAR%20MOBILE,%20maine%20Trust%20and%20Experience%20article%20padha%20hai%20aur%20mujhe%20enquiry%20karni%20hai" target="_blank" class="whatsapp-btn">
+      <i class="fa-brands fa-whatsapp"></i> Direct Owner / Branch WhatsApp Chat
+    </a>
+  </div>
+</div>
+
+</body>
+</html>
