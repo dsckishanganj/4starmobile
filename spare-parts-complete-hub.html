@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mobile Spare Parts A-to-Z Master Directory & Tools Guide | 4 STAR MOBILE</title>
+<meta name="description" content="Mobile hardware components ki A to Z technical encyclopedia: Motherboard, PMIC, CPU, Display Folders, CC Boards, Cameras, SMD Machines, Soldering Tools aur testing protocols.">
+<link rel="icon" type="image/png" href="logo-round.png">
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<style>
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  body {
+    background-color: #0b1120;
+    color: #e2e8f0;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.85;
+  }
+  .encyclopedia-wrapper {
+    max-width: 1060px;
+    margin: 35px auto;
+    background: #111827;
+    padding: 40px 30px;
+    border-radius: 16px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+    border: 1px solid #1f2937;
+  }
+  @media (max-width: 768px) {
+    .encyclopedia-wrapper {
+      padding: 24px 16px;
+      margin: 15px auto;
+    }
+  }
+  .nav-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #0066cc;
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-bottom: 25px;
+    transition: all 0.2s ease;
+  }
+  .nav-back:hover {
+    background: #0052a3;
+    transform: translateX(-4px);
+  }
+  .badge-tag {
+    background: linear-gradient(90deg, rgba(56, 189, 248, 0.2), rgba(3, 105, 161, 0.1));
+    color: #38bdf8;
+    padding: 6px 18px;
+    border-radius: 30px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 18px;
+    border: 1px solid rgba(56, 189, 248, 0.4);
+  }
+  h1 {
+    color: #38bdf8;
+    font-size: 2.3rem;
+    font-weight: 800;
+    line-height: 1.3;
+    margin-bottom: 15px;
+  }
+  h2.section-header {
+    color: #60a5fa;
+    margin-top: 45px;
+    border-bottom: 2px solid #1e293b;
+    padding-bottom: 10px;
+    font-size: 1.55rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  p.intro-lead {
+    font-size: 1.05rem;
+    color: #cbd5e1;
+    margin-bottom: 25px;
+  }
+
+  /* Search & Filter Quick Bar */
+  .quick-stat-bar {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 25px 0 35px 0;
+  }
+  .quick-stat-item {
+    background: #1e293b;
+    border: 1px solid #334155;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  .quick-stat-val {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #38bdf8;
+  }
+  .quick-stat-lbl {
+    font-size: 0.82rem;
+    color: #94a3b8;
+  }
+
+  /* Catalog Cards Grid */
+  .catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    gap: 22px;
+    margin: 25px 0;
+  }
+  .part-card {
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+    transition: transform 0.25s ease, border-color 0.25s ease;
+  }
+  .part-card:hover {
+    transform: translateY(-5px);
+    border-color: #38bdf8;
+  }
+  .part-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background: #0f172a;
+    display: block;
+  }
+  .part-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  .part-cat-badge {
+    align-self: flex-start;
+    background: rgba(56, 189, 248, 0.15);
+    color: #38bdf8;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 12px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .part-title {
+    margin: 0 0 10px 0;
+    color: #f8fafc;
+    font-size: 1.22rem;
+    font-weight: 700;
+  }
+  .part-desc {
+    color: #cbd5e1;
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin: 0 0 12px 0;
+    flex-grow: 1;
+  }
+  .part-meta {
+    background: #0f172a;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 0.85rem;
+    margin-bottom: 12px;
+  }
+  .part-meta-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+    color: #94a3b8;
+  }
+  .part-meta-row:last-child {
+    margin-bottom: 0;
+  }
+  .part-meta-val {
+    color: #e2e8f0;
+    font-weight: 600;
+  }
+  .part-inquire-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background: #25D366;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.88rem;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: background 0.2s;
+  }
+  .part-inquire-btn:hover {
+    background: #1eb855;
+  }
+
+  /* Full Width Showcase Card */
+  .full-showcase {
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 30px 0;
+  }
+  .full-showcase img {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+  }
+  @media (max-width: 768px) {
+    .full-showcase img {
+      height: 220px;
+    }
+  }
+  .full-showcase-content {
+    padding: 24px;
+  }
+
+  /* Knowledge Table */
+  .spec-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: #0f172a;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .spec-table th, .spec-table td {
+    padding: 12px 14px;
+    font-size: 0.9rem;
+    text-align: left;
+    border-bottom: 1px solid #1e293b;
+  }
+  .spec-table th {
+    background: #1e293b;
+    color: #38bdf8;
+  }
+
+  /* CTA Strip */
+  .cta-hub-box {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    border: 2px solid #0066cc;
+    border-radius: 14px;
+    padding: 35px 25px;
+    text-align: center;
+    margin-top: 50px;
+  }
+  .whatsapp-big-btn {
+    background: #25D366;
+    color: white;
+    padding: 13px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 18px;
+    font-size: 1.05rem;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.35);
+  }
+</style>
+</head>
+<body>
+
+<div class="encyclopedia-wrapper">
+  <a href="index.html" class="nav-back"><i class="fa-solid fa-arrow-left"></i> Home Page par Wapas Jayein</a>
+  <br>
+  <span class="badge-tag">🔬 Technical Parts Encyclopedia • Fal Chowk Hub</span>
+
+  <h1>Mobile Spare Parts, Micro ICs & Machinery: Complete A to Z Hardware Directory</h1>
+  
+  <p class="intro-lead">
+    Smartphone micro-engineering mein 5,000 se adhik active components milkar kaam karte hain. Motherboard ke micro-nano capacitor se lekar high-definition AMOLED folders tak—har spare part ka apna role aur specific testing parameters hote hain. <strong>4 STAR MOBILE Kishanganj</strong> ke is comprehensive directory mein aapko har spare part ki real photo, uske technical upyog, aam faults aur replacement standards ki poori jankari milegi.
+  </p>
+
+  <!-- Quick Counter Stats -->
+  <div class="quick-stat-bar">
+    <div class="quick-stat-item">
+      <div class="quick-stat-val">500+</div>
+      <div class="quick-stat-lbl">LCD Combos in Stock</div>
+    </div>
+    <div class="quick-stat-item">
+      <div class="quick-stat-val">100+</div>
+      <div class="quick-stat-lbl">IC & Chip Varieties</div>
+    </div>
+    <div class="quick-stat-item">
+      <div class="quick-stat-val">200+</div>
+      <div class="quick-stat-lbl">Original Battery Models</div>
+    </div>
+    <div class="quick-stat-item">
+      <div class="quick-stat-val">100%</div>
+      <div class="quick-stat-lbl">Counter Tested Verification</div>
+    </div>
+  </div>
+
+  <!-- SECTION 1: MOTHERBOARD & MICRO ICs -->
+  <h2 class="section-header"><i class="fa-solid fa-microchip" style="color: #38bdf8;"></i> 1. Main Motherboard & Power/Network IC Components</h2>
+  <p style="color: #cbd5e1;">Motherboard (PCB) mobile phone ka central nervous system hota hai. Yahan har line par discrete semiconductors aur dedicated BGA (Ball Grid Array) microchips kaam karti hain:</p>
+
+  <div class="catalog-grid">
+    <!-- Item 1: PMIC -->
+    <div class="part-card">
+      <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80" alt="Power Management IC" class="part-img">
+      <div class="part-body">
+        <span class="part-cat-badge">Motherboard Chip</span>
+        <h3 class="part-title">Power Management IC (PMIC)</h3>
+        <p class="part-desc">Battery se raw current lekar CPU, RAM, Display aur sensors ke liye alag-alag micro-voltages (0.8V, 1.2V, 1.8V, 2.8V) produce karta hai.</p>
+        <div class="part-meta">
+          <div class="part-meta-row"><span>Fault Symptom:</span> <span class="part-meta-val">Phone Dead / Auto Reboot</span></div>
+          <div class="part-meta-row"><span>Common Series:</span> <span class="part-meta-val">PMI632, PM8953, MT6357</span></div>
+        </div>
+        <a href="https://wa.me/919308865738?text=Hello%204%20STAR%20MOBILE,%20mujhe%20PMIC%20IC%20ka%20rate%20janna%20hai" target="_blank" class="part-inquire-btn"><i class="fa-brands fa-whatsapp"></i> IC Rate Enquire</a>
+      </div>
+    </div>
+
+    <!-- Item 2: CPU & Flash Storage -->
+    <div class="part-card">
+      <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&q=80" alt="CPU and eMMC Flash Memory" class="part-img">
+      <div class="part-body">
+        <span class="part-cat-badge">Processing Core</span>
+        <h3 class="part-title">CPU & eMMC / UFS Storage</h3>
+        <p class="part-desc">Operating System (Android/iOS) ko run karta hai aur user storage ko secure rakhta hai. Dual-decker RAM aur processor package ke roop mein mount hota hai.</p>
+        <div class="part-meta">
+          <div class="part-meta-row"><span>Fault Symptom:</span> <span class="part-meta-val">Hang on Logo / EDL Mode</span></div>
+          <div class="part-meta-row"><span>Repair Method:</span> <span class="part-meta-val">CNC Drilled / Reballing</span></div>
+        </div>
+        <a href="https://wa.me/919308865738?text=Hello%204%20STAR%20MOBILE,%20mujhe%20CPU%20eMMC%20repair%20ke%20bare%20me%20janna%20hai" target="_blank" class="part-inquire-btn"><i class="fa-brands fa-whatsapp"></i> WhatsApp Enquire</a>
+      </div>
+    </div>
+
+    <!-- Item 3: WTR Network IC -->
+    <div class="part-card">
+      <img src="https://images.unsplash.com/photo-1597740985671-2a8a3b80532e?w=600&q=80" alt="RF WTR Network IC" class="part-img">
+      <div class="part-body">
+        <span class="part-cat-badge">RF Network</span>
+        <h3 class="part-title">WTR / PA Network IC</h3>
+        <p class="part-desc">Cellular antenna se signal receive karke radio frequencies ko baseband signals mein convert karta hai taaki Calling aur 4G/5G data seamlessly chal sake.</p>
+        <div class="part-meta">
+          <div class="part-meta-row"><span>Fault Symptom:</span> <span class="part-meta-val">No Service / Emergency Only</span></div>
+          <div class="part-meta-row"><span>Common Series:</span> <span class="part-meta-val">WTR2965, SDR660, MT6177</span></div>
+        </div>
+        <a href="https://wa.me/919308865738?text=Hello%204%20STAR%20MOBILE,%20mujhe%20WTR%20Network%20IC%20ka%20rate%20chahiye" target="_blank" class="part-inquire-btn"><i class="fa-brands fa-whatsapp"></i> IC Rate Enquire</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: CHARGING, CC SUB-BOARDS & CONNECTORS -->
+  <h2 class="section-header"><i class="fa-solid fa-plug-circle-bolt" style="color: #f59e0b;"></i> 2. Charging CC Boards, Ports & Microphone Flex</h2>
+  <p style="color: #cbd5e1;">Phone ke charging aur audio transmission ke liye bottom Sub-Board (CC Board) sabse active hardware hissa hota hai:</p>
+
+  <div class="catalog-grid">
+    <!-- Item 4: CC Board -->
+    <div class="part-card">
+      <img src="https://images.unsplash.com/photo-1588508065123-287b28e013da?w=600&q=80" alt="Original Charging CC Board" class="part-img">
+      <div class="part-body">
+        <span class="part-cat-badge">Sub-Board</span>
+        <h3 class="part-title">Original Fast Charging CC Board</h3>
+        <p class="part-desc">Type-C charging port, primary mic, cellular antenna grounding aur buzzer connection ka hub. Original boards mein surge protection diodes lage hote hain.</p>
+        <div class="part-meta">
+          <div class="part-meta-row"><span>Quality:</span> <span class="part-meta-val">Original Components with IC</span></div>
+          <div class="part-meta-row"><span>Fault:</span> <span class="part-meta-val">Slow Charging / Mic Awaz Na Jana</span></div>
+        </div>
+        <a href="https://wa.me/919308865738?text=Hello%204%20STAR%20MOBILE,%20mujhe%20Charging%20CC%20Board%20ka%20rate%20chahiye" target="_blank" class="part-inquire-btn"><i class="fa-brands fa-whatsapp"></i> Model CC Board Enquire</a>
+      </div>
+    </div>
+
+    <!-- Item 5: Main Motherboard Connecting Flex -->
+    <div class="part-card">
+      <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=600&q=80" alt="Main to Sub Connecting Ribbon Flex" class="part-img">
+      <div class="part-body">
+        <span class="part-cat-badge">Ribbon Flex</span>
+        <h3 class="part-title">Main-to-Sub Connecting Flex Cable</h3>
+        <p class="part-desc">Battery ke upar se hokar motherboard aur charging board ko aapas mein jodne wali multi-pin ribbon strip. Iske katne se display lighting ya charging ruk jaati hai.</p>
+        <div class="part-meta">
+          <div class="part-meta-row"><span>Pins:</span> <span class="part-meta-val">Gold Plated FPC Connectors</span></div>
+          <div class="part-meta-row"><span>Fault:</span> <span class="part-meta-val">Charging disconnected repeatedly</span></div>
+        </div>
+        <a href="https://wa.me/919308865738?text=Hello%204%20STAR%20MOBILE,%20mujhe%20Motherboard%20Flex%20chahiye" target="_blank" class="part-inquire-btn"><i class="fa-brands fa-whatsapp"></i> Flex Strip Enquire</a>
+      </div>
+    </div>
+
+    <!-- Item 6: Type-C & Lightning Jacks -->
+    <div class="part-card">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/USB-C_cable_2017_A.jpg" alt="Type-C Connector Jacks" class="part-img">
+      <div class="part-body">
+        <span class="part-cat-badge">Connector</span>
+        <h3 class="part-title">Heavy-Duty Type-C & Micro USB Jacks</h3>
+        <p class="part-desc">High-temperature resistant nylon core wale individual charging pin jacks jo 6A turbo charging aur data transfer support karte hain.</p>
+        <div class="part-meta">
+          <div class="part-meta-row"><span>Durability:</span> <span class="part-meta-val">10,000+ Plugin Cycles</span></div>
+          <div class="part-meta-row"><span>Stock:</span> <span class="part-meta-val">All Universal & Specific Pinouts</span></div>
+        </div>
+        <a href="https://wa.me/919308865738?text=Hello%204%20STAR%20MOBILE,%20mujhe%20Charging%20Jacks%20wholesale%20chahiye" target="_blank" class="part-inquire-btn"><i class="fa-brands fa-whatsapp"></i> Bulk Jack Enquire</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3: SCREENS, LCD DISPLAY & TOUCH FOLDERS -->
+  <h2 class="section-header"><i class="fa-solid fa-mobile-screen" style="color: #10b981;"></i> 3. Display Combos: AMOLED, OLED & INCELL Touch Folders</h2>
+  <p style="color: #cbd5e1;">Display mobile repair ka sabse popular component hai. Yahan har grade ki quality aur screen fitment ki jankari di gayi hai:</p>
+
+  <div class="full-showcase">
+    <img src="https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=1100&q=80" alt="LCD Screen Testing and Display Combos">
+    <div class="full-showcase-content">
+      <h3 style="color:#38bdf8; margin: 0 0 10px 0;">Display Grades aur Quality Ka Farq Samjhein</h3>
+      <table class="spec-table">
+        <thead>
+          <tr>
+            <th>Grade Type</th>
+            <th>Brightness & Color</th>
+            <th>Refresh Rate & Touch</th>
+            <th>Durability</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Original Service Pack</strong></td>
+            <td>100% True Tone / Factory 1200+ Nits</td>
+            <td>Full 90Hz / 120Hz Smooth</td>
+            <td>Corning Gorilla Glass Layer</td>
+          </tr>
+          <tr>
+            <td><strong>OLED / INCELL Grade</strong></td>
+            <td>Rich Contrast / 800-900 Nits</td>
+            <td>Smooth 60Hz-90Hz Response</td>
+            <td>Tempered Front Glass</td>
+          </tr>
+          <tr>
+            <td><strong>Normal TFT / Copy Grade</strong></td>
+            <td>Average Brightness (Sunlight mein dhundhla)</td>
+            <td>Basic 60Hz (Typing lag possible)</td>
+            <td>Fragile (Halka girne par crack)</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="margin: 0; color: #94a3b8; font-size: 0.9rem;">
+        <em>💡 4 STAR MOBILE Rule: Hamari dukan par Fal Chowk Testing Counter par customer frame lagane se pehle display ka color aur touch live check kar sakte hain.</em>
+      </p>
+    </div>
+  </div>
+
+  <!-- SECTION 4: REPLACEMENT BATTERIES & BMS CIRCUITS -->
+  <h2 class="section-header"><i class="fa-solid fa-battery-full" style="color: #38bdf8;"></i> 4. High-Backup Batteries & BMS Protection Boards</h2>
+  <p style="color: #cbd5e1;">Smartphone ki battery sirf backup nahi deti, balki internal voltage balance banakar rakhti hai:</p>
+
+  <div class="catalog-grid">
+    <!-- Item 7: High Capacity Battery -->
+    <div class="part-card">
+      <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600&q=80" alt="Lithium Polymer Mobile Battery" class="part-img">
+      <div class="part-body">
+        <span class="part-cat-badge">Power Cell</span>
+        <h3 class="part-title">Original Grade Li-Polymer Batteries</h3>
+        <p class="part-desc">Pure cobalt cathode cells se bani high-density batteries jo pure din ka real-world backup aur 500+ full charge cycle durability pradan karti hain.</p>
+        <div class="part-meta">
+          <div class="part-meta-row"><span>BMS Protection:</span> <span class="part-meta-val">Overcharge & Short Auto-Cut</span></div>
+          <div class="part-meta-row"><span>Backup:</span> <span class="part-meta-val">Full 6-Month Life Warranty</span></div>
+        </div>
+        <a href="https://wa.me/919308865738?text=Hello%204%20STAR%20MOBILE,%20mujhe%20Mobile%20Battery%20ka%20rate%20chahiye" target="_blank" class="part-inquire-btn"><i class="fa-brands fa-whatsapp"></i> Battery Model Enquire</a>
+      </div>
+    </div>
+
+    <!-- Item 8: Camera Modules -->
+    <div class="part-card">
+      <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600&q=80" alt="Mobile Camera Module Lens" class="part-img">
+      <div class="part-body">
+        <span class="part-cat-badge">Optics</span>
+        <h3 class="part-title">Rear & Front Selfie Camera Modules</h3>
+        <p class="part-desc">OIS (Optical Image Stabilization) aur ultra-wide sensor lens modules. Dhundhli tasveeron ya camera app crash hone par direct replacement.</p>
+        <div class="part-meta">
+          <div class="part-meta-row"><span>Resolution:</span> <span class="part-meta-val">Original MP Clarity & Autofocus</span></div>
+          <div class="part-meta-row"><span>Stock:</span> <span class="part-meta-val">Redmi, Realme, Samsung, iPhone</span></div>
+        </div>
+        <a href="https://wa.me/919308865738?text=Hello%204%20STAR%20MOBILE,%20mujhe%20Camera%20Module%20ka%20stock%20check%20karna%20hai" target="_blank" class="part-inquire-btn"><i class="fa-brands fa-whatsapp"></i> Camera Lens Enquire</a>
+      </div>
+    </div>
+
+    <!-- Item 9: Fingerprint Sensors & Switches -->
+    <div class="part-card">
+      <img src="https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600&q=80" alt="Fingerprint Scanner and Power Flex" class="part-img">
+      <div class="part-body">
+        <span class="part-cat-badge">Sensors</span>
+        <h3 class="part-title">Side Fingerprint & Volume/Power Key Flex</h3>
+        <p class="part-desc">Side-mounted fast biometrics sensor flex aur micro power-on tact switches jo buttons ke dabane par response na aane par lagaye jaate hain.</p>
+        <div class="part-meta">
+          <div class="part-meta-row"><span>Response:</span> <span class="part-meta-val">Instant 0.2s Biometric Unlock</span></div>
+          <div class="part-meta-row"><span>Fitting:</span> <span class="part-meta-val">Pre-taped Factory Fit</span></div>
+        </div>
+        <a href="https://wa.me/919308865738?text=Hello%204%20STAR%20MOBILE,%20mujhe%20Fingerprint%20Power%20Flex%20chahiye" target="_blank" class="part-inquire-btn"><i class="fa-brands fa-whatsapp"></i> Sensor Flex Enquire</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: PROFESSIONAL WORKSHOP TOOLS & MACHINERY -->
+  <h2 class="section-header"><i class="fa-solid fa-screwdriver-wrench" style="color: #ef4444;"></i> 5. Professional Workshop Machinery, Tools & Chemicals</h2>
+  <p style="color: #cbd5e1;">Ek acche technician ki pehchan uski professional machinery se hoti hai. Yahan workshop ke top tools shamil hain:</p>
+
+  <div class="catalog-grid">
+    <!-- Tool 1: SMD Rework Station -->
+    <div class="part-card">
+      <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&q=80" alt="SMD Rework Station 850A" class="part-img">
+      <div class="part-body">
+        <span class="part-cat-badge">Lab Machine</span>
+        <h3 class="part-title">SMD Rework Station (Quick 850A Series)</h3>
+        <p class="part-desc">Motherboard ke micro ICs ko desolder aur resolder karne ke liye precise digital temperature (100°C - 450°C) aur continuous airflow regulator machine.</p>
+        <div class="part-meta">
+          <div class="part-meta-row"><span>Airflow:</span> <span class="part-meta-val">Diaphragm Pump Auto-Cool</span></div>
+          <div class="part-meta-row"><span>Application:</span> <span class="part-meta-val">BGA IC & Port Soldering</span></div>
+        </div>
+        <a href="https://wa.me/919308865738?text=Hello%204%20STAR%20MOBILE,%20mujhe%20SMD%20Machine%20ka%20rate%20chahiye" target="_blank" class="part-inquire-btn"><i class="fa-brands fa-whatsapp"></i> Tool Rate Enquire</a>
+      </div>
+    </div>
+
+    <!-- Tool 2: Soldering Iron & Jumper Wire -->
+    <div class="part-card">
+      <img src="https://images.unsplash.com/photo-1588508065123-287b28e013da?w=600&q=80" alt="Soldering Iron and Micro Jumper" class="part-img">
+      <div class="part-body">
+        <span class="part-cat-badge">Hand Tool</span>
+        <h3 class="part-title">Micro Soldering Iron & 0.02mm Jumper</h3>
+        <p class="part-desc">Ultra-sharp curved/straight T12 tips jo 8 seconds mein 350°C heat ho jaati hain. Saath mein insulated copper micro-wire track repairing ke liye.</p>
+        <div class="part-meta">
+          <div class="part-meta-row"><span>Tip Heat:</span> <span class="part-meta-val">Rapid 8-Second Fast Heating</span></div>
+          <div class="part-meta-row"><span>Accuracy:</span> <span class="part-meta-val">0.02mm Micro Trace Repair</span></div>
+        </div>
+        <a href="https://wa.me/919308865738?text=Hello%204%20STAR%20MOBILE,%20mujhe%20Soldering%20Iron%20Tools%20chahiye" target="_blank" class="part-inquire-btn"><i class="fa-brands fa-whatsapp"></i> Iron Tool Enquire</a>
+      </div>
+    </div>
+
+    <!-- Tool 3: Glues, Paste & Solder Flux -->
+    <div class="part-card">
+      <img src="https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600&q=80" alt="T7000 Glue and Solder Paste" class="part-img">
+      <div class="part-body">
+        <span class="part-cat-badge">Chemicals</span>
+        <h3 class="part-title">T-7000 Black Glue & Relife Flux Paste</h3>
+        <p class="part-desc">Display frame fitting ke liye high-elasticity waterproof T-7000/B-7000 glue aur IC reballing ke liye low-smoke 183°C leaded solder paste (PPD).</p>
+        <div class="part-meta">
+          <div class="part-meta-row"><span>Glue Type:</span> <span class="part-meta-val">Anti-Leak Rubber Elastic</span></div>
+          <div class="part-meta-row"><span>Flux:</span> <span class="part-meta-val">Non-Corrosive Clean Solder</span></div>
+        </div>
+        <a href="https://wa.me/919308865738?text=Hello%204%20STAR%20MOBILE,%20mujhe%20T7000%20Glue%20aur%20Flux%20chahiye" target="_blank" class="part-inquire-btn"><i class="fa-brands fa-whatsapp"></i> Glue & Flux Enquire</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 6: TESTING COUNTER POLICY -->
+  <h2 class="section-header"><i class="fa-solid fa-clipboard-check" style="color: #38bdf8;"></i> 6. Kishanganj Hardware Counter Testing Policy</h2>
+  <p style="color: #cbd5e1;">
+    4 STAR MOBILE Fal Chowk branch par technician aur dukandar bhaiyon ke liye open workbench counter diya gaya hai. Koi bhi display folder, battery ya board purchase karne se pehle counter par check karein. Sahi checking ke baad fitting karne par kabhi bhi return ya customer complaint ka samna nahi karna padta.
+  </p>
+
+  <!-- Big Call to Action -->
+  <div class="cta-hub-box">
+    <h3 style="margin-top:0; color:#38bdf8; font-size:1.5rem;">Apne Smartphone Model Ke Parts Ka Rate & Stock Jaaniye!</h3>
+    <p style="max-width: 720px; margin: 10px auto; color: #cbd5e1;">
+      Apna phone model name aur required parts (Display Combo, Battery, Charging Board, IC, ya Tools) direct WhatsApp par message karein. Instant wholesale aur retail price list prapt karein.
+    </p>
+    <a href="https://wa.me/919308865738?text=Hello%204%20STAR%20MOBILE,%20maine%20A-to-Z%20Parts%20Encyclopedia%20dekhi%20hai%20aur%20mujhe%20spare%20parts%20ka%20rate%20janna%20hai" target="_blank" class="whatsapp-big-btn">
+      <i class="fa-brands fa-whatsapp"></i> Fal Chowk Spares Hub WhatsApp Chat
+    </a>
+  </div>
+</div>
+
+</body>
+</html>
