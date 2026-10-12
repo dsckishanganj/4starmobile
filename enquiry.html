@@ -1,113 +1,163 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thank You | 4 STAR MOBILE Kishanganj</title>
-    <meta name="robots" content="noindex, nofollow">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Send Enquiry - 4 Star Mobile</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JFYE07M7SG"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+    body {
+      background-color: #f1f5f9;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 16px;
+    }
 
-      gtag('config', 'G-JFYE07M7SG');
+    .form-card {
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+      padding: 32px 24px;
+      width: 100%;
+      max-width: 440px;
+    }
 
-      // Conversion Event for Google Analytics
-      gtag('event', 'generate_lead', {
-        'event_category': 'Enquiry',
-        'event_label': 'Thank You Page View'
-      });
-    </script>
+    .form-header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
 
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-        }
-        body {
-            background-color: #f0f4f8;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
-        .thank-you-card {
-            background: #ffffff;
-            max-width: 460px;
-            width: 100%;
-            padding: 35px 25px;
-            border-radius: 16px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-            text-align: center;
-        }
-        .check-icon {
-            width: 65px;
-            height: 65px;
-            background-color: #e8f5e9;
-            color: #2e7d32;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 34px;
-            margin: 0 auto 18px;
-            font-weight: bold;
-        }
-        h1 {
-            color: #1a1a1a;
-            font-size: 24px;
-            margin-bottom: 12px;
-        }
-        p {
-            color: #4a5568;
-            font-size: 15px;
-            line-height: 1.6;
-            margin-bottom: 22px;
-        }
-        .btn-home {
-            display: inline-block;
-            background-color: #0d6efd;
-            color: #ffffff;
-            text-decoration: none;
-            padding: 12px 28px;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 15px;
-            transition: 0.2s;
-        }
-        .btn-home:hover {
-            background-color: #0b5ed7;
-        }
-        .whatsapp-note {
-            margin-top: 22px;
-            font-size: 14px;
-            color: #64748b;
-        }
-        .whatsapp-note a {
-            color: #25d366;
-            text-decoration: none;
-            font-weight: 600;
-        }
-    </style>
+    .form-header h2 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 6px;
+    }
+
+    .form-header p {
+      font-size: 14px;
+      color: #64748b;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: #334155;
+      margin-bottom: 6px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 15px;
+      color: #0f172a;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      background-color: #ffffff;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    .btn-submit {
+      width: 100%;
+      background-color: #2563eb;
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+      margin-top: 8px;
+    }
+
+    .btn-submit:hover {
+      background-color: #1d4ed8;
+    }
+
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 18px;
+      font-size: 14px;
+      color: #64748b;
+      text-decoration: none;
+    }
+
+    .back-link:hover {
+      color: #0f172a;
+    }
+  </style>
 </head>
 <body>
 
-    <div class="thank-you-card">
-        <div class="check-icon">&#10003;</div>
-        <h1>Shukriya!</h1>
-        <p>Aapki enquiry hume mil gayi hai. 4 STAR MOBILE ki team aapse jald hi rabta karegi.</p>
-        <a href="https://dsckishanganj.github.io/4starmobile/" class="btn-home">Home Page par wapas jayein</a>
-        
-        <div class="whatsapp-note">
-            Foran jankari ke liye seedhe <a href="https://wa.me/919473371370">WhatsApp karein</a>
-        </div>
+  <div class="form-card">
+    <div class="form-header">
+      <h2>Quick Enquiry</h2>
+      <p>Fill out the form below and we will get back to you.</p>
     </div>
+
+    <!-- Action mein apni Thank You file ka URL/naam rakhein -->
+    <form action="thank-you.html" method="POST">
+      
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="mobile">Mobile Number</label>
+        <input type="tel" id="mobile" name="mobile" placeholder="10-digit mobile number" required>
+      </div>
+
+      <div class="form-group">
+        <label for="service">Service / Requirement</label>
+        <select id="service" name="service" required>
+          <option value="" disabled selected>Select an option</option>
+          <option value="Mobile Repair">Mobile Repair / Display Change</option>
+          <option value="Accessories">Accessories & Spare Parts</option>
+          <option value="Other">Other Enquiry</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message / Details (Optional)</label>
+        <textarea id="message" name="message" placeholder="Describe your model or issue..."></textarea>
+      </div>
+
+      <button type="submit" class="btn-submit">Submit Enquiry</button>
+    </form>
+
+    <a href="index.html" class="back-link">← Back to Home</a>
+  </div>
 
 </body>
 </html>
