@@ -640,7 +640,7 @@ nav a:hover {
   </div>
 </div>
 
-<!-- Clean Nav Links (Pehle Jaisa Plain Look) -->
+<!-- Clean Nav Links -->
 <nav>
 <a href="#home">Home</a>
 <a href="#products">Categories</a>
@@ -718,7 +718,7 @@ nav a:hover {
   </a>
 </div>
 
-<!-- Interactive Product Categories Folders -->
+<!-- Interactive Product Categories Folders (With 9th Spares Box) -->
 <section id="products" class="products">
 <h2>Shop by Category (Click to Open Folder)</h2>
 <p style="text-align: center; color: #666; margin-bottom: 25px;">Kisi bhi category par click karein uske saare models aur items dekhne ke liye</p>
@@ -805,7 +805,7 @@ nav a:hover {
     </div>
   </div>
 
-  <!-- Category 9: Spare Parts & Tools (Box Filled + Opens Modal Popup) -->
+  <!-- Category 9: Spare Parts & Tools (Opens Native Popup Modal) -->
   <div class="card" onclick="openCategoryFolder('Spares & Tools')">
     <img class="product-card-img" src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&q=80" alt="Mobile Motherboard SMD Machine Repair Tools Kishanganj">
     <div class="card-content">
@@ -830,20 +830,24 @@ nav a:hover {
   </div>
 </div>
 
-<!-- Store Highlights Section (Original Simple Format) -->
+<!-- ================= STORE HIGHLIGHTS SECTION ================= -->
 <section id="gallery" class="products" style="background: #f8f9fa;">
 <h2>Store Highlights & Services</h2>
 <div class="product-grid">
-  <!-- Card 1: Huge Accessories Stock -->
-  <div class="card">
-    <img class="product-card-img" src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80" alt="Huge Accessories Stock Kishanganj">
-    <div class="card-content">
-      <h3>Huge Accessories Stock</h3>
-      <p>All phone model accessories available in wholesale & retail.</p>
-    </div>
-  </div>
 
-  <!-- Card 2: Genuine Spare Parts -->
+  <!-- 1. Huge Accessories Stock -> Opens huge-accessories-stock.html -->
+  <a href="huge-accessories-stock.html" style="text-decoration: none; color: inherit; display: block;">
+    <div class="card">
+      <img class="product-card-img" src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80" alt="Huge Accessories Stock Kishanganj">
+      <div class="card-content">
+        <h3>Huge Accessories Stock</h3>
+        <p>All phone model accessories available in wholesale & retail.</p>
+        <span class="view-folder-btn"><i class="fa-solid fa-book-open"></i> View Details →</span>
+      </div>
+    </div>
+  </a>
+
+  <!-- 2. Genuine Spare Parts -> Keeps your original services directory link -->
   <a href="services/mobile-repair-spare-parts.html" style="text-decoration: none; color: inherit; display: block;">
     <div class="card" style="border: 2px solid #0066cc;">
       <img class="product-card-img" src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80" alt="Genuine Spare Parts Kishanganj">
@@ -855,41 +859,62 @@ nav a:hover {
     </div>
   </a>
 
-  <!-- Card 3: 20+ Years Trust -->
-  <div class="card">
-    <img class="product-card-img" src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=80" alt="20+ Years Trust Kishanganj">
-    <div class="card-content">
-      <h3>20+ Years Trust</h3>
-      <p>Direct support across 3 convenient branch locations in Kishanganj.</p>
+  <!-- 3. 20+ Years Trust -> Opens trust-and-experience.html -->
+  <a href="trust-and-experience.html" style="text-decoration: none; color: inherit; display: block;">
+    <div class="card">
+      <img class="product-card-img" src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=80" alt="20+ Years Trust Kishanganj">
+      <div class="card-content">
+        <h3>20+ Years Trust</h3>
+        <p>Direct support across 3 convenient branch locations in Kishanganj.</p>
+        <span class="view-folder-btn"><i class="fa-solid fa-book-open"></i> View Details →</span>
+      </div>
     </div>
-  </div>
+  </a>
+
 </div>
 </section>
 
-<!-- Why Choose 4 STAR MOBILE Section (Original Simple Format) -->
+<!-- ================= WHY CHOOSE 4 STAR MOBILE SECTION ================= -->
 <section id="services" class="services">
 <h2>Why Choose 4 STAR MOBILE?</h2>
 <div class="service-grid">
-  <div class="service-box">
-    <i class="fa-solid fa-award"></i>
-    <h3>20+ Years Trusted</h3>
-    <p>Serving customers with genuine products and reliable service for over 20 years.</p>
-  </div>
-  <div class="service-box">
-    <i class="fa-solid fa-mobile-screen-button"></i>
-    <h3>All Accessories</h3>
-    <p>Mobile Covers, Chargers, Batteries, Displays, Earbuds, Neckbands and more.</p>
-  </div>
-  <div class="service-box">
-    <i class="fa-solid fa-screwdriver-wrench"></i>
-    <h3>Spare Parts Hub</h3>
-    <p>Quality mobile spare parts for many popular smartphone brands.</p>
-  </div>
-  <div class="service-box">
-    <i class="fa-solid fa-shield-halved"></i>
-    <h3>Tested Quality</h3>
-    <p>We focus on genuine products and 100% customer satisfaction.</p>
-  </div>
+
+  <!-- 1. 20+ Years Trusted -> trust-and-experience.html -->
+  <a href="trust-and-experience.html" style="text-decoration: none; color: inherit; display: block;">
+    <div class="service-box">
+      <i class="fa-solid fa-award"></i>
+      <h3>20+ Years Trusted</h3>
+      <p>Serving customers with genuine products and reliable service for over 20 years.</p>
+    </div>
+  </a>
+
+  <!-- 2. All Accessories -> huge-accessories-stock.html -->
+  <a href="huge-accessories-stock.html" style="text-decoration: none; color: inherit; display: block;">
+    <div class="service-box">
+      <i class="fa-solid fa-mobile-screen-button"></i>
+      <h3>All Accessories</h3>
+      <p>Mobile Covers, Chargers, Batteries, Displays, Earbuds, Neckbands and more.</p>
+    </div>
+  </a>
+
+  <!-- 3. Spare Parts Hub -> spare-parts-complete-hub.html -->
+  <a href="spare-parts-complete-hub.html" style="text-decoration: none; color: inherit; display: block;">
+    <div class="service-box">
+      <i class="fa-solid fa-screwdriver-wrench"></i>
+      <h3>Spare Parts Hub</h3>
+      <p>Quality mobile spare parts for many popular smartphone brands.</p>
+    </div>
+  </a>
+
+  <!-- 4. Tested Quality -> tested-quality-standard.html -->
+  <a href="tested-quality-standard.html" style="text-decoration: none; color: inherit; display: block;">
+    <div class="service-box">
+      <i class="fa-solid fa-shield-halved"></i>
+      <h3>Tested Quality</h3>
+      <p>We focus on genuine products and 100% customer satisfaction.</p>
+    </div>
+  </a>
+
 </div>
 </section>
 
