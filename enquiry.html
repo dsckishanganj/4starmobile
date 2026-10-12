@@ -1,1 +1,81 @@
 
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enquiry / Spare Parts Requirement | 4 STAR MOBILE</title>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JFYE07M7SG"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-JFYE07M7SG');
+  </script>
+
+  <style>
+    body { font-family: sans-serif; background: #f0f4f8; padding: 20px; }
+    .card { max-width: 500px; margin: 20px auto; background: #fff; padding: 25px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+    input, select, textarea, button { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; }
+    button { background: #25d366; color: white; border: none; font-size: 16px; font-weight: bold; cursor: pointer; }
+    button:hover { background: #1ebc59; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>📱 Parts & Item Enquiry</h2>
+    <p>Apna model aur zaroori saman likhein, hum foran update denge.</p>
+    
+    <label>Aapka Naam:</label>
+    <input type="text" id="custName" placeholder="Apna naam daalein">
+
+    <label>Mobile Brand & Model:</label>
+    <input type="text" id="custModel" placeholder="e.g. Vivo Y20, Redmi Note 10">
+
+    <label>Kaunsa Part Chahiye?</label>
+    <select id="partType">
+      <option value="Folder/Display">Folder / Display</option>
+      <option value="Battery">Original Battery</option>
+      <option value="Fast Charger">Fast Charger / Cable</option>
+      <option value="Power Bank">Power Bank</option>
+      <option value="Other Spare Part">Other Spare Part</option>
+    </select>
+
+    <label>Koi Khaas Sawal ya Detail:</label>
+    <textarea id="custMsg" rows="3" placeholder="Apni baat likhein..."></textarea>
+
+    <button onclick="sendToWhatsApp()">WhatsApp Par Bhejein</button>
+    <p style="text-align: center;"><a href="index.html">← Back to Home</a></p>
+  </div>
+
+  <script>
+    function sendToWhatsApp() {
+      var name = document.getElementById('custName').value;
+      var model = document.getElementById('custModel').value;
+      var part = document.getElementById('partType').value;
+      var msg = document.getElementById('custMsg').value;
+      
+      var fullText = "Hello 4 STAR MOBILE,%0A%0A*New Enquiry*%0A*Name:* " + encodeURIComponent(name) + "%0A*Model:* " + encodeURIComponent(model) + "%0A*Required Part:* " + encodeURIComponent(part) + "%0A*Details:* " + encodeURIComponent(msg);
+      
+      // 1. Google Analytics me conversion event trigger
+      if (typeof gtag === 'function') {
+        gtag('event', 'generate_lead', {
+          'event_category': 'Enquiry',
+          'event_label': part
+        });
+      }
+
+      // 2. Naye tab me WhatsApp chat open karega
+      window.open("https://wa.me/919473371370?text=" + fullText, "_blank");
+
+      // 3. User ko Thank You page par redirect karega
+      setTimeout(function() {
+        window.location.href = "thank-you.html";
+      }, 500);
+    }
+  </script>
+</body>
+</html>
