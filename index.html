@@ -358,7 +358,7 @@ nav a:hover {
 .parts-search-container {
   max-width: 520px;
   width: 100%;
-  margin: 0 auto 22px auto;
+  margin: 0 auto 16px auto;
   display: flex;
   box-shadow: 0 8px 24px rgba(0,0,0,0.3);
   border-radius: 30px;
@@ -398,6 +398,7 @@ nav a:hover {
   justify-content: center;
   gap: 12px;
   flex-wrap: wrap;
+  margin-bottom: 15px;
 }
 .hero-buttons .btn {
   display: inline-flex;
@@ -416,6 +417,27 @@ nav a:hover {
 .hero-buttons .btn.whatsapp {
   background: #25D366;
   color: #fff;
+}
+
+/* Technician Registration Trigger Button in Hero */
+.tech-register-cta-btn {
+  background: linear-gradient(135deg, #0066cc 0%, #0284c7 100%);
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  padding: 10px 22px;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0, 102, 204, 0.4);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.tech-register-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 102, 204, 0.6);
 }
 
 /* Quick Action Highlights */
@@ -553,6 +575,44 @@ nav a:hover {
   margin-bottom: 20px;
 }
 
+/* Technician Modal Styling */
+.tech-modal-box {
+  background: #ffffff;
+  max-width: 500px;
+  margin: 50px auto;
+  border-radius: 14px;
+  padding: 25px;
+  position: relative;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.35);
+}
+.tech-modal-box input, .tech-modal-box select {
+  width: 100%;
+  padding: 11px 14px;
+  margin: 8px 0 14px 0;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 15px;
+}
+.tech-submit-btn {
+  width: 100%;
+  background: #25D366;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 0.2s;
+}
+.tech-submit-btn:hover {
+  background: #1eb855;
+}
+
 /* Protected Admin Section Styling */
 #admin-panel {
   display: none;
@@ -561,7 +621,7 @@ nav a:hover {
   border-top: 2px dashed #0066cc;
 }
 .admin-section {
-  max-width: 650px;
+  max-width: 850px;
   margin: 0 auto;
   background: #ffffff;
   padding: 25px;
@@ -613,6 +673,26 @@ nav a:hover {
   font-size: 13px;
   cursor: pointer;
   float: right;
+}
+
+/* Technician Admin Table */
+.tech-admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  font-size: 14px;
+}
+.tech-admin-table th, .tech-admin-table td {
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  text-align: left;
+}
+.tech-admin-table th {
+  background: #0f172a;
+  color: #fff;
+}
+.tech-admin-table tr:nth-child(even) {
+  background: #f8fafc;
 }
 </style>
 </head>
@@ -688,6 +768,13 @@ nav a:hover {
     <a class="btn call" href="tel:9473371370"><i class="fa-solid fa-phone"></i> Call Primary</a>
     <a class="btn whatsapp" href="https://wa.me/919473371370?text=Hello%204%20STAR%20MOBILE,%20mujhe%20enquiry%20karni%20hai" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
   </div>
+
+  <!-- Dedicated Technician Wholesale Registration Trigger -->
+  <div>
+    <button type="button" class="tech-register-cta-btn" onclick="openTechnicianRegisterModal()">
+      <i class="fa-solid fa-screwdriver-wrench"></i> 👨‍🔧 Mobile Technicians & Shopkeepers Wholesale Registration
+    </button>
+  </div>
 </div>
 </section>
 
@@ -718,7 +805,7 @@ nav a:hover {
   </a>
 </div>
 
-<!-- Interactive Product Categories Folders (With 9th Spares Box) -->
+<!-- Interactive Product Categories Folders -->
 <section id="products" class="products">
 <h2>Shop by Category (Click to Open Folder)</h2>
 <p style="text-align: center; color: #666; margin-bottom: 25px;">Kisi bhi category par click karein uske saare models aur items dekhne ke liye</p>
@@ -827,6 +914,46 @@ nav a:hover {
       <p id="modalSubtitle" style="color: #64748b; margin: 4px 0 0 0; font-size: 14px;">Showing in-stock items</p>
     </div>
     <div id="modalProductsGrid" class="product-grid"></div>
+  </div>
+</div>
+
+<!-- Technician Registration Modal Popup -->
+<div id="techRegisterModal" class="modal-overlay">
+  <div class="tech-modal-box">
+    <button class="modal-close-btn" onclick="closeTechnicianRegisterModal()">✕</button>
+    <div style="text-align: center; margin-bottom: 20px;">
+      <h3 style="color: #0066cc; margin: 0 0 6px 0;">👨‍🔧 Technician Wholesale Registration</h3>
+      <p style="font-size: 13px; color: #64748b; margin: 0;">Daily Wholesale Combo & Parts Rate List paane ke liye details bharein</p>
+    </div>
+
+    <form id="techRegisterForm">
+      <label style="font-size: 13px; font-weight: 600; color: #334155;">Aapka Pura Naam *</label>
+      <input type="text" id="techName" placeholder="e.g. Raju Kumar" required>
+
+      <label style="font-size: 13px; font-weight: 600; color: #334155;">Dukan / Shop Ka Naam *</label>
+      <input type="text" id="techShopName" placeholder="e.g. Raju Mobile Repairing" required>
+
+      <label style="font-size: 13px; font-weight: 600; color: #334155;">WhatsApp Number *</label>
+      <input type="tel" id="techPhone" placeholder="e.g. 9876543210" pattern="[0-9]{10}" required>
+
+      <label style="font-size: 13px; font-weight: 600; color: #334155;">Location / Block *</label>
+      <select id="techLocation" required>
+        <option value="">-- Apna Block Chunein --</option>
+        <option value="Kishanganj Town">Kishanganj Town</option>
+        <option value="Bahadurganj">Bahadurganj</option>
+        <option value="Thakurganj">Thakurganj</option>
+        <option value="Pothia">Pothia</option>
+        <option value="Dighalbank">Dighalbank</option>
+        <option value="Kochadhaman">Kochadhaman</option>
+        <option value="Terhagachh">Terhagachh</option>
+        <option value="Islampur / Bengal Border">Islampur / Bengal Border</option>
+        <option value="Other Block">Other Block / District</option>
+      </select>
+
+      <button type="submit" class="tech-submit-btn">
+        <i class="fa-brands fa-whatsapp"></i> Register & Get Wholesale Rate List
+      </button>
+    </form>
   </div>
 </div>
 
@@ -989,6 +1116,15 @@ nav a:hover {
     <h3 style="color: #0066cc; margin: 0 0 5px 0;">★ 4 STAR MOBILE — Store Admin Panel ★</h3>
     <p style="font-size: 13px; color: #64748b; margin-bottom: 20px;">Only authenticated owners can view and manage this section.</p>
     
+    <!-- Technicians Directory View in Admin -->
+    <div style="background: #e0f2fe; padding: 18px; border-radius: 8px; border: 1px solid #7dd3fc; margin-bottom: 30px;">
+      <h4 style="margin: 0 0 8px 0; color: #0369a1;"><i class="fa-solid fa-users-gear"></i> Registered Technicians & Mechanics Directory</h4>
+      <p style="font-size: 12px; color: #0284c7; margin: 0 0 12px 0;">Website form se register hone wale Seemanchal ke technicians ka permanent data yahan live save hota hai:</p>
+      <div id="techListContainer" style="overflow-x: auto;">Loading Technicians...</div>
+    </div>
+
+    <!-- Product Upload Form -->
+    <h4 style="margin: 20px 0 10px 0; color: #334155;">+ Add New Product</h4>
     <form id="productForm">
       <input type="text" id="pTitle" placeholder="Product Name (e.g. Quick 850A SMD Machine / Iron Bit)" required>
       <input type="number" id="pPrice" placeholder="Price in ₹ (e.g. 499)" required>
@@ -1070,12 +1206,108 @@ nav a:hover {
     }
   }
 
+  // Technician Registration Modal Controllers
+  window.openTechnicianRegisterModal = function() {
+    document.getElementById("techRegisterModal").style.display = "block";
+    document.body.style.overflow = "hidden";
+  };
+
+  window.closeTechnicianRegisterModal = function() {
+    document.getElementById("techRegisterModal").style.display = "none";
+    document.body.style.overflow = "auto";
+  };
+
+  // Submit Technician Form to Firestore
+  const techForm = document.getElementById("techRegisterForm");
+  if (techForm) {
+    techForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const name = document.getElementById("techName").value.trim();
+      const shopName = document.getElementById("techShopName").value.trim();
+      const phone = document.getElementById("techPhone").value.trim();
+      const location = document.getElementById("techLocation").value;
+
+      try {
+        await addDoc(collection(db, "technicians"), {
+          name,
+          shopName,
+          phone,
+          location,
+          registeredAt: new Date().toISOString()
+        });
+
+        alert("Dhanyawad " + name + "! Aapka data save ho gaya hai. Ab Wholesale WhatsApp open ho raha hai...");
+        closeTechnicianRegisterModal();
+        techForm.reset();
+
+        // Redirect to Fal Chowk Wholesale WhatsApp with verified details
+        const msg = encodeURIComponent(`Hello 4 STAR MOBILE, maine Wholesale Rate ke liye register kiya hai:\n1. Name: ${name}\n2. Shop: ${shopName}\n3. Location: ${location}\n4. Mobile: ${phone}\nKripya mujhe Daily Wholesale Parts List aur Broadcast group mein add karein.`);
+        window.open(`https://wa.me/919308865738?text=${msg}`, "_blank");
+
+      } catch (err) {
+        console.error(err);
+        alert("Error: Data save nahi ho saka. Kripya dobara koshish karein.");
+      }
+    });
+  }
+
+  // Fetch Technicians for Admin
+  async function loadTechniciansForAdmin() {
+    const container = document.getElementById("techListContainer");
+    if (!container) return;
+    try {
+      const snap = await getDocs(collection(db, "technicians"));
+      if (snap.empty) {
+        container.innerHTML = "<p style='color: #64748b; margin: 5px 0;'>Abhi tak koi technician register nahi hua hai.</p>";
+        return;
+      }
+      let html = `
+        <table class="tech-admin-table">
+          <thead>
+            <tr>
+              <th>Naam</th>
+              <th>Shop Name</th>
+              <th>Phone</th>
+              <th>Location</th>
+              <th>Date</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+      `;
+      snap.forEach((docSnap) => {
+        const d = docSnap.data();
+        const dateStr = d.registeredAt ? new Date(d.registeredAt).toLocaleDateString('en-IN') : 'N/A';
+        html += `
+          <tr>
+            <td><strong>${d.name || '-'}</strong></td>
+            <td>${d.shopName || '-'}</td>
+            <td><a href="tel:${d.phone}" style="color: #0066cc; text-decoration: none;">📞 ${d.phone}</a></td>
+            <td>${d.location || '-'}</td>
+            <td><small>${dateStr}</small></td>
+            <td>
+              <a href="https://wa.me/91${d.phone}?text=Hello%20${encodeURIComponent(d.name || '')}%20bhai,%204%20STAR%20MOBILE%20Kishanganj%20ki%20aaj%20ki%20wholesale%20rate%20list%20ye%20rahi." target="_blank" style="background: #25D366; color: white; padding: 4px 8px; border-radius: 4px; text-decoration: none; font-size: 11px;">
+                Chat
+              </a>
+            </td>
+          </tr>
+        `;
+      });
+      html += `</tbody></table>`;
+      container.innerHTML = html;
+    } catch (err) {
+      console.error(err);
+      container.innerHTML = "<p style='color: red;'>Error loading technicians.</p>";
+    }
+  }
+
   window.promptAdminLogin = function() {
     const inputPin = prompt("Enter 4 STAR MOBILE Admin PIN:");
     if (inputPin === ADMIN_SECRET_PIN) {
       document.getElementById("admin-panel").style.display = "block";
       document.getElementById("admin-panel").scrollIntoView({ behavior: 'smooth' });
       syncProducts();
+      loadTechniciansForAdmin();
       alert("Welcome Admin! Panel unlocked.");
     } else if (inputPin !== null) {
       alert("Galat Password! Access Denied.");
@@ -1184,8 +1416,12 @@ nav a:hover {
 
   window.onclick = function(event) {
     const modal = document.getElementById("categoryModal");
+    const techModal = document.getElementById("techRegisterModal");
     if (event.target == modal) {
       closeCategoryFolder();
+    }
+    if (event.target == techModal) {
+      closeTechnicianRegisterModal();
     }
   };
 
