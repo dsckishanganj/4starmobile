@@ -5,15 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tech Blogs & Mobile Care Guide | 4 STAR MOBILE</title>
   
+  <!-- WhatsApp Preview Image (Direct logo.png) -->
   <meta property="og:title" content="Tech Blogs & Tips - 4 STAR MOBILE">
   <meta property="og:description" content="Kishanganj: Mobile battery tips, display combo safety aur spares updates.">
-  <meta property="og:image" content="https://dsckishanganj.github.io/4starmobile/assets/logo.png">
+  <meta property="og:image" content="https://dsckishanganj.github.io/4starmobile/logo.png">
+  <meta property="og:image:type" content="image/png">
 
   <style>
     * { box-sizing: border-box; }
     body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f8fafc; margin: 0; padding: 0; color: #1e293b; }
     
     header { background: #0f172a; color: #fff; padding: 18px 15px; text-align: center; border-bottom: 3px solid #f59e0b; }
+    .brand-box { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 5px; }
+    .brand-logo { height: 42px; width: auto; object-fit: contain; }
     header h1 { margin: 0; font-size: 20px; color: #f59e0b; font-weight: 800; }
     header p { margin: 5px 0 12px; font-size: 13px; color: #94a3b8; }
     .header-btns { display: flex; justify-content: center; gap: 10px; }
@@ -51,7 +55,10 @@
 <body>
 
   <header>
-    <h1>★ 4 STAR MOBILE — TECH BLOGS ★</h1>
+    <div class="brand-box">
+      <img src="../logo.png" alt="4 Star Mobile" class="brand-logo">
+      <h1>4 STAR MOBILE</h1>
+    </div>
     <p>Mobile Spares, Battery Care & Repair Guide</p>
     <div class="header-btns">
       <a href="../index.html" class="back-btn">← Wapas Main Shop</a>
@@ -104,12 +111,12 @@ Kamyabi ke 2 Tips:
         </div>
         <div class="wa-share-box">
           <span>📲 WhatsApp Status Par Lagayein (1-Click):</span>
-          <a class="wa-btn" href="https://api.whatsapp.com/send?text=%F0%9F%94%8B%20*Phone%20Ki%20Battery%20Tip*%0A%0AHar%20waqt%20mobile%20data%20ON%20rakhne%20se%20battery%20health%20kharab%20hoti%20hai!%20Raat%20ko%20sote%20waqt%20data%20off%20rakhein.%0A%0A%F0%9F%94%97%20Poori%20Guide:%20https://dsckishanganj.github.io/4starmobile/blog/" target="_blank">Share to WhatsApp Status</a>
+          <a class="wa-btn" href="https://api.whatsapp.com/send?text=%F0%9F%94%8B%20*Phone%20Ki%20Battery%20Tip*%0A%0AHar%20waqt%20mobile%20data%20ON%20rakhne%20se%20battery%20health%20kharab%20hoti%20hai!%20Raat%20ko%20sote%20waqt%20data%20off%20rakhein.%0A%0A%F0%9F%94%97%20Poori%20Guide:%20https://dsckishanganj.github.io/4starmobile/blog/?v=logo" target="_blank">Share to WhatsApp Status</a>
         </div>
       </div>
     </div>
 
-    <!-- Support Banner (Sirf 4 STAR MOBILE) -->
+    <!-- Support Banner -->
     <div class="help-banner">
       🔧 <strong>Toota Folder ya Battery Problem?</strong><br>
       Live testing counter par check karke lagwayein! <br>
@@ -133,7 +140,7 @@ Kamyabi ke 2 Tips:
     function addNewBlog() {
       const pass = document.getElementById('adminPass').value;
       if (pass !== SECRET_KEY) {
-        alert("Galt Password! Kripya sahi password dalein.");
+        alert("Galt Password! Sahi password dalein.");
         return;
       }
 
@@ -167,7 +174,7 @@ Kamyabi ke 2 Tips:
       document.getElementById('postTag').value = '';
       document.getElementById('adminPanel').style.display = 'none';
 
-      alert("🎉 Blog safaltapoorvak post ho gaya aur WhatsApp status button ready hai!");
+      alert("🎉 Blog live ho gaya!");
     }
 
     function loadSavedBlogs() {
@@ -188,13 +195,13 @@ Kamyabi ke 2 Tips:
           </div>
           <div class="wa-share-box">
             <span>📲 WhatsApp Status Par Lagayein (1-Click):</span>
-            <a class="wa-btn" href="https://api.whatsapp.com/send?text=${encodeURIComponent("🔋 *Phone Ki Battery Tip*\n\nHar waqt mobile data ON rakhne se battery health jaldi kharab hoti hai!\n\n🔗 Poora Guide Padhein:\nhttps://dsckishanganj.github.io/4starmobile/blog/")}" target="_blank">Share to WhatsApp Status</a>
+            <a class="wa-btn" href="https://api.whatsapp.com/send?text=${encodeURIComponent("🔋 *Phone Ki Battery Tip*\n\nHar waqt mobile data ON rakhne se battery health jaldi kharab hoti hai!\n\n🔗 Poora Guide Padhein:\nhttps://dsckishanganj.github.io/4starmobile/blog/?v=logo")}" target="_blank">Share to WhatsApp Status</a>
           </div>
         </div>
       `;
 
       blogs.forEach(item => {
-        const waText = `📱 *${item.title}*\n\n${item.content.substring(0, 120)}...\n\n🔗 Poori Jankari Padhein:\nhttps://dsckishanganj.github.io/4starmobile/blog/`;
+        const waText = `📱 *${item.title}*\n\n${item.content.substring(0, 120)}...\n\n🔗 Poori Jankari Padhein:\nhttps://dsckishanganj.github.io/4starmobile/blog/?v=logo`;
         const waUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(waText)}`;
 
         html = `
