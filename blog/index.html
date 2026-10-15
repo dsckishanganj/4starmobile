@@ -16,16 +16,32 @@
     header { background: #0f172a; color: #fff; padding: 18px 15px; text-align: center; border-bottom: 3px solid #f59e0b; }
     header h1 { margin: 0; font-size: 20px; color: #f59e0b; font-weight: 800; }
     header p { margin: 5px 0 12px; font-size: 13px; color: #94a3b8; }
-    .back-btn { display: inline-block; background: #1e293b; color: #f8fafc; text-decoration: none; font-size: 13px; padding: 6px 14px; border-radius: 20px; border: 1px solid #334155; }
+    .header-btns { display: flex; justify-content: center; gap: 10px; }
+    .back-btn, .admin-btn { display: inline-block; background: #1e293b; color: #f8fafc; text-decoration: none; font-size: 13px; padding: 6px 14px; border-radius: 20px; border: 1px solid #334155; cursor: pointer; }
+    .admin-btn { border-color: #f59e0b; color: #f59e0b; }
 
     .container { max-width: 680px; margin: 20px auto; padding: 0 15px; }
+
+    /* Admin Form Panel */
+    #adminPanel { display: none; background: #ffffff; border: 2px dashed #f59e0b; border-radius: 12px; padding: 18px; margin-bottom: 25px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+    #adminPanel h3 { margin: 0 0 12px; color: #0f172a; font-size: 17px; }
+    .form-group { margin-bottom: 12px; }
+    .form-group label { display: block; font-size: 12px; font-weight: 700; color: #475569; margin-bottom: 4px; }
+    .form-control { width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px; outline: none; }
+    .form-control:focus { border-color: #f59e0b; }
+    .post-btn { background: #f59e0b; color: #111; font-weight: bold; border: none; padding: 10px 18px; border-radius: 8px; cursor: pointer; width: 100%; font-size: 15px; }
+    
+    /* WhatsApp Share Bar inside Post */
+    .wa-share-box { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 10px; margin-top: 14px; }
+    .wa-share-box span { font-size: 12px; font-weight: bold; color: #166534; display: block; margin-bottom: 6px; }
+    .wa-btn { display: inline-block; background: #25d366; color: #fff; text-decoration: none; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: bold; margin-right: 5px; margin-top: 4px; }
 
     /* Blog Card Layout */
     .blog-card { background: #ffffff; border-radius: 12px; padding: 18px; margin-bottom: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; border-left: 5px solid #f59e0b; }
     .post-meta { display: flex; justify-content: space-between; font-size: 12px; color: #64748b; margin-bottom: 8px; font-weight: 600; }
     .post-title { font-size: 18px; font-weight: 700; color: #0f172a; margin: 0 0 10px 0; }
-    .post-content { font-size: 14.5px; line-height: 1.6; color: #334155; margin: 0 0 12px 0; }
-    .post-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+    .post-content { font-size: 14.5px; line-height: 1.6; color: #334155; margin: 0 0 12px 0; white-space: pre-line; }
+    .post-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
     .tag { background: #eff6ff; color: #2563eb; font-size: 12px; padding: 3px 8px; border-radius: 4px; font-weight: 600; }
 
     .help-banner { background: #fef3c7; border: 1px solid #fde68a; border-radius: 10px; padding: 14px; text-align: center; font-size: 14px; margin: 25px 0; color: #92400e; }
@@ -37,39 +53,174 @@
   <header>
     <h1>★ 4 STAR MOBILE — TECH BLOGS ★</h1>
     <p>Mobile Spares, Battery Care & Repair Guide</p>
-    <a href="../index.html" class="back-btn">← Wapas Main Shop Par Jayein</a>
+    <div class="header-btns">
+      <a href="../index.html" class="back-btn">← Wapas Main Shop</a>
+      <button class="admin-btn" onclick="toggleAdmin()">✍️ Write Blog</button>
+    </div>
   </header>
 
   <div class="container">
 
-    <!-- Post 1: Battery Care Tip -->
-    <div class="blog-card">
-      <div class="post-meta">
-        <span>📅 15 October 2026</span>
-        <span>⚡ Battery Care Tip</span>
+    <!-- Admin Post Box (Password Protected) -->
+    <div id="adminPanel">
+      <h3>✍️ Naya Tech Blog Post Karein</h3>
+      <div class="form-group">
+        <label>Admin Password</label>
+        <input type="password" id="adminPass" class="form-control" placeholder="Password daalein (Default: 4star786)">
       </div>
-      <h2 class="post-title">💡 Phone Ki Battery Jaldi Khatam Ho Rahi Hai? Ye 1 Aadat Badlein!</h2>
-      <p class="post-content">
-        Har waqt mobile internet (Data) ON rakhne se background apps continuous refresh hote rehte hain, jisse processor garam hota hai aur battery health tezi se drop hoti hai.<br><br>
-        <strong>Kamyabi ke 2 Tips:</strong><br>
-        1. Jab zaroorat na ho, mobile data OFF rakhein.<br>
-        2. Raat ko sote waqt internet band zaroor karein — phone cool rahega aur battery cycle lambe samay tak safe rahegi.
-      </p>
-      <div class="post-tags">
-        <span class="tag">#BatteryCare</span>
-        <span class="tag">#SmartTips</span>
-        <span class="tag">#Kishanganj</span>
+      <div class="form-group">
+        <label>Category / Tag (Jaise: Battery Care, LCD Display)</label>
+        <input type="text" id="postTag" class="form-control" placeholder="e.g. Battery Tip">
+      </div>
+      <div class="form-group">
+        <label>Blog Title (Heading)</label>
+        <input type="text" id="postTitle" class="form-control" placeholder="e.g. Phone ki battery jaldi khatam ho rahi hai?">
+      </div>
+      <div class="form-group">
+        <label>Blog Content (Details)</label>
+        <textarea id="postContent" class="form-control" rows="4" placeholder="Apni tips ya jankari yahan likhein..."></textarea>
+      </div>
+      <button class="post-btn" onclick="addNewBlog()">🚀 Instant Live Post & Generate Status</button>
+    </div>
+
+    <!-- Blogs Display Container -->
+    <div id="blogsList">
+      <!-- Default Post 1 -->
+      <div class="blog-card">
+        <div class="post-meta">
+          <span>📅 15 October 2026</span>
+          <span>⚡ Battery Care Tip</span>
+        </div>
+        <h2 class="post-title">💡 Phone Ki Battery Jaldi Khatam Ho Rahi Hai? Ye 1 Aadat Badlein!</h2>
+        <p class="post-content">Har waqt mobile internet (Data) ON rakhne se background apps continuous refresh hote rehte hain, jisse processor garam hota hai aur battery health tezi se drop hoti hai.
+
+Kamyabi ke 2 Tips:
+1. Jab zaroorat na ho, mobile data OFF rakhein.
+2. Raat ko sote waqt internet band zaroor karein — phone cool rahega aur battery safe rahegi.</p>
+        <div class="post-tags">
+          <span class="tag">#BatteryCare</span>
+          <span class="tag">#SmartTips</span>
+          <span class="tag">#Kishanganj</span>
+        </div>
+        <div class="wa-share-box">
+          <span>📲 WhatsApp Status Par Lagayein (1-Click):</span>
+          <a class="wa-btn" href="https://api.whatsapp.com/send?text=%F0%9F%94%8B%20*Phone%20Ki%20Battery%20Tip*%0A%0AHar%20waqt%20mobile%20data%20ON%20rakhne%20se%20battery%20health%20kharab%20hoti%20hai!%20Raat%20ko%20sote%20waqt%20data%20off%20rakhein.%0A%0A%F0%9F%94%97%20Poori%20Guide:%20https://dsckishanganj.github.io/4starmobile/blog/" target="_blank">Share to WhatsApp Status</a>
+        </div>
       </div>
     </div>
 
-    <!-- Contact & Testing Counter Support -->
+    <!-- Support Banner (Sirf 4 STAR MOBILE) -->
     <div class="help-banner">
       🔧 <strong>Toota Folder ya Battery Problem?</strong><br>
       Live testing counter par check karke lagwayein! <br>
-      📍 <strong>Fal Chowk / Gandhi Chowk, Kishanganj</strong> | Call: <a href="tel:9308865738">9308865738</a>
+      🏬 <strong>4 STAR MOBILE, Kishanganj</strong> | Call: <a href="tel:9473371370">9473371370</a> / <a href="tel:9308865738">9308865738</a>
     </div>
 
   </div>
+
+  <script>
+    const SECRET_KEY = "4star786";
+
+    function toggleAdmin() {
+      const panel = document.getElementById('adminPanel');
+      panel.style.display = (panel.style.display === 'block') ? 'none' : 'block';
+    }
+
+    window.onload = function() {
+      loadSavedBlogs();
+    };
+
+    function addNewBlog() {
+      const pass = document.getElementById('adminPass').value;
+      if (pass !== SECRET_KEY) {
+        alert("Galt Password! Kripya sahi password dalein.");
+        return;
+      }
+
+      const tag = document.getElementById('postTag').value.trim() || "Tech Tip";
+      const title = document.getElementById('postTitle').value.trim();
+      const content = document.getElementById('postContent').value.trim();
+
+      if (!title || !content) {
+        alert("Kripya Title aur Content dono bharein!");
+        return;
+      }
+
+      const today = new Date();
+      const dateStr = today.getDate() + " " + today.toLocaleString('default', { month: 'short' }) + " " + today.getFullYear();
+
+      const newPost = {
+        date: dateStr,
+        tag: tag,
+        title: title,
+        content: content
+      };
+
+      let blogs = JSON.parse(localStorage.getItem('4star_blogs') || '[]');
+      blogs.unshift(newPost);
+      localStorage.setItem('4star_blogs', JSON.stringify(blogs));
+
+      loadSavedBlogs();
+
+      document.getElementById('postTitle').value = '';
+      document.getElementById('postContent').value = '';
+      document.getElementById('postTag').value = '';
+      document.getElementById('adminPanel').style.display = 'none';
+
+      alert("🎉 Blog safaltapoorvak post ho gaya aur WhatsApp status button ready hai!");
+    }
+
+    function loadSavedBlogs() {
+      let blogs = JSON.parse(localStorage.getItem('4star_blogs') || '[]');
+      const container = document.getElementById('blogsList');
+
+      let html = `
+        <div class="blog-card">
+          <div class="post-meta">
+            <span>📅 15 Oct 2026</span>
+            <span>⚡ Battery Care Tip</span>
+          </div>
+          <h2 class="post-title">💡 Phone Ki Battery Jaldi Khatam Ho Rahi Hai? Ye 1 Aadat Badlein!</h2>
+          <p class="post-content">Har waqt mobile internet (Data) ON rakhne se background apps continuous refresh hote rehte hain, jisse processor garam hota hai aur battery health tezi se drop hoti hai.\n\nKamyabi ke 2 Tips:\n1. Jab zaroorat na ho, mobile data OFF rakhein.\n2. Raat ko sote waqt internet band zaroor karein — phone cool rahega aur battery safe rahegi.</p>
+          <div class="post-tags">
+            <span class="tag">#BatteryCare</span>
+            <span class="tag">#SmartTips</span>
+          </div>
+          <div class="wa-share-box">
+            <span>📲 WhatsApp Status Par Lagayein (1-Click):</span>
+            <a class="wa-btn" href="https://api.whatsapp.com/send?text=${encodeURIComponent("🔋 *Phone Ki Battery Tip*\n\nHar waqt mobile data ON rakhne se battery health jaldi kharab hoti hai!\n\n🔗 Poora Guide Padhein:\nhttps://dsckishanganj.github.io/4starmobile/blog/")}" target="_blank">Share to WhatsApp Status</a>
+          </div>
+        </div>
+      `;
+
+      blogs.forEach(item => {
+        const waText = `📱 *${item.title}*\n\n${item.content.substring(0, 120)}...\n\n🔗 Poori Jankari Padhein:\nhttps://dsckishanganj.github.io/4starmobile/blog/`;
+        const waUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(waText)}`;
+
+        html = `
+          <div class="blog-card">
+            <div class="post-meta">
+              <span>📅 ${item.date}</span>
+              <span>⚡ ${item.tag}</span>
+            </div>
+            <h2 class="post-title">${item.title}</h2>
+            <p class="post-content">${item.content}</p>
+            <div class="post-tags">
+              <span class="tag">#${item.tag.replace(/\s+/g, '')}</span>
+              <span class="tag">#4StarMobile</span>
+              <span class="tag">#Kishanganj</span>
+            </div>
+            <div class="wa-share-box">
+              <span>📲 WhatsApp Status Par Lagayein (1-Click):</span>
+              <a class="wa-btn" href="${waUrl}" target="_blank">Share to WhatsApp Status</a>
+            </div>
+          </div>
+        ` + html;
+      });
+
+      container.innerHTML = html;
+    }
+  </script>
 
 </body>
 </html>
