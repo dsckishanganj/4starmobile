@@ -804,7 +804,7 @@ nav a:hover {
 <a href="reviews.html" style="color: #fbbf24; font-weight: 600;">⭐ Reviews</a>
 <a href="about.html">About Us</a>
 <a href="faq.html">FAQ</a>
-<a href="enquiry.html">Enquiry</a>
+<a href="#enquiry-section">Enquiry</a>
 <a href="contact.html" style="color: #38bdf8; font-weight: 600;">Contact Us</a>
 </nav>
 </header>
@@ -1287,6 +1287,42 @@ nav a:hover {
 </div>
 </section>
 
+<!-- ================= CUSTOMER PARTS & ITEM ENQUIRY FORM ================= -->
+<section id="enquiry-section" style="background: #f1f5f9; padding: 50px 15px; border-top: 1px solid #e2e8f0;">
+  <div style="max-width: 500px; margin: 0 auto; background: #ffffff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
+    <h3 style="color: #0f172a; margin: 0 0 6px 0; text-align: center;">📱 Parts & Item Enquiry</h3>
+    <p style="font-size: 13px; color: #64748b; text-align: center; margin-bottom: 20px;">Apna model aur zaroori saman likhein, hum foran update denge.</p>
+
+    <form id="customerEnquiryForm">
+      <label style="font-size: 13px; font-weight: 600; color: #334155;">Aapka Naam *</label>
+      <input type="text" id="enqName" placeholder="Apna naam likhein" required style="width: 100%; padding: 10px; margin: 6px 0 14px 0; border: 1px solid #cbd5e1; border-radius: 6px;">
+
+      <label style="font-size: 13px; font-weight: 600; color: #334155;">Mobile / WhatsApp Number *</label>
+      <input type="tel" id="enqPhone" placeholder="10 anko ka mobile number" pattern="[0-9]{10}" required style="width: 100%; padding: 10px; margin: 6px 0 14px 0; border: 1px solid #cbd5e1; border-radius: 6px;">
+
+      <label style="font-size: 13px; font-weight: 600; color: #334155;">Mobile Brand & Model *</label>
+      <input type="text" id="enqModel" placeholder="e.g. Vivo Y20, Redmi Note 10" required style="width: 100%; padding: 10px; margin: 6px 0 14px 0; border: 1px solid #cbd5e1; border-radius: 6px;">
+
+      <label style="font-size: 13px; font-weight: 600; color: #334155;">Kaunsa Part Chahiye? *</label>
+      <select id="enqPart" style="width: 100%; padding: 10px; margin: 6px 0 14px 0; border: 1px solid #cbd5e1; border-radius: 6px;">
+        <option value="Folder / Display">Folder / Display</option>
+        <option value="Original Battery">Original Battery</option>
+        <option value="Charging Jack / CC Board">Charging Jack / CC Board</option>
+        <option value="Back Panel / Housing">Back Panel / Housing</option>
+        <option value="Tempered Glass / Cover">Tempered Glass / Cover</option>
+        <option value="Other Part / Accessory">Other Part / Accessory</option>
+      </select>
+
+      <label style="font-size: 13px; font-weight: 600; color: #334155;">Koi Khaas Sawal ya Detail:</label>
+      <textarea id="enqDetail" rows="3" placeholder="Apni baat likhein..." style="width: 100%; padding: 10px; margin: 6px 0 16px 0; border: 1px solid #cbd5e1; border-radius: 6px;"></textarea>
+
+      <button type="submit" style="width: 100%; background: #25D366; color: white; padding: 12px; border: none; border-radius: 6px; font-weight: 700; font-size: 15px; cursor: pointer;">
+        <i class="fa-brands fa-whatsapp"></i> WhatsApp Par Bhejein
+      </button>
+    </form>
+  </div>
+</section>
+
 <!-- ================= STORE CONTACT SECTION ================= -->
 <section id="contact" class="contact">
 <h2>Contact 4 STAR MOBILE</h2>
@@ -1345,6 +1381,13 @@ nav a:hover {
       <div id="techListContainer" style="overflow-x: auto;">Loading Technicians...</div>
     </div>
 
+    <!-- Customer Enquiries Directory View in Admin -->
+    <div style="background: #fef3c7; padding: 18px; border-radius: 8px; border: 1px solid #fcd34d; margin-bottom: 30px;">
+      <h4 style="margin: 0 0 8px 0; color: #92400e;"><i class="fa-solid fa-clipboard-list"></i> Customer Parts & Item Enquiries (Saved Leads)</h4>
+      <p style="font-size: 12px; color: #b45309; margin: 0 0 12px 0;">Website enquiry form bharne wale sabhi customers ka data yahan safe rehta hai:</p>
+      <div id="enqListContainer" style="overflow-x: auto;">Loading Enquiries...</div>
+    </div>
+
     <!-- Product Upload Form -->
     <h4 style="margin: 20px 0 10px 0; color: #334155;">+ Add New Product</h4>
     <form id="productForm">
@@ -1385,7 +1428,7 @@ nav a:hover {
   <a href="reviews.html" style="color: #cbd5e1; margin: 0 8px; text-decoration: none;">Reviews</a> |
   <a href="blog/original-vs-duplicate-display.html" style="color: #cbd5e1; margin: 0 8px; text-decoration: none;">Tech Guide</a> |
   <a href="faq.html" style="color: #cbd5e1; margin: 0 8px; text-decoration: none;">FAQ</a> |
-  <a href="enquiry.html" style="color: #cbd5e1; margin: 0 8px; text-decoration: none;">Enquiry Form</a> |
+  <a href="#enquiry-section" style="color: #cbd5e1; margin: 0 8px; text-decoration: none;">Enquiry Form</a> |
   <a href="terms.html" style="color: #cbd5e1; margin: 0 8px; text-decoration: none;">Rules & Warranty</a> |
   <a href="privacy-policy.html" style="color: #cbd5e1; margin: 0 8px; text-decoration: none;">Privacy Policy</a>
 </div>
@@ -1542,6 +1585,95 @@ nav a:hover {
     }
   }
 
+  // Customer Enquiry Form Save to Firebase + WhatsApp Redirect
+  const customerEnqForm = document.getElementById("customerEnquiryForm");
+  if (customerEnqForm) {
+    customerEnqForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const name = document.getElementById("enqName").value.trim();
+      const phone = document.getElementById("enqPhone").value.trim();
+      const model = document.getElementById("enqModel").value.trim();
+      const part = document.getElementById("enqPart").value;
+      const detail = document.getElementById("enqDetail").value.trim();
+
+      try {
+        await addDoc(collection(db, "enquiries"), {
+          name,
+          phone,
+          model,
+          part,
+          detail,
+          createdAt: new Date().toISOString()
+        });
+
+        if (typeof gtag === 'function') {
+          gtag('event', 'generate_lead', {
+            'event_category': 'Parts Enquiry Form',
+            'event_label': model + ' - ' + part,
+            'value': 50
+          });
+        }
+
+        customerEnqForm.reset();
+        const msg = encodeURIComponent(`Hello 4 STAR MOBILE, mujhe part enquiry karni hai:\nName: ${name}\nMobile: ${phone}\nModel: ${model}\nPart: ${part}\nDetail: ${detail || 'N/A'}`);
+        window.open(`https://wa.me/919308865738?text=${msg}`, "_blank");
+      } catch (err) {
+        console.error(err);
+        alert("Error: Data save nahi ho saka. Kripya dobara koshish karein.");
+      }
+    });
+  }
+
+  // Load Customer Enquiries in Admin Panel (PIN: 7860)
+  async function loadEnquiriesForAdmin() {
+    const container = document.getElementById("enqListContainer");
+    if (!container) return;
+    try {
+      const snap = await getDocs(collection(db, "enquiries"));
+      if (snap.empty) {
+        container.innerHTML = "<p style='color: #64748b; margin: 5px 0;'>Abhi tak koi customer enquiry nahi aayi hai.</p>";
+        return;
+      }
+      let html = `
+        <table class="tech-admin-table">
+          <thead>
+            <tr>
+              <th>Naam</th>
+              <th>Mobile</th>
+              <th>Model & Part</th>
+              <th>Detail</th>
+              <th>Date</th>
+              <th>Reply</th>
+            </tr>
+          </thead>
+          <tbody>
+      `;
+      snap.forEach((docSnap) => {
+        const d = docSnap.data();
+        const dateStr = d.createdAt ? new Date(d.createdAt).toLocaleDateString('en-IN') : 'N/A';
+        html += `
+          <tr>
+            <td><strong>${d.name || '-'}</strong></td>
+            <td><a href="tel:${d.phone}" style="color: #0066cc;">${d.phone}</a></td>
+            <td><b>${d.model}</b><br><small style="color:#0066cc;">${d.part}</small></td>
+            <td><small>${d.detail || '-'}</small></td>
+            <td><small>${dateStr}</small></td>
+            <td>
+              <a href="https://wa.me/91${d.phone}?text=Hello%20${encodeURIComponent(d.name || '')},%204%20STAR%20MOBILE%20Kishanganj%20se:%20Aapke%20${encodeURIComponent(d.model || '')}%20(${encodeURIComponent(d.part || '')})%20ki%20enquiry%20ka%20update%20hai." target="_blank" style="background: #25D366; color: white; padding: 4px 8px; border-radius: 4px; text-decoration: none; font-size: 11px;">
+                WhatsApp
+              </a>
+            </td>
+          </tr>
+        `;
+      });
+      html += `</tbody></table>`;
+      container.innerHTML = html;
+    } catch (err) {
+      console.error(err);
+      container.innerHTML = "<p style='color: red;'>Error loading enquiries.</p>";
+    }
+  }
+
   window.promptAdminLogin = function() {
     const inputPin = prompt("Enter 4 STAR MOBILE Admin PIN:");
     if (inputPin === ADMIN_SECRET_PIN) {
@@ -1549,6 +1681,7 @@ nav a:hover {
       document.getElementById("admin-panel").scrollIntoView({ behavior: 'smooth' });
       syncProducts();
       loadTechniciansForAdmin();
+      loadEnquiriesForAdmin();
       alert("Welcome Admin! Panel unlocked.");
     } else if (inputPin !== null) {
       alert("Galat Password! Access Denied.");
